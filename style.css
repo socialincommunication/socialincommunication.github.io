@@ -368,3 +368,46 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
   .menu-btn.active span:nth-child(2) { opacity: 0; }
   .menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 }
+
+/* --- REGOLE GLOBALI IMPAGINAZIONE TITOLI --- */
+.section-header, .page-header, .page-hero, .hero-text, .avatar-header, .avatar-section-header, .case-header, .team-header, .faq-header, .testimonials-header, .consultation-header, .insight-header, .method-header, .projects-header {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.section-header h1, .section-header h2, .page-header h1, .page-header h2, .page-hero h1, .page-hero h2, .hero-text h1, .avatar-header h1, .avatar-header h2, .avatar-section-header h1, .avatar-section-header h2, .case-header h1, .case-header h2, .team-header h1, .team-header h2, .faq-header h1, .faq-header h2, .testimonials-header h1, .testimonials-header h2, .consultation-header h1, .consultation-header h2, .insight-header h1, .insight-header h2, .method-header h1, .method-header h2, .projects-header h1, .projects-header h2 {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1100px;
+}
+
+.section-header p, .page-header p, .page-hero p, .hero-text p, .avatar-header p, .avatar-section-header p, .case-header p, .team-header p, .faq-header p, .testimonials-header p, .consultation-header p, .insight-header p, .method-header p, .projects-header p, .section-desc, .section-subtitle {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 820px;
+}
+
+.balanced-title {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1100px;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.balanced-title span {
+  display: block;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .section-header h1, .section-header h2, .page-header h1, .page-header h2, .page-hero h1, .page-hero h2, .hero-text h1, .avatar-header h1, .avatar-header h2, .avatar-section-header h1, .avatar-section-header h2, .case-header h1, .case-header h2, .team-header h1, .team-header h2, .faq-header h1, .faq-header h2, .testimonials-header h1, .testimonials-header h2, .consultation-header h1, .consultation-header h2, .insight-header h1, .insight-header h2, .method-header h1, .method-header h2, .projects-header h1, .projects-header h2, .balanced-title {
+    max-width: 92%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

@@ -76,6 +76,68 @@
             padding: var(--spacing-xl) 0;
             text-align: center;
         }
+
+        /* NAVBAR SPECIFICA AVATAR PAGE */
+        .avatar-logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .avatar-page-logo {
+            width: 120px;
+            max-height: 52px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .back-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--brand-magenta);
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(215, 38, 138, 0.08);
+            border: 1px solid rgba(215, 38, 138, 0.18);
+            transition: all 0.3s ease;
+        }
+
+        .back-home-link:hover {
+            background: var(--brand-magenta);
+            color: #ffffff;
+            box-shadow: 0 0 22px rgba(215, 38, 138, 0.35);
+            transform: translateY(-2px);
+        }
+
+        /* IMMAGINI CARD ATHANASYA */
+        .athy-card-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 18px 45px rgba(215, 38, 138, 0.16);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+            display: block;
+        }
+
+        .avatar-feature-card:hover .athy-card-image,
+        .athy-card:hover .athy-card-image {
+            transform: scale(1.03);
+            box-shadow: 0 24px 60px rgba(215, 38, 138, 0.28);
+            filter: brightness(1.04) saturate(1.08);
+        }
+
+        @media (max-width: 768px) {
+            .athy-card-image {
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -86,9 +148,12 @@
     <!-- HEADER / NAVBAR -->
     <header class="header">
         <div class="container nav-container">
-            <a href="../index.html" class="logo-link">
-                <img src="../assets/01_logo_socialin_colore.png" alt="Socialin Communication Logo" class="nav-logo">
-            </a>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="../index.html" class="logo-link avatar-logo-link" aria-label="Torna alla homepage Socialin Communication">
+                    <img src="../assets/01_logo_socialin.png" alt="Socialin Communication" class="logo avatar-page-logo">
+                </a>
+                <a href="../index.html" class="back-home-link">← Torna a Socialin</a>
+            </div>
             
             <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
@@ -98,7 +163,7 @@
                 <a href="../index.html#strategia">Strategia</a>
                 <a href="../index.html#ecosistema">Ecosistema</a>
                 <a href="../index.html#servizi">Servizi</a>
-                <a href="index.html" style="color: var(--brand-magenta); font-weight: 500;">Avatar AI</a>
+                <a href="./" style="color: var(--brand-magenta); font-weight: 500;">Avatar AI</a>
                 <a href="../index.html#progetti">Progetti</a>
                 <a href="../index.html#consulenza" class="btn btn-primary nav-cta glow-btn">Consulenza su misura</a>
             </nav>
@@ -110,8 +175,8 @@
         <div class="bg-blob b1" style="top: 10%; left: -10%;"></div>
         <div class="bg-blob b2" style="top: 40%; right: -10%;"></div>
         <div class="container fade-up">
-            <h1 class="sparkle-text">Avatar Strategy AI</h1>
-            <p>Identità sintetiche e strategie senza volto. Costruiamo ecosistemi narrativi guidati dall'intelligenza artificiale per brand, creativi e professionisti che guardano al futuro.</p>
+            <h1 class="sparkle-text balanced-title">Avatar Strategy AI</h1>
+            <p class="section-desc">Identità sintetiche e strategie senza volto. Costruiamo ecosistemi narrativi guidati dall'intelligenza artificiale per brand, creativi e professionisti che guardano al futuro.</p>
             <div class="hero-cta">
                 <a href="../index.html#consulenza" class="btn btn-primary glow-btn">Progetta il tuo Avatar</a>
             </div>
@@ -122,7 +187,10 @@
     <section class="section">
         <div class="container">
             <div class="section-header fade-up">
-                <h2 class="sparkle-text">Un intero laboratorio dedicato all'AI</h2>
+                <h2 class="sparkle-text balanced-title">
+                    <span>Un intero laboratorio</span>
+                    <span>dedicato all'AI</span>
+                </h2>
                 <p class="section-desc">L'intelligenza artificiale non sostituisce la relazione umana, la amplifica. I nostri servizi verticali traducono le tecnologie generative in leve di marketing pratiche, estetiche e convertenti.</p>
             </div>
             
@@ -167,12 +235,147 @@
             </div>
         </div>
     </section>
+    <!-- ATHANASYA / ATHY SECTION -->
+    <section class="section bg-alt" id="athanasya">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="sparkle-text balanced-title">
+                    <span>ATHANASYA / ATHY: il prototipo</span>
+                    <span>proprietario di Avatar Strategy AI</span>
+                </h2>
+                <p class="section-desc">Un’identità virtuale non nasce solo da un’immagine. Nasce da un sistema: volto, voce, estetica, racconto, contenuti, movimento e strategia.</p>
+            </div>
+            
+            <div class="text-center fade-up" style="max-width: 820px; margin: 0 auto 3rem;">
+                <p style="margin-bottom: 1.5rem;">Il nome ATHANASYA richiama il greco antico e l’idea di immortalità: <em>‘colei che non muore mai’</em>. Da questa radice nasce ATHY, il volto abbreviato, più diretto e riconoscibile dell’identità virtuale.</p>
+                <p style="margin-bottom: 1.5rem;">ATHY è una voce AI, un volto digitale, una presenza sospesa tra musica, estetologia e immortalità visiva. È una cantante e influencer virtuale generata con il supporto dell’intelligenza artificiale, nata dalla ricerca estetologica di Federica Creative e dal rapporto tra avatar AI, identità digitale e strategie senza volto.</p>
+                <p style="margin-bottom: 1.5rem;">ATHY sarà la protagonista visuale del progetto Avatar Strategy AI: un’identità artistica e strategica capace di parlare per l’agenzia, rappresentare il servizio, produrre contenuti, sostenere il personal brand e mostrare come un avatar possa diventare una figura narrativa, musicale e comunicativa.</p>
+                <p style="margin-bottom: 2.5rem;">Non è un volto generico e non è una persona reale: è una presenza digitale progettata per vivere nel tempo attraverso immagini, voce, musica, video, storytelling e contenuti AI. In questa prospettiva, ATHY diventa una figura di confine: tra umano e artificiale, tra estetica e marketing, tra immagine e memoria, tra performance e identità.</p>
+
+                <div class="editorial-box highlight-box hover-lift" style="padding: 2rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid rgba(215, 38, 138, 0.2); box-shadow: 0 10px 30px rgba(215, 38, 138, 0.08); display: inline-block; width: 100%;">
+                    <p style="font-size: 1.25rem; font-weight: 600; color: var(--brand-magenta); margin: 0; line-height: 1.5;">ATHANASYA è il progetto-identità. ATHY è il volto. Avatar Strategy AI è il metodo.</p>
+                </div>
+            </div>
+
+            <div class="services-vertical-grid fade-up" style="transition-delay: 0.2s">
+                <!-- Card 1 -->
+                <div class="vertical-card avatar-feature-card hover-lift">
+                    <img src="../assets/athy-cantante-virtuale.png" alt="ATHY cantante virtuale" class="athy-card-image">
+                    <h3>Cantante virtuale</h3>
+                    <p>ATHY interpreta il ruolo di performer digitale: una voce, un volto e un immaginario pensati per videoclip, teaser, contenuti social e narrazione musicale.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="vertical-card avatar-feature-card hover-lift" style="transition-delay: 0.1s">
+                    <img src="../assets/athy-strategia-senza-volto.png" alt="ATHY strategia senza volto" class="athy-card-image">
+                    <h3>Strategia senza volto</h3>
+                    <p>ATHY dimostra come un brand, un artista o un professionista possa comunicare senza esporsi direttamente, mantenendo riconoscibilità, emozione e continuità narrativa.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="vertical-card avatar-feature-card hover-lift" style="transition-delay: 0.2s">
+                    <img src="../assets/athy-brand-character.png" alt="ATHY brand character" class="athy-card-image">
+                    <h3>Brand character</h3>
+                    <p>Un avatar può diventare personaggio, guida e volto simbolico di un progetto, rendendo più memorabile la comunicazione e più coerente il racconto del brand.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="vertical-card avatar-feature-card hover-lift" style="transition-delay: 0.3s">
+                    <img src="../assets/athy-ai-content-system.png" alt="ATHY AI Content System" class="athy-card-image">
+                    <h3>AI Content System</h3>
+                    <p>ATHANASYA permette di generare contenuti seriali: immagini, video brevi, storytelling, teaser, reel, copertine, visual e materiali per funnel digitali.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="vertical-card avatar-feature-card hover-lift" style="transition-delay: 0.4s">
+                    <img src="../assets/athy-funnel-conversione.png" alt="ATHY funnel e conversione" class="athy-card-image">
+                    <h3>Funnel e conversione</h3>
+                    <p>L’avatar non resta solo estetica: può diventare ingresso del funnel, attivare curiosità, guidare verso una pagina servizio e trasformare attenzione in richiesta di consulenza.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="vertical-card avatar-feature-card hover-lift" style="transition-delay: 0.5s">
+                    <img src="../assets/athy-estetologia-identita.png" alt="ATHY estetologia e identità digitale" class="athy-card-image">
+                    <h3>Estetologia e identità digitale</h3>
+                    <p>ATHY apre una riflessione sul confine tra vero e artificiale, corpo digitale, bellezza sintetica, fiducia e nuove forme di relazione tra persona, tecnologia e immagine.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-lg fade-up" style="max-width: 820px; margin-left: auto; margin-right: auto;">
+                <p style="font-weight: 500; color: var(--brand-magenta); font-size: 1.1rem; margin-bottom: 2rem;">Per Socialin, un avatar AI non sostituisce la relazione umana: la rende visibile, organizzata e narrativamente più potente.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem;">Trasparenza: ATHANASYA / ATHY è un’identità virtuale artistica sviluppata con il supporto di tecnologie di intelligenza artificiale.</p>
+                <a href="../index.html#consulenza" class="btn btn-primary glow-btn">Richiedi una consulenza Avatar Strategy AI</a>
+            </div>
+        </div>
+    </section>
+    <!-- CLARIFICATION SECTION -->
+    <section class="section" id="clarification">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="sparkle-text balanced-title">
+                    <span>ATHY non è l’avatar dei clienti:</span>
+                    <span>è il volto virtuale di Socialin</span>
+                </h2>
+                <p class="section-desc">Avatar Strategy AI è un metodo flessibile: può generare avatar proprietari, assistenti virtuali, digital human, contenuti AI o strategie senza volto, in base agli obiettivi del progetto.</p>
+            </div>
+            
+            <div class="text-center fade-up" style="max-width: 820px; margin: 0 auto 3rem;">
+                <p>ATHANASYA / ATHY è il prototipo proprietario di Avatar Strategy AI sviluppato da Federica Creative per Socialin Communication. Non rappresenta un avatar imposto ai clienti, né un volto da utilizzare obbligatoriamente nei progetti esterni. È invece un’identità virtuale proprietaria dell’agenzia: un volto narrativo, creativo e strategico pensato per raccontare il servizio, mostrare il potenziale degli avatar AI e dimostrare come una figura digitale possa diventare contenuto, presenza, storytelling e strumento di relazione.</p>
+            </div>
+
+            <!-- 3 Cards -->
+            <div class="services-vertical-grid fade-up">
+                <div class="vertical-card hover-lift">
+                    <div class="vertical-card-icon" style="font-size: 2rem;">👩🏻‍🎤</div>
+                    <h3>ATHY come volto proprietario Socialin</h3>
+                    <p>ATHY parla per l’agenzia, presenta il servizio Avatar Strategy AI, crea contenuti, sostiene il personal brand di Federica Creative e rappresenta l’identità innovativa di Socialin Communication.</p>
+                </div>
+                <div class="vertical-card hover-lift" style="transition-delay: 0.1s">
+                    <div class="vertical-card-icon" style="font-size: 2rem;">👤</div>
+                    <h3>Avatar personalizzato per il cliente</h3>
+                    <p>Ogni cliente può scegliere di costruire un proprio avatar, digital human, virtual influencer o assistente virtuale, con estetica, tono di voce, ruolo e strategia coerenti con il brand.</p>
+                </div>
+                <div class="vertical-card hover-lift" style="transition-delay: 0.2s">
+                    <div class="vertical-card-icon" style="font-size: 2rem;">🎭</div>
+                    <h3>Strategia senza volto</h3>
+                    <p>Un progetto può usare AI content creation, spot generativi, voice-over, storytelling, funnel e automazioni senza mostrare il volto del cliente e senza utilizzare ATHY come personaggio centrale.</p>
+                </div>
+            </div>
+
+            <!-- Box Chiarimento e Micro-card -->
+            <div class="editorial-box fade-up mt-lg" style="padding: 2.5rem; background: var(--bg-alt); border-radius: var(--radius-xl); border: 1px solid var(--bg-alt-darker);">
+                <div class="section-header">
+                    <h3 class="sparkle-text balanced-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">Come si collega ai casi studio?</h3>
+                    <p class="section-desc" style="max-width: 820px; margin: 0 auto 2.5rem;">Nei casi Aia Pura Bio, FisioIntegra ed EssereApe non è stata utilizzata ATHY come avatar influencer del brand. In quei progetti è stata applicata una logica diversa: la strategia senza volto, l’uso di contenuti AI, assistenti virtuali, spot generativi, piani editoriali e sistemi narrativi capaci di comunicare valore senza dipendere necessariamente dall’esposizione diretta di una persona reale o da ATHY come volto centrale.</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div class="hover-lift" style="background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--bg-alt-darker); box-shadow: var(--shadow-soft);">
+                        <h4 style="color: var(--brand-magenta); margin-bottom: 0.8rem;">Aia Pura Bio</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-dark);">Strategia digitale, funnel, packaging phygital, assistente virtuale e costruzione della fiducia. ATHY non è stata utilizzata: il progetto segue una logica di ecosistema e assistenza virtuale dedicata.</p>
+                    </div>
+                    <div class="hover-lift" style="background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--bg-alt-darker); box-shadow: var(--shadow-soft); transition-delay: 0.1s;">
+                        <h4 style="color: var(--brand-magenta); margin-bottom: 0.8rem;">FisioIntegra</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-dark);">Strategia di comunicazione, piano editoriale, visual identity, contenuti video e sviluppo AI-oriented. ATHY non è stata utilizzata: il progetto lavora sulla comunicazione wellness e sulla strategia senza volto.</p>
+                    </div>
+                    <div class="hover-lift" style="background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--bg-alt-darker); box-shadow: var(--shadow-soft); transition-delay: 0.2s;">
+                        <h4 style="color: var(--brand-magenta); margin-bottom: 0.8rem;">EssereApe</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-dark);">Supporto creativo-strategico per spot pubblicitario, art direction AI, piano editoriale, content strategy e calendar planner. ATHY non è stata utilizzata: il progetto valorizza il racconto etico e territoriale del brand.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-lg fade-up" style="max-width: 820px; margin-left: auto; margin-right: auto;">
+                <p style="font-weight: 500; color: var(--brand-magenta); font-size: 1.2rem; margin-bottom: 0;">ATHY è il volto virtuale di Socialin. Avatar Strategy AI è il metodo. Il cliente può scegliere se usare un avatar proprietario, un assistente virtuale o una strategia senza volto.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- CTA FINALE -->
     <section class="cta-section">
         <div class="container fade-up">
-            <h2 class="sparkle-text">Vuoi esplorare le potenzialità dell'AI per il tuo progetto?</h2>
-            <p style="max-width: 600px; margin: 1rem auto 2rem; color: var(--text-muted);">Prenota una call esplorativa. Studieremo insieme come integrare avatar, contenuti generativi e automazioni nella tua strategia.</p>
+            <div class="section-header">
+                <h2 class="sparkle-text balanced-title">
+                    <span>Vuoi esplorare le potenzialità dell'AI</span>
+                    <span>per il tuo progetto?</span>
+                </h2>
+                <p class="section-desc" style="max-width: 600px; margin: 1rem auto 2rem;">Prenota una call esplorativa. Studieremo insieme come integrare avatar, contenuti generativi e automazioni nella tua strategia.</p>
+            </div>
             <a href="../index.html#consulenza" class="btn btn-primary glow-btn">Richiedi Diagnosi Strategica</a>
         </div>
     </section>
