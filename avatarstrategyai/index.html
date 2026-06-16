@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Strategy AI | Socialin Communication</title>
+    <meta name="description" content="Laboratorio dedicato all'identità sintetica: Avatar AI, Virtual Influencer, Digital Human e strategie senza volto per brand e creator.">
+    <link rel="icon" type="image/png" href="../assets/03_logo_icona_socialin.png">
+    <link rel="stylesheet" href="../style.css">
+    <script defer src="../script.js"></script>
+    <script defer src="../chatbot-ui.js"></script>
+    
+    <!-- CSS Specifico della pagina -->
+    <style>
+        .hero-avatar {
+            padding: calc(var(--spacing-xl) * 1.5) 0 var(--spacing-xl) 0;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(215, 38, 138, 0.08) 0%, var(--bg-light) 50%);
+        }
+        .hero-avatar h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        .hero-avatar p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-muted);
+        }
+        
+        .services-vertical-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .vertical-card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-alt-darker);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+        .vertical-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(215, 38, 138, 0.1);
+            border-color: rgba(215, 38, 138, 0.2);
+        }
+        
+        .vertical-card-icon {
+            font-size: 2.5rem;
+            color: var(--brand-magenta);
+            margin-bottom: 1.5rem;
+        }
+        
+        .vertical-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .vertical-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background-color: var(--bg-alt);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STARDUST CURSOR (Dal JS principale) -->
+    <div id="stardust-container"></div>
+
+    <!-- HEADER / NAVBAR -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo-link">
+                <img src="../assets/01_logo_socialin_colore.png" alt="Socialin Communication Logo" class="nav-logo">
+            </a>
+            
+            <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            
+            <nav class="nav-links">
+                <a href="../index.html#strategia">Strategia</a>
+                <a href="../index.html#ecosistema">Ecosistema</a>
+                <a href="../index.html#servizi">Servizi</a>
+                <a href="index.html" style="color: var(--brand-magenta); font-weight: 500;">Avatar AI</a>
+                <a href="../index.html#progetti">Progetti</a>
+                <a href="../index.html#consulenza" class="btn btn-primary nav-cta glow-btn">Consulenza su misura</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO AVATAR STRATEGY AI -->
+    <section class="hero-avatar">
+        <div class="bg-blob b1" style="top: 10%; left: -10%;"></div>
+        <div class="bg-blob b2" style="top: 40%; right: -10%;"></div>
+        <div class="container fade-up">
+            <h1 class="sparkle-text">Avatar Strategy AI</h1>
+            <p>Identità sintetiche e strategie senza volto. Costruiamo ecosistemi narrativi guidati dall'intelligenza artificiale per brand, creativi e professionisti che guardano al futuro.</p>
+            <div class="hero-cta">
+                <a href="../index.html#consulenza" class="btn btn-primary glow-btn">Progetta il tuo Avatar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIZI VERTICALI -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="sparkle-text">Un intero laboratorio dedicato all'AI</h2>
+                <p class="section-desc">L'intelligenza artificiale non sostituisce la relazione umana, la amplifica. I nostri servizi verticali traducono le tecnologie generative in leve di marketing pratiche, estetiche e convertenti.</p>
+            </div>
+            
+            <div class="services-vertical-grid fade-up" style="transition-delay: 0.2s">
+                
+                <div class="vertical-card">
+                    <div class="vertical-card-icon">✦</div>
+                    <h3>Avatar AI & Strategia senza volto</h3>
+                    <p>Progettiamo volti digitali ideali per format TikTok, Reel e YouTube. Gestiamo la creazione di contenuti continuativi senza dover esporre fisicamente fondatori o dipendenti, abbattendo costi e barriere di produzione.</p>
+                </div>
+                
+                <div class="vertical-card">
+                    <div class="vertical-card-icon">✿</div>
+                    <h3>Virtual Influencer</h3>
+                    <p>Creazione di personaggi digitali completi: background narrativo, estetica, tono di voce. Perfetti per brand moda, lifestyle o campagne native. L'influencer perfetto, proprietario e controllabile al 100%.</p>
+                </div>
+                
+                <div class="vertical-card">
+                    <div class="vertical-card-icon">⚲</div>
+                    <h3>Digital Human</h3>
+                    <p>Volti e figure ultra-fotorealistiche animate. Sviluppiamo presenter virtuali per video aziendali, corsi di formazione, comunicazioni B2B e video sales letter (VSL) con qualità cinematografica.</p>
+                </div>
+                
+                <div class="vertical-card">
+                    <div class="vertical-card-icon">💬</div>
+                    <h3>Assistenti Virtuali & Chatbot</h3>
+                    <p>Agenti AI che vivono nel tuo sito web o nei tuoi funnel. Progettati per accogliere i lead, rispondere a domande complesse e qualificare i contatti commerciali lavorando 24 ore su 24.</p>
+                </div>
+                
+                <div class="vertical-card">
+                    <div class="vertical-card-icon">⚡</div>
+                    <h3>AI UGC (User Generated Content)</h3>
+                    <p>Realizzazione di contenuti recensivi e di product placement generati sinteticamente. Simuliamo le dinamiche UGC naturali per le tue campagne di advertising su Meta o TikTok.</p>
+                </div>
+                
+                <div class="vertical-card">
+                    <div class="vertical-card-icon">🎬</div>
+                    <h3>AI Cinema & Visual Storytelling</h3>
+                    <p>Oltre le foto stock. Creiamo concept visivi impossibili da produrre dal vivo: storyboard avanzati, short-film, spot generativi e moodboard per elevare il posizionamento estetico del tuo brand.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINALE -->
+    <section class="cta-section">
+        <div class="container fade-up">
+            <h2 class="sparkle-text">Vuoi esplorare le potenzialità dell'AI per il tuo progetto?</h2>
+            <p style="max-width: 600px; margin: 1rem auto 2rem; color: var(--text-muted);">Prenota una call esplorativa. Studieremo insieme come integrare avatar, contenuti generativi e automazioni nella tua strategia.</p>
+            <a href="../index.html#consulenza" class="btn btn-primary glow-btn">Richiedi Diagnosi Strategica</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer soft-dark-section">
+        <div class="container footer-content">
+            <div class="footer-brand hover-lift">
+                <div class="footer-logo-box">
+                    <img src="../assets/01_logo_socialin_bianco.png" alt="Socialin Communication Logo" class="footer-logo">
+                </div>
+                <p style="color: #A0A0A8; margin-top: 1rem;">Laboratorio creativo digitale & AI Strategy</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/socialin.comunication" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/share/18j94ZppGH/" target="_blank" rel="noopener">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Socialin Communication. Tutti i diritti riservati.</p>
+                <div style="font-size: 0.8rem; margin-top: 1rem; color: #666;">
+                    Sito web creato e progettato da Federica Centonze | Socialin Communication · <a href="mailto:socialincreative@gmail.com" style="color: inherit; text-decoration: underline;">federicacentonze</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
