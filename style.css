@@ -411,3 +411,29 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
     margin-right: auto !important;
   }
 }
+
+/* --- PULSANTI SECONDARI CASI STUDIO --- */
+.case-link-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--brand-magenta);
+  background: rgba(215, 38, 138, 0.08);
+  border: 1px solid rgba(215, 38, 138, 0.22);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.case-link-secondary:hover {
+  color: #ffffff;
+  background: var(--brand-magenta);
+  box-shadow: 0 0 24px rgba(215, 38, 138, 0.35);
+  transform: translateY(-2px);
+}
