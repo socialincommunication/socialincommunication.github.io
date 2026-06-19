@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EssereAPE · Sistema visivo e piano editoriale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nero-favo:#1d1710;
+  --espresso:#2b2118;
+  --terra:#8b5e34;
+  --ambra:#c8841e;
+  --miele:#e0a93b;
+  --oro:#c9a24b;
+  --crema:#f7f1e6;
+  --crema-2:#efe6d4;
+  --bianco-caldo:#fdfbf6;
+  --salvia:#8a9a6b;
+  --oliva:#6e7a45;
+  --testo:#2b2118;
+  --testo-soft:#4a3f31;
+  --linea:#e3d8c2;
+  --linea-scura:rgba(247,241,230,.16);
+  --ombra:0 18px 48px -28px rgba(45,33,18,.45);
+  --ombra-soft:0 10px 30px -22px rgba(45,33,18,.4);
+  --r:18px;
+  --favo:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'%3E%3Cg fill='none' stroke='%23c9a24b' stroke-width='1' opacity='0.16'%3E%3Cpath d='M28 1 L54 16 L54 48 L28 63 L2 48 L2 16 Z'/%3E%3Cpath d='M28 49 L54 64 L54 96 L28 111 L2 96 L2 64 Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Jost",system-ui,sans-serif;
+  color:var(--testo);
+  background:var(--crema);
+  line-height:1.6;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.12;margin:0;color:var(--espresso)}
+p{margin:0 0 1em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.script{font-family:"Caveat",cursive}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+.sec{padding:84px 0;border-top:1px solid var(--linea)}
+.sec:first-of-type{border-top:none}
+.sec--dark{background:var(--nero-favo);color:var(--crema);border-top:none}
+.sec--dark h1,.sec--dark h2,.sec--dark h3,.sec--dark h4{color:var(--bianco-caldo)}
+.sec--cream2{background:var(--crema-2)}
+.eyebrow{font-family:"Jost";font-weight:500;letter-spacing:.34em;text-transform:uppercase;font-size:.66rem;color:var(--ambra);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow .hexnum{display:inline-grid;place-items:center;width:30px;height:34px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--ambra);color:#fff;font-size:.7rem;letter-spacing:0}
+.sec--dark .eyebrow{color:var(--miele)}
+.lead{font-size:1.15rem;color:var(--testo-soft);max-width:62ch;font-weight:300}
+.sec--dark .lead{color:rgba(247,241,230,.78)}
+.h-sec{font-size:clamp(2rem,4.4vw,3.2rem);letter-spacing:-.01em;margin-bottom:14px}
+.h-sec em{font-style:italic;color:var(--ambra)}
+
+/* ---------- grids ---------- */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--bianco-caldo);border:1px solid var(--linea);border-radius:var(--r);padding:24px;box-shadow:var(--ombra-soft)}
+.card h3{font-size:1.5rem;margin-bottom:8px}
+.sec--dark .card{background:rgba(247,241,230,.05);border-color:var(--linea-scura);color:var(--crema);box-shadow:none}
+.tag{display:inline-flex;align-items:center;gap:7px;font-family:"Jost";font-weight:500;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:rgba(200,132,30,.12);color:var(--terra);border:1px solid rgba(200,132,30,.28)}
+.tag--proto{background:rgba(110,122,69,.14);color:var(--oliva);border-color:rgba(110,122,69,.3)}
+.tag--kpi{background:rgba(45,33,18,.06);color:var(--espresso);border-color:var(--linea)}
+.sec--dark .tag--kpi{background:rgba(247,241,230,.08);color:var(--crema);border-color:var(--linea-scura)}
+
+/* ---------- placeholder ---------- */
+.ph{position:relative;display:grid;place-items:center;text-align:center;background:
+    var(--favo),
+    linear-gradient(135deg,#f3ead7,#e9dcc2);
+  background-size:56px 96px,cover;
+  border:1.5px dashed rgba(139,94,52,.5);border-radius:14px;color:var(--terra);
+  font-family:"Jost";font-weight:500;letter-spacing:.06em;font-size:.72rem;text-transform:uppercase;padding:14px;overflow:hidden}
+.ph small{display:block;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--testo-soft);font-size:.66rem;margin-top:6px}
+.ph .beewm{width:38px;height:38px;opacity:.4;margin-bottom:8px}
+.ar45{aspect-ratio:4/5}
+.ar916{aspect-ratio:9/16}
+.ar11{aspect-ratio:1/1}
+.ar169{aspect-ratio:16/9}
+.ar34{aspect-ratio:3/4}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(29,23,16,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea-scura)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.brandmark{display:flex;align-items:center;gap:10px;color:var(--crema)}
+.brandmark .beewm{width:30px;height:30px}
+.brandmark .wm{font-family:"Caveat";font-size:1.35rem;font-weight:700;color:var(--miele);line-height:1}
+.brandmark .wm b{font-family:"Jost";font-weight:600;letter-spacing:.04em;color:var(--crema);font-size:.96rem;margin-left:1px}
+.navlinks{display:flex;gap:4px;flex-wrap:wrap}
+.navlinks a{font-family:"Jost";font-weight:400;font-size:.74rem;letter-spacing:.04em;color:rgba(247,241,230,.72);padding:7px 12px;border-radius:999px;transition:.2s}
+.navlinks a:hover{background:rgba(247,241,230,.1);color:var(--miele)}
+.navtoggle{display:none;background:none;border:1px solid var(--linea-scura);color:var(--crema);border-radius:10px;padding:8px 12px;font-family:"Jost";cursor:pointer}
+
+/* ---------- cover ---------- */
+.cover{position:relative;background:
+    radial-gradient(120% 90% at 80% 0%,rgba(224,169,59,.22),transparent 55%),
+    var(--favo),
+    linear-gradient(160deg,#1d1710 0%,#2b2118 60%,#3a2c1c 100%);
+  background-size:auto,56px 96px,cover;color:var(--crema);overflow:hidden}
+.cover .wrap{padding-top:96px;padding-bottom:96px;display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
+.cover .kicker{font-family:"Jost";letter-spacing:.4em;text-transform:uppercase;font-size:.68rem;color:var(--miele);margin-bottom:22px}
+.cover h1{font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:-.015em;color:var(--bianco-caldo)}
+.cover h1 .gold{color:var(--miele)}
+.cover .sub{font-family:"Jost";font-weight:300;font-size:1.1rem;color:rgba(247,241,230,.82);margin:18px 0 26px;max-width:46ch}
+.claim{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-size:clamp(1.6rem,3.4vw,2.4rem);color:var(--crema);border-left:3px solid var(--miele);padding-left:18px;margin:8px 0 18px}
+.payoff{font-family:"Caveat";font-size:1.7rem;color:var(--miele)}
+.credits{margin-top:30px;font-family:"Jost";font-size:.82rem;color:rgba(247,241,230,.6);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
+.chips span{font-family:"Jost";font-weight:400;font-size:.72rem;letter-spacing:.04em;padding:8px 14px;border:1px solid var(--linea-scura);border-radius:999px;color:rgba(247,241,230,.85);background:rgba(247,241,230,.04)}
+.cover-art{position:relative}
+.cover-art .ph{aspect-ratio:4/5;background:
+    var(--favo),
+    linear-gradient(150deg,rgba(224,169,59,.18),rgba(43,33,24,.5));
+  background-size:56px 96px,cover;border-color:rgba(224,169,59,.4);color:var(--miele)}
+.cover-art .ph small{color:rgba(247,241,230,.6)}
+.cover-art .float{position:absolute;bottom:-22px;left:-22px;background:var(--crema);color:var(--espresso);border-radius:14px;padding:14px 18px;box-shadow:var(--ombra);font-family:"Jost";font-size:.78rem;max-width:200px}
+.cover-art .float b{font-family:"Cormorant Garamond";font-size:1.05rem}
+
+/* ---------- palette ---------- */
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.sw{border-radius:12px;overflow:hidden;border:1px solid var(--linea);background:var(--bianco-caldo)}
+.sw .chip{height:74px}
+.sw .meta{padding:10px 12px;font-family:"Jost"}
+.sw .meta .n{font-weight:500;font-size:.8rem}
+.sw .meta .hex{font-size:.7rem;color:var(--testo-soft);letter-spacing:.06em}
+
+/* ---------- type specimen ---------- */
+.specimen{border:1px solid var(--linea);border-radius:14px;padding:22px;background:var(--bianco-caldo)}
+.specimen .big{font-family:"Cormorant Garamond";font-size:2.6rem;line-height:1;margin-bottom:4px}
+.specimen .lbl{font-family:"Jost";font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ambra);margin-bottom:14px}
+.specimen .row{font-family:"Jost";font-size:.92rem;color:var(--testo-soft);border-top:1px dashed var(--linea);padding-top:12px;margin-top:12px}
+
+/* ---------- meta lists inside cards ---------- */
+.spec{list-style:none;margin:14px 0 0;padding:0;font-family:"Jost";font-size:.83rem}
+.spec li{display:flex;gap:8px;padding:7px 0;border-top:1px solid var(--linea)}
+.spec li:first-child{border-top:none}
+.spec li .k{flex:0 0 92px;color:var(--ambra);font-weight:500;letter-spacing:.02em}
+.spec li .v{color:var(--testo-soft)}
+.sec--dark .spec li{border-color:var(--linea-scura)}
+.sec--dark .spec li .v{color:rgba(247,241,230,.78)}
+.sec--dark .spec li .k{color:var(--miele)}
+
+/* ---------- bee / mini icons ---------- */
+.beewm{display:inline-block}
+.iconwrap{width:46px;height:46px;color:var(--ambra)}
+
+/* ---------- feed tile ---------- */
+.tile{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;display:grid;place-items:center;text-align:center;padding:16px;color:#fff;font-family:"Cormorant Garamond";font-style:italic;font-size:1.12rem;line-height:1.2;box-shadow:var(--ombra-soft);border:1px solid rgba(0,0,0,.06)}
+.tile .pill{position:absolute;top:9px;left:9px;font-family:"Jost";font-style:normal;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.32);padding:4px 9px;border-radius:999px;font-weight:500}
+.tile .logoarea{position:absolute;bottom:9px;left:0;right:0;font-family:"Jost";font-style:normal;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.t-favo{background:linear-gradient(150deg,#2b2118,#3a2c1c)}
+.t-miele{background:linear-gradient(150deg,#c8841e,#e0a93b)}
+.t-terra{background:linear-gradient(150deg,#6e4b2a,#8b5e34)}
+.t-salvia{background:linear-gradient(150deg,#6e7a45,#8a9a6b)}
+.t-oro{background:linear-gradient(150deg,#b9892f,#c9a24b)}
+
+/* ---------- profile mockup ---------- */
+.profile{max-width:430px;margin:0 auto;background:var(--bianco-caldo);border:1px solid var(--linea);border-radius:22px;overflow:hidden;box-shadow:var(--ombra)}
+.profile .top{display:flex;gap:18px;align-items:center;padding:22px}
+.avatar{width:84px;height:84px;flex:0 0 84px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--nero-favo);display:grid;place-items:center}
+.avatar .beewm{width:48px;height:48px}
+.profile .stats{display:flex;gap:18px;font-family:"Jost"}
+.profile .stats b{font-family:"Cormorant Garamond";font-size:1.3rem;display:block}
+.profile .stats span{font-size:.68rem;color:var(--testo-soft)}
+.profile .bioarea{padding:0 22px 18px;font-family:"Jost";font-size:.85rem}
+.profile .bioarea .name{font-weight:600;margin-bottom:2px}
+.profile .bioarea .claim2{font-style:italic;font-family:"Cormorant Garamond";font-size:1.05rem;color:var(--ambra)}
+.hl-row{display:flex;gap:14px;padding:6px 22px 18px;overflow-x:auto}
+.hl{flex:0 0 auto;text-align:center;font-family:"Jost";font-size:.62rem;color:var(--testo-soft)}
+.hl .cov{width:58px;height:58px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--crema-2);display:grid;place-items:center;margin:0 auto 6px;border:1px solid var(--linea)}
+.hl .cov svg{width:26px;height:26px;color:var(--terra)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.pgrid .tile{border-radius:0;box-shadow:none;font-size:.85rem}
+.disclaimer{font-family:"Jost";font-size:.72rem;color:var(--testo-soft);font-style:italic;margin-top:16px;text-align:center}
+
+/* ---------- template card ---------- */
+.tpl{display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:start}
+.tpl .mock{aspect-ratio:4/5;border-radius:14px;position:relative;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;padding:14px;color:#fff;box-shadow:var(--ombra-soft)}
+.tpl .mock .mt{font-family:"Jost";font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.tpl .mock .mc{font-family:"Cormorant Garamond";font-style:italic;font-size:1.18rem;align-self:center;line-height:1.18}
+.tpl .mock .mcta{font-family:"Jost";font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:5px 10px;justify-self:start}
+.miniswatch{display:flex;gap:5px;margin-top:4px}
+.miniswatch i{width:18px;height:18px;border-radius:5px;display:block;border:1px solid rgba(0,0,0,.08)}
+.promptbox{background:rgba(45,33,18,.05);border:1px solid var(--linea);border-radius:10px;padding:12px 14px;font-family:"Jost";font-size:.76rem;color:var(--testo-soft);margin-top:12px;line-height:1.55}
+.promptbox b{color:var(--terra)}
+
+/* ---------- planner / calendar ---------- */
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:var(--bianco-caldo);border:1px solid var(--linea);border-radius:16px;padding:22px;text-align:center;box-shadow:var(--ombra-soft)}
+.stat .num{font-family:"Cormorant Garamond";font-size:2.8rem;color:var(--ambra);line-height:1}
+.stat .lbl{font-family:"Jost";font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--testo-soft);margin-top:6px}
+.weekcols{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.weekcol{background:var(--bianco-caldo);border:1px solid var(--linea);border-radius:16px;overflow:hidden;box-shadow:var(--ombra-soft)}
+.weekcol .wh{background:var(--nero-favo);color:var(--crema);padding:12px 16px;font-family:"Jost";font-size:.78rem;letter-spacing:.06em}
+.weekcol .wh b{font-family:"Cormorant Garamond";font-size:1.05rem;display:block;color:var(--miele)}
+.evt{padding:13px 16px;border-top:1px solid var(--linea)}
+.evt .et{font-family:"Cormorant Garamond";font-style:italic;font-size:1.05rem;color:var(--espresso);line-height:1.15}
+.evt .em{font-family:"Jost";font-size:.66rem;color:var(--testo-soft);margin-top:5px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%}
+.status{font-family:"Jost";font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;font-weight:500}
+.s-gen{background:#efe6d4;color:#8b5e34}
+.s-rev{background:#fbeccd;color:#a9781b}
+.s-app{background:#e8eede;color:#5d6a38}
+.s-pronto{background:#dbe7cf;color:#4d6b2e}
+.s-prog{background:#d8e2ee;color:#3f5a78}
+.s-pub{background:#2b2118;color:#e0a93b}
+
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;font-family:"Jost";font-size:.7rem}
+
+/* hashtag */
+.htgroup{background:var(--bianco-caldo);border:1px solid var(--linea);border-radius:14px;padding:18px;box-shadow:var(--ombra-soft)}
+.htgroup h4{font-family:"Jost";font-weight:600;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ambra);margin-bottom:10px}
+.htgroup .tags{font-family:"Jost";font-size:.8rem;color:var(--terra);line-height:1.9}
+
+/* ---------- table ---------- */
+.tbl{width:100%;border-collapse:collapse;font-family:"Jost";font-size:.84rem;background:var(--bianco-caldo);border-radius:14px;overflow:hidden;box-shadow:var(--ombra-soft)}
+.tbl th{background:var(--nero-favo);color:var(--miele);text-align:left;padding:13px 16px;font-weight:500;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.tbl td{padding:13px 16px;border-top:1px solid var(--linea);color:var(--testo-soft);vertical-align:top}
+.tbl td b{color:var(--espresso);font-weight:500}
+
+/* ---------- workflow ---------- */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:fl}
+.flow .step{background:var(--bianco-caldo);border:1px solid var(--linea);border-radius:14px;padding:20px;position:relative;box-shadow:var(--ombra-soft)}
+.flow .step .n{font-family:"Cormorant Garamond";font-size:1.4rem;width:40px;height:46px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--ambra);color:#fff;display:grid;place-items:center;margin-bottom:12px}
+.flow .step h4{font-family:"Cormorant Garamond";font-size:1.3rem;margin-bottom:5px}
+.flow .step p{font-family:"Jost";font-size:.8rem;color:var(--testo-soft);margin:0}
+
+/* ---------- checklist ---------- */
+.checklist{list-style:none;margin:0;padding:0;max-width:760px}
+.checklist li{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:var(--bianco-caldo);border:1px solid var(--linea);border-radius:12px;margin-bottom:10px;font-family:"Jost";font-size:.9rem;cursor:pointer;transition:.18s}
+.checklist li:hover{border-color:var(--ambra)}
+.checklist .box{flex:0 0 22px;width:22px;height:22px;border:2px solid var(--terra);border-radius:6px;display:grid;place-items:center;margin-top:1px;transition:.18s}
+.checklist .box svg{width:13px;height:13px;color:#fff;opacity:0;transition:.18s}
+.checklist li.done{background:#f1f5e9;border-color:var(--oliva)}
+.checklist li.done .box{background:var(--oliva);border-color:var(--oliva)}
+.checklist li.done .box svg{opacity:1}
+.checklist li.done .txt{color:var(--testo-soft);text-decoration:line-through}
+
+/* ---------- usage / note ---------- */
+.usebox{background:var(--bianco-caldo);border:1px solid var(--linea);border-left:4px solid var(--ambra);border-radius:14px;padding:22px;box-shadow:var(--ombra-soft)}
+.usebox h4{font-family:"Cormorant Garamond";font-size:1.4rem;margin-bottom:6px}
+.usebox p{font-family:"Jost";font-size:.86rem;color:var(--testo-soft);margin:0}
+.notabox{background:linear-gradient(160deg,#2b2118,#3a2c1c);color:var(--crema);border-radius:20px;padding:38px;box-shadow:var(--ombra);position:relative;overflow:hidden}
+.notabox::before{content:"";position:absolute;inset:0;background:var(--favo);background-size:56px 96px;opacity:.5;pointer-events:none}
+.notabox .inner{position:relative}
+.notabox p{font-family:"Cormorant Garamond";font-size:1.25rem;font-style:italic;line-height:1.6;color:rgba(247,241,230,.92);max-width:70ch}
+
+/* footer */
+.foot{background:var(--nero-favo);color:rgba(247,241,230,.7);padding:48px 0;border-top:none;text-align:center;font-family:"Jost";font-size:.82rem}
+.foot .wm{font-family:"Caveat";font-size:1.8rem;color:var(--miele)}
+.foot .wm b{font-family:"Jost";font-weight:600;color:var(--crema);font-size:1.2rem;letter-spacing:.04em}
+
+/* back to top */
+.totop{position:fixed;right:22px;bottom:22px;z-index:60;width:46px;height:52px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--ambra);color:#fff;border:none;cursor:pointer;display:grid;place-items:center;opacity:0;pointer-events:none;transition:.25s;box-shadow:var(--ombra)}
+.totop.show{opacity:1;pointer-events:auto}
+.totop svg{width:18px;height:18px}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rev.in{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:980px){
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .swatches{grid-template-columns:repeat(3,1fr)}
+  .statgrid{grid-template-columns:repeat(2,1fr)}
+  .weekcols{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .cover .wrap{grid-template-columns:1fr;gap:36px}
+  .navlinks{display:none}
+  .navtoggle{display:block}
+  .navlinks.open{display:flex;position:absolute;top:62px;left:0;right:0;background:var(--nero-favo);flex-direction:column;padding:14px 26px;border-bottom:1px solid var(--linea-scura)}
+}
+@media(max-width:680px){
+  .g2,.g3{grid-template-columns:1fr}
+  .swatches{grid-template-columns:repeat(2,1fr)}
+  .statgrid{grid-template-columns:1fr}
+  .weekcols{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .tpl{grid-template-columns:1fr}
+  .tpl .mock{max-width:240px}
+  .sec{padding:60px 0}
+  .tbl{display:block;overflow-x:auto;white-space:nowrap}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto}
+  .rev{opacity:1;transform:none;transition:none}
+}
+/* VISUAL TILES */
+.visual-tile{background:none!important; border:none!important; isolation:isolate;}
+.visual-tile > img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.visual-tile.contain > img{object-fit:contain}
+.visual-tile > .visual-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(29,23,16,0.5);z-index:-1}
+.visual-tile.o-amber > .visual-overlay{background:rgba(180,110,20,0.4)}
+.visual-tile{text-shadow:0 2px 4px rgba(0,0,0,0.8)}
+.visual-tile .logoarea{text-shadow:none}
+.visual-tile .mcta{background:rgba(0,0,0,0.3);text-shadow:none}
+</style>
+</head>
+<body>
+
+<!-- ===== SVG SYMBOLS (bee mark + icons) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bee" viewBox="0 0 100 120">
+    <g>
+      <!-- six petals -->
+      <g fill="#8b5e34">
+        <ellipse cx="50" cy="22" rx="11" ry="20"/>
+        <ellipse cx="50" cy="22" rx="11" ry="20" transform="rotate(60 50 38)"/>
+        <ellipse cx="50" cy="22" rx="11" ry="20" transform="rotate(-60 50 38)"/>
+        <ellipse cx="50" cy="22" rx="11" ry="20" transform="rotate(120 50 38)"/>
+        <ellipse cx="50" cy="22" rx="11" ry="20" transform="rotate(-120 50 38)"/>
+      </g>
+      <g fill="#6e4b2a">
+        <ellipse cx="50" cy="22" rx="11" ry="20" transform="rotate(180 50 38)"/>
+      </g>
+      <!-- head hexagon -->
+      <path d="M50 26 L60 32 L60 44 L50 50 L40 44 L40 32 Z" fill="#e0a93b"/>
+      <!-- abdomen -->
+      <g>
+        <path d="M38 52 Q50 46 62 52 L58 86 Q50 104 42 86 Z" fill="#e7c98a"/>
+        <path d="M40 60 L60 60 L59 67 L41 67 Z" fill="#8b5e34"/>
+        <path d="M41.5 72 L58.5 72 L57.5 79 L42.5 79 Z" fill="#8b5e34"/>
+        <path d="M44 84 L56 84 L52 94 Q50 99 48 94 Z" fill="#6e4b2a"/>
+      </g>
+    </g>
+  </symbol>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="brandmark" href="#cover">
+      <svg class="beewm"><use href="#bee"/></svg>
+      <span class="wm">essere<b>APE</b></span>
+    </a>
+    <button class="navtoggle" id="navToggle">Sezioni</button>
+    <div class="navlinks" id="navLinks">
+      <a href="#brand">Identità</a>
+      <a href="#spot">Spot</a>
+      <a href="#feed">Feed</a>
+      <a href="#template">Template</a>
+      <a href="#carosello">Carosello</a>
+      <a href="#calendar">Calendario</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#prompt">Prompt AI</a>
+      <a href="#metodo">Metodo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== 1. COVER ===== -->
+<header class="cover" id="cover">
+  <div class="wrap">
+    <div>
+      <div class="kicker">Caso studio creativo-strategico · Socialin Communication / Federica Creative</div>
+      <h1>EssereAPE<br><span class="gold">Sistema visivo</span> e piano editoriale</h1>
+      <p class="sub">Apicoltura etica, territoriale e digitale nel Salento. Un sistema di identità e contenuti pensato per raccontare il tempo della natura, non solo un vasetto di miele.</p>
+      <div class="claim">«Il miele non si produce. Si attende.»</div>
+      <div class="payoff">Millefiori, mille storie in ogni vasetto</div>
+      <div class="chips">
+        <span>Brand board</span><span>Feed preview 3×3</span><span>9 template Instagram</span>
+        <span>Carosello educativo</span><span>Stories</span><span>Content planner</span><span>Metodo &amp; KPI futuri</span>
+      </div>
+      <div class="credits">
+        A cura di <b style="color:var(--crema)">Federica Centonze</b><br>
+        Caso studio creativo-strategico · Socialin Communication / Federica Creative
+      </div>
+    </div>
+    <div class="cover-art" style="margin-top:20px;">
+      <div class="float" style="position:relative; bottom:0; left:0; margin-bottom: 24px; display:inline-block; max-width:100%;"><b>Prototipo progettuale</b><br>Sistema visivo e piano editoriale come modello operativo di sviluppo futuro.</div>
+      <div style="border-radius:14px; overflow:hidden; box-shadow:var(--ombra); max-width:480px; margin-bottom:40px;">
+        <img src="assets/1.EssereAPE_nonno_bambino_campi_salento.jpg" alt="Hero Salento" style="display:block; width:100%; height:auto; object-fit:contain;">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 1.5 OBIETTIVO DEL DOCUMENTO ===== -->
+<section class="sec sec--cream2" id="obiettivo">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">01b</span> Obiettivo del documento</div>
+    <h2 class="h-sec">Obiettivo del <em>documento</em></h2>
+    <p class="lead">Questo documento presenta un prototipo progettuale di sistema visivo-editoriale per Essere Ape, pensato come proposta operativa di sviluppo futuro. Il lavoro integra spot pubblicitario, piano editoriale, organizzazione dei contenuti e struttura visuale per i social, nel rispetto dell’identità territoriale, etica e narrativa del progetto. Il logo, il sito web e l’e-commerce sono elementi preesistenti e non realizzati da Socialin / Federica Creative.</p>
+    <div class="grid g4" style="margin-top:34px">
+      <div class="card rev">
+        <div class="tag">01</div>
+        <h3 style="margin-top:14px">Identità visiva</h3>
+        <p style="font-family:'Jost';font-size:.86rem;color:var(--testo-soft);margin-top:10px;">Studio e integrazione dell’identità visiva esistente, senza modificare o ricreare il logo ufficiale.</p>
+      </div>
+      <div class="card rev">
+        <div class="tag">02</div>
+        <h3 style="margin-top:14px">Sistema social</h3>
+        <p style="font-family:'Jost';font-size:.86rem;color:var(--testo-soft);margin-top:10px;">Mockup Instagram, feed preview, template, caroselli, Stories e highlights pensati come prototipo editoriale.</p>
+      </div>
+      <div class="card rev">
+        <div class="tag">03</div>
+        <h3 style="margin-top:14px">Spot pubblicitario</h3>
+        <p style="font-family:'Jost';font-size:.86rem;color:var(--testo-soft);margin-top:10px;">Lo spot ‘Il tempo delle api’ diventa il contenuto narrativo centrale da riutilizzare nel piano editoriale.</p>
+      </div>
+      <div class="card rev">
+        <div class="tag">04</div>
+        <h3 style="margin-top:14px">Piano operativo</h3>
+        <p style="font-family:'Jost';font-size:.86rem;color:var(--testo-soft);margin-top:10px;">Calendario mensile, weekly plan, CTA, hashtag, workflow e KPI futuri come modello strategico applicabile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. BRAND BOARD ===== -->
+<section class="sec" id="brand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">02</span> Brand board</div>
+    <h2 class="h-sec">L'identità di <em>EssereAPE</em></h2>
+    <p class="lead">Un sistema sobrio e caldo: il nero del favo e dell'etichetta per l'eleganza, l'ambra e l'oro del miele per il calore, il verde salvia per la biodiversità. Tutto comunica tempo, attesa, cura e territorio.</p>
+
+    <div class="grid g2" style="margin-top:36px">
+      <div class="card rev">
+        <div class="tag">Logotipo</div>
+        <h3 style="margin-top:14px">Logo orizzontale</h3>
+        <div style="margin-top:14px;background:#fff;padding:24px;border-radius:14px;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9">
+          <img src="assets/logo essere ape orizzontale.png" alt="Logo Orizzontale" style="max-height:100%;object-fit:contain">
+        </div>
+      </div>
+      <div class="card rev">
+        <div class="tag">Marchio</div>
+        <h3 style="margin-top:14px">Logo tondo / icona</h3>
+        <div style="margin-top:14px;background:#fff;padding:24px;border-radius:14px;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9">
+          <img src="assets/logo-cerchio-essereape-sfondo-bianco.jpg" alt="Logo Tondo" style="max-height:100%;object-fit:contain">
+        </div>
+        <p style="font-family:'Jost';font-size:.84rem;color:var(--testo-soft);margin-top:14px;">L’identità visiva esistente di EssereAPE è stata studiata e integrata nel progetto, non creata da zero.</p>
+      </div>
+    </div>
+
+    <h3 style="margin:42px 0 16px;font-size:1.7rem">Palette cromatica</h3>
+    <div class="swatches rev">
+      <div class="sw"><div class="chip" style="background:#e0a93b"></div><div class="meta"><div class="n">Miele caldo</div><div class="hex">#E0A93B</div></div></div>
+      <div class="sw"><div class="chip" style="background:#c8841e"></div><div class="meta"><div class="n">Ambra</div><div class="hex">#C8841E</div></div></div>
+      <div class="sw"><div class="chip" style="background:#c9a24b"></div><div class="meta"><div class="n">Oro morbido</div><div class="hex">#C9A24B</div></div></div>
+      <div class="sw"><div class="chip" style="background:#8b5e34"></div><div class="meta"><div class="n">Marrone terra</div><div class="hex">#8B5E34</div></div></div>
+      <div class="sw"><div class="chip" style="background:#2b2118"></div><div class="meta"><div class="n">Marrone profondo</div><div class="hex">#2B2118</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1d1710"></div><div class="meta"><div class="n">Nero favo</div><div class="hex">#1D1710</div></div></div>
+      <div class="sw"><div class="chip" style="background:#8a9a6b"></div><div class="meta"><div class="n">Verde salvia</div><div class="hex">#8A9A6B</div></div></div>
+      <div class="sw"><div class="chip" style="background:#6e7a45"></div><div class="meta"><div class="n">Verde oliva</div><div class="hex">#6E7A45</div></div></div>
+      <div class="sw"><div class="chip" style="background:#f7f1e6"></div><div class="meta"><div class="n">Crema naturale</div><div class="hex">#F7F1E6</div></div></div>
+      <div class="sw"><div class="chip" style="background:#fdfbf6;border-bottom:1px solid var(--linea)"></div><div class="meta"><div class="n">Bianco caldo</div><div class="hex">#FDFBF6</div></div></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:42px">
+      <div class="card rev">
+        <h3>Tipografia</h3>
+        <div class="specimen" style="margin-top:14px;box-shadow:none;padding:18px">
+          <div class="lbl">Display · titoli poetici</div>
+          <div class="big">Cormorant Garamond</div>
+          <div style="font-family:'Cormorant Garamond';font-style:italic;font-size:1.3rem;color:var(--ambra)">Il tempo della natura</div>
+          <div class="row"><b style="font-family:Jost;font-weight:600">Jost</b> — testi, planner, caption, dati. Pulito e geometrico.</div>
+          <div class="row" style="border-top:none;padding-top:8px"><span class="script" style="font-size:1.4rem;color:var(--terra)">essere</span> — script solo come accento minimo del wordmark.</div>
+        </div>
+      </div>
+      <div class="card rev">
+        <h3>Texture &amp; pattern</h3>
+        <img src="assets/EssereAPE_pattern_alveare_premium.jpg" alt="Pattern Alveare" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;margin-top:14px;border:1px solid var(--linea)">
+        <p style="font-family:'Jost';font-size:.8rem;color:var(--testo-soft);margin-top:12px;margin-bottom:0">Esagono = elemento signature del sistema (numeratori, avatar, highlights, sfondi).</p>
+      </div>
+      <div class="card rev">
+        <h3>Mood fotografico</h3>
+        <ul class="spec">
+          <li><span class="k">Luce</span><span class="v">calda, dorata, golden hour</span></li>
+          <li><span class="k">Texture</span><span class="v">pietra, legno, lino, miele</span></li>
+          <li><span class="k">Toni</span><span class="v">ambra, crema, verde polvere</span></li>
+          <li><span class="k">Soggetti</span><span class="v">nonno, bambino, mani, api, vasetto, territorio</span></li>
+          <li><span class="k">Registro</span><span class="v">documentaristico, intimo, lento</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:22px">
+      <div class="card rev">
+        <h3>Regole di utilizzo</h3>
+        <ul class="spec">
+          <li><span class="k">Sì</span><span class="v">spazio attorno al marchio, fondi naturali, tono caldo</span></li>
+          <li><span class="k">Sì</span><span class="v">esagono e linee di volo come grafica di sistema</span></li>
+          <li><span class="k">No</span><span class="v">deformare logo, vasetto o etichetta</span></li>
+          <li><span class="k">No</span><span class="v">colori troppo saturi, giallo “supermercato”, watermark</span></li>
+          <li><span class="k">No</span><span class="v">estetica clinica, immagini drammatiche, layout affollati</span></li>
+        </ul>
+      </div>
+      <div class="card rev" style="background:rgba(110,122,69,.06);border-color:rgba(110,122,69,.3)">
+        <div class="tag tag--proto">Nota metodologica</div>
+        <p style="font-family:'Jost';font-size:.88rem;color:var(--testo-soft);margin:14px 0 0">Il logo, il sito web e l’e-commerce di Essere Ape non sono stati creati da Federica Centonze / Socialin Communication. Il lavoro presentato riguarda lo studio e l’integrazione dell’identità visiva esistente all’interno di un prototipo di piano editoriale, insieme alla creazione dello spot pubblicitario e alla progettazione di un sistema di contenuti social applicabile come sviluppo futuro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. STILE FOTOGRAFICO ===== -->
+<section class="sec sec--cream2" id="foto">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">03</span> Stile fotografico</div>
+    <h2 class="h-sec">Sei direzioni <em>visive</em></h2>
+    <p class="lead">Sei territori fotografici coerenti, ciascuno con una funzione narrativa precisa. Insieme costruiscono il racconto: dal gesto umano al vasetto, dalle api al Salento.</p>
+    <div class="grid g3" style="margin-top:36px">
+      <div class="card rev">
+        <div style="background:#fff; padding:2px; border-radius:8px; margin-bottom:14px; width:100%; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; box-sizing:border-box;">
+          <img src="assets/EssereAPE_vasetto_still_life_premium_quadrato.png" alt="Vasetto" style="width:100%; height:100%; object-fit:contain;">
+        </div>
+        <h3>1 · Vasetto premium</h3>
+        <ul class="spec">
+          <li><span class="k">Funzione</span><span class="v">desiderio &amp; qualità</span></li>
+          <li><span class="k">Emozione</span><span class="v">attesa, preziosità</span></li>
+          <li><span class="k">Colore</span><span class="v">ambra · nero favo</span></li>
+          <li><span class="k">Uso</span><span class="v">prodotto, CTA, cover</span></li>
+          <li><span class="k">Asset</span><span class="v">Vedi immagine in alto</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <img src="assets/EssereAPE_nonno_apicoltore_custode.jpg" alt="Nonno" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; margin-bottom:14px">
+        <h3>2 · Nonno custode</h3>
+        <ul class="spec">
+          <li><span class="k">Funzione</span><span class="v">memoria &amp; etica</span></li>
+          <li><span class="k">Emozione</span><span class="v">saggezza, radici</span></li>
+          <li><span class="k">Colore</span><span class="v">terra · crema</span></li>
+          <li><span class="k">Uso</span><span class="v">storytelling, valori</span></li>
+          <li><span class="k">Asset</span><span class="v">Vedi immagine in alto</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <img src="assets/EssereAPE_bambino_infanzia_attesa.jpg" alt="Bambino" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; margin-bottom:14px">
+        <h3>3 · Bambino / futuro</h3>
+        <ul class="spec">
+          <li><span class="k">Funzione</span><span class="v">continuità &amp; meraviglia</span></li>
+          <li><span class="k">Emozione</span><span class="v">apprendimento, tenerezza</span></li>
+          <li><span class="k">Colore</span><span class="v">crema · luce calda</span></li>
+          <li><span class="k">Uso</span><span class="v">educational, emozionale</span></li>
+          <li><span class="k">Asset</span><span class="v">Vedi immagine in alto</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <img src="assets/1.EssereAPE_api_fiori_biodiversita.jpg" alt="Api e fioriture" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; margin-bottom:14px">
+        <h3>4 · Api e fioriture</h3>
+        <ul class="spec">
+          <li><span class="k">Funzione</span><span class="v">biodiversità &amp; natura</span></li>
+          <li><span class="k">Emozione</span><span class="v">vita, rispetto</span></li>
+          <li><span class="k">Colore</span><span class="v">verde salvia · oro</span></li>
+          <li><span class="k">Uso</span><span class="v">educational api, pillar 2</span></li>
+          <li><span class="k">Asset</span><span class="v">Vedi immagine in alto</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <img src="assets/EssereAPE_apiario_etico_salento.jpg" alt="Territorio" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; margin-bottom:14px">
+        <h3>5 · Territorio salentino</h3>
+        <ul class="spec">
+          <li><span class="k">Funzione</span><span class="v">terroir &amp; appartenenza</span></li>
+          <li><span class="k">Emozione</span><span class="v">lentezza, bellezza</span></li>
+          <li><span class="k">Colore</span><span class="v">oliva · dorato campi</span></li>
+          <li><span class="k">Uso</span><span class="v">il Salento in un vasetto</span></li>
+          <li><span class="k">Asset</span><span class="v">Vedi immagine in alto</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <img src="assets/EssereAPE_tracciabilita_melia_digitale.jpg" alt="Tracciabilità" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; margin-bottom:14px">
+        <h3>6 · Tracciabilità / Mèlia</h3>
+        <ul class="spec">
+          <li><span class="k">Funzione</span><span class="v">fiducia &amp; innovazione</span></li>
+          <li><span class="k">Emozione</span><span class="v">trasparenza, cura digitale</span></li>
+          <li><span class="k">Colore</span><span class="v">nero favo · ambra</span></li>
+          <li><span class="k">Uso</span><span class="v">QR, smartphone, assistente</span></li>
+          <li><span class="k">Asset</span><span class="v">Vedi immagine in alto</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3.5 SPOT PUBBLICITARIO ===== -->
+<section class="sec sec--dark" id="spot">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">03b</span> Spot pubblicitario</div>
+    <h2 class="h-sec">Spot pubblicitario · <em>Il tempo delle api</em></h2>
+    <p class="lead">Un breve viaggio emozionale che connette le generazioni e il territorio attraverso l'attesa e la cura. (Usa i controlli del video per riprodurlo).</p>
+    <div style="margin-top:36px; border-radius:14px; overflow:hidden; border:1px solid var(--linea-scura); box-shadow:var(--ombra);">
+      <video style="width:100%; max-width:100%; height:auto; display:block;" controls poster="assets/Spot-Eseereape-Federica-Centonze-Copertina.jpg">
+        <source src="assets/Essereape-il-tempo- Spot.mp4" type="video/mp4">
+        Il tuo browser non supporta il tag video.
+      </video>
+    </div>
+    <div class="grid g2" style="margin-top:22px">
+        <div class="card rev">
+            <img src="assets/01_nonno_bambino_spot_essereape.jpg" alt="Nonno e bambino" style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:8px; margin-bottom:14px">
+            <h3>Connessione tra generazioni</h3>
+            <p style="font-family:'Jost';font-size:.86rem;color:rgba(247,241,230,.78); margin:0">La saggezza del nonno e la scoperta del bambino al centro del racconto.</p>
+        </div>
+        <div class="card rev">
+            <img src="assets/storyboard-spot-essereape.jpg" alt="Storyboard" style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:8px; margin-bottom:14px">
+            <h3>Storyboard emozionale</h3>
+            <p style="font-family:'Jost';font-size:.86rem;color:rgba(247,241,230,.78); margin:0">I ritmi della natura guidano le inquadrature, dando spazio all'essenza del territorio salentino.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. PROFILO INSTAGRAM ===== -->
+<section class="sec" id="profilo">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">04</span> Mockup profilo Instagram</div>
+    <h2 class="h-sec">Come appare <em>@apicoltura_essereape</em></h2>
+    <div class="profile rev" style="margin-top:30px">
+      <div class="top">
+        <div class="avatar" style="background:#fff; padding:2px;"><img src="assets/logo-cerchio-essereape-sfondo-bianco.jpg" alt="Profile" style="width:100%;height:100%;object-fit:contain;border-radius:50%"></div>
+        <div class="stats">
+          <div><b>9</b><span>post</span></div>
+          <div><b>100</b><span>follower</span></div>
+          <div><b>50</b><span>seguiti</span></div>
+        </div>
+      </div>
+      <div class="bioarea">
+        <div class="name">@apicoltura_essereape</div>
+        <div>Apicoltura etica nel Salento.<br>Miele millefiori, biodiversità e storie da custodire.</div>
+        <div class="claim2">Il miele non si produce. Si attende.</div>
+      </div>
+      <div class="hl-row">
+        <div class="hl"><div class="cov"><svg><use href="#bee"/></svg></div>Progetto</div>
+        <div class="hl"><div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3h8M9 3v3l-2 4v10a1 1 0 001 1h8a1 1 0 001-1V10l-2-4V3"/></svg></div>Miele</div>
+        <div class="hl"><div class="cov"><svg><use href="#bee"/></svg></div>Api</div>
+        <div class="hl"><div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M3 21c1-5 6-6 9-6s8 1 9 6"/></svg></div>Salento</div>
+        <div class="hl"><div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 11V8a5 5 0 0110 0v3M5 11h14l-1 9H6z"/></svg></div>Mèlia</div>
+      </div>
+      <div class="pgrid">
+        <div class="tile t-favo visual-tile"><img src="assets/1.EssereAPE_hero_vasetto_tramonto.jpg" alt="Manifesto"><div class="visual-overlay"></div><span class="pill">Manifesto</span>Si attende.</div>
+        <div class="tile t-miele visual-tile"><img src="assets/EssereAPE_vasetto_still_life_premium_verticale.jpg" alt="Prodotto" style="object-fit:cover;"><div class="visual-overlay"></div><span class="pill">Prodotto</span>Mille storie</div>
+        <div class="tile t-oliva t-salvia visual-tile o-amber"><img src="assets/EssereAPE_apiario_etico_salento.jpg" alt="Territorio"><div class="visual-overlay"></div><span class="pill">Territorio</span>Il Salento</div>
+        <div class="tile t-salvia visual-tile o-amber"><img src="assets/1.EssereAPE_api_fiori_biodiversita.jpg" alt="Api"><div class="visual-overlay"></div><span class="pill">Api</span>Biodiversità</div>
+        <div class="tile t-terra visual-tile"><img src="assets/EssereAPE_nonno_apicoltore_custode.jpg" alt="Nonno"><div class="visual-overlay"></div><span class="pill">Nonno</span>Custodire</div>
+        <div class="tile t-oro visual-tile o-amber"><img src="assets/melia-tracciabilita.jpg" alt="Tracciabilità" style="object-fit:cover;"><div class="visual-overlay"></div><span class="pill">Tracciabilità</span>Una storia</div>
+        <div class="tile t-miele visual-tile"><img src="assets/EssereAPE_bambino_infanzia_attesa.jpg" alt="Bambino"><div class="visual-overlay"></div><span class="pill">Bambino</span>Il tempo</div>
+        <div class="tile t-favo visual-tile"><img src="assets/melia-ui-interface.jpg" alt="Mèlia"><div class="visual-overlay"></div><span class="pill">Mèlia</span>Chiedi a Mèlia</div>
+        <div class="tile t-terra visual-tile"><img src="assets/1.EssereAPE_hero_vasetto_tramonto.jpg" alt="CTA"><div class="visual-overlay"></div><span class="pill">CTA</span>Scopri</div>
+      </div>
+    </div>
+    <p class="disclaimer">Nome profilo, statistiche, griglia ed evidenziate sono <b>elementi grafici dimostrativi</b>: follower, post e interazioni non rappresentano dati reali. Mockup di prototipo progettuale.</p>
+  </div>
+</section>
+
+<!-- ===== 5. FEED PREVIEW 3x3 ===== -->
+<section class="sec sec--dark" id="feed">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">05</span> Feed preview 3×3</div>
+    <h2 class="h-sec">Nove contenuti, un solo <em>racconto</em></h2>
+    <p class="lead">La griglia bilancia manifesto, prodotto, territorio, educational e CTA. Ogni casella ha un ruolo nel ritmo visivo del feed.</p>
+    <div class="grid g3" style="margin-top:34px">
+
+      <div class="card rev">
+        <div class="tile t-favo visual-tile" style="margin-bottom:14px"><img src="assets/1.EssereAPE_hero_vasetto_tramonto.jpg" alt="Manifesto"><div class="visual-overlay"></div><span class="pill">01 · Manifesto</span>Il miele non si produce. Si attende.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post</span></li>
+          <li><span class="k">Pillar</span><span class="v">Il tempo delle api</span></li>
+          <li><span class="k">Visual</span><span class="v">vasetto / territorio al tramonto</span></li>
+          <li><span class="k">Colore</span><span class="v">nero favo · ambra</span></li>
+          <li><span class="k">Ruolo</span><span class="v">apertura emozionale, dà il tono</span></li>
+        </ul>
+      </div>
+
+      <div class="card rev">
+        <div class="tile t-miele visual-tile" style="margin-bottom:14px"><img src="assets/EssereAPE_vasetto_still_life_premium_verticale.jpg" alt="Prodotto" style="object-fit:cover;"><div class="visual-overlay"></div><span class="pill">02 · Prodotto</span>Millefiori, mille storie in ogni vasetto.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post</span></li>
+          <li><span class="k">Pillar</span><span class="v">Il Salento in un vasetto</span></li>
+          <li><span class="k">Visual</span><span class="v">vasetto still life premium</span></li>
+          <li><span class="k">Colore</span><span class="v">ambra · miele</span></li>
+          <li><span class="k">Ruolo</span><span class="v">ancora di prodotto, desiderio</span></li>
+        </ul>
+      </div>
+
+      <div class="card rev">
+        <div class="tile t-salvia visual-tile o-amber" style="margin-bottom:14px"><img src="assets/EssereAPE_apiario_etico_salento.jpg" alt="Territorio"><div class="visual-overlay"></div><span class="pill">03 · Territorio</span>Il Salento in un vasetto.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post</span></li>
+          <li><span class="k">Pillar</span><span class="v">Il Salento in un vasetto</span></li>
+          <li><span class="k">Visual</span><span class="v">ulivi, macchia mediterranea</span></li>
+          <li><span class="k">Colore</span><span class="v">oliva · dorato</span></li>
+          <li><span class="k">Ruolo</span><span class="v">radicamento territoriale</span></li>
+        </ul>
+      </div>
+
+      <div class="card rev">
+        <div class="tile t-salvia visual-tile o-amber" style="margin-bottom:14px"><img src="assets/1.EssereAPE_api_fiori_biodiversita.jpg" alt="Educational"><div class="visual-overlay"></div><span class="pill">04 · Educational</span>Le api custodiscono la biodiversità.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post / carosello</span></li>
+          <li><span class="k">Pillar</span><span class="v">Api &amp; biodiversità</span></li>
+          <li><span class="k">Visual</span><span class="v">api su fioriture</span></li>
+          <li><span class="k">Colore</span><span class="v">verde salvia · oro</span></li>
+          <li><span class="k">Ruolo</span><span class="v">valore educativo, salvabile</span></li>
+        </ul>
+      </div>
+
+      <div class="card rev">
+        <div class="tile t-terra visual-tile" style="margin-bottom:14px"><img src="assets/EssereAPE_nonno_apicoltore_custode.jpg" alt="Nonno"><div class="visual-overlay"></div><span class="pill">05 · Nonno</span>Custodire significa attendere.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post</span></li>
+          <li><span class="k">Pillar</span><span class="v">Nonno / bambino / memoria</span></li>
+          <li><span class="k">Visual</span><span class="v">nonno custode, mani</span></li>
+          <li><span class="k">Colore</span><span class="v">terra · crema</span></li>
+          <li><span class="k">Ruolo</span><span class="v">cuore etico del feed</span></li>
+        </ul>
+      </div>
+
+      <div class="card rev">
+        <div class="tile t-oro visual-tile o-amber" style="margin-bottom:14px"><img src="assets/qr-tracciabilita-astratta.jpg" alt="Tracciabilità"><div class="visual-overlay"></div><span class="pill">06 · Tracciabilità</span>Ogni vasetto ha una storia da seguire.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post</span></li>
+          <li><span class="k">Pillar</span><span class="v">Miele, tracciabilità, Mèlia</span></li>
+          <li><span class="k">Visual</span><span class="v">QR astratto, smartphone</span></li>
+          <li><span class="k">Colore</span><span class="v">oro · nero favo</span></li>
+          <li><span class="k">Ruolo</span><span class="v">fiducia &amp; innovazione</span></li>
+        </ul>
+      </div>
+
+      <div class="card rev">
+        <div class="tile t-miele visual-tile" style="margin-bottom:14px"><img src="assets/EssereAPE_bambino_infanzia_attesa.jpg" alt="Bambino"><div class="visual-overlay"></div><span class="pill">07 · Bambino</span>Imparare il tempo della natura.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post</span></li>
+          <li><span class="k">Pillar</span><span class="v">Nonno / bambino / futuro</span></li>
+          <li><span class="k">Visual</span><span class="v">bambino, gesto del miele</span></li>
+          <li><span class="k">Colore</span><span class="v">miele · crema</span></li>
+          <li><span class="k">Ruolo</span><span class="v">continuità generazionale</span></li>
+        </ul>
+      </div>
+
+      <div class="card rev">
+        <div class="tile t-favo visual-tile" style="margin-bottom:14px"><img src="assets/EssereAPE_tracciabilita_melia_digitale.jpg" alt="Mèlia" style="object-fit:cover;"><div class="visual-overlay"></div><span class="pill">08 · Mèlia</span>Chiedi a Mèlia la storia del miele.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post</span></li>
+          <li><span class="k">Pillar</span><span class="v">Miele, tracciabilità, Mèlia</span></li>
+          <li><span class="k">Visual</span><span class="v">avatar Mèlia, chat bubble</span></li>
+          <li><span class="k">Colore</span><span class="v">nero favo · ambra</span></li>
+          <li><span class="k">Ruolo</span><span class="v">relazione digitale</span></li>
+        </ul>
+      </div>
+
+      <div class="card rev">
+        <div class="tile t-terra visual-tile" style="margin-bottom:14px"><img src="assets/1.EssereAPE_hero_vasetto_tramonto.jpg" alt="CTA"><div class="visual-overlay"></div><span class="pill">09 · CTA</span>Scopri il progetto EssereAPE.<span class="logoarea">essereAPE</span></div>
+        <ul class="spec">
+          <li><span class="k">Formato</span><span class="v">1:1 · post</span></li>
+          <li><span class="k">Pillar</span><span class="v">trasversale</span></li>
+          <li><span class="k">Visual</span><span class="v">vasetto + logo, fondo scuro</span></li>
+          <li><span class="k">Colore</span><span class="v">terra · oro</span></li>
+          <li><span class="k">Ruolo</span><span class="v">chiusura, invito all'azione</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. 9 TEMPLATE SOCIAL ===== -->
+<section class="sec" id="template">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">06</span> 9 template Instagram</div>
+    <h2 class="h-sec">Template <em>4:5</em> (adattabili 9:16)</h2>
+    <p class="lead">Nove tavole originali con aree logo e CTA, palette dedicata, asset, nota strategica, KPI futuro e prompt AI. I testi in grafica restano brevi, leggibili e poetici.</p>
+    <div class="grid" style="margin-top:34px;gap:26px">
+
+      <!-- T1 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-favo visual-tile"><img src="assets/1.EssereAPE_hero_vasetto_tramonto.jpg" alt="Manifesto"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · 4:5</div>
+            <div class="mc">Il miele non si produce.<br>Si attende.</div>
+            <div class="mcta">Scopri il progetto</div>
+          </div>
+          <div>
+            <div class="tag">01 · Manifesto emozionale</div>
+            <h3 style="margin:12px 0 4px">Manifesto emozionale</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5 · adattabile 9:16</span></li>
+              <li><span class="k">Testo</span><span class="v">«Il miele non si produce. Si attende.»</span></li>
+              <li><span class="k">Logo</span><span class="v">in basso al centro</span></li>
+              <li><span class="k">CTA</span><span class="v">Scopri il progetto EssereAPE</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE VASETTO / TERRITORIO]</span></li>
+              <li><span class="k">Nota</span><span class="v">apre il sistema, fissa il tono di voce</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#1d1710"></i><i style="background:#c8841e"></i><i style="background:#f7f1e6"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: salvataggi &amp; reach</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 01</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T2 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-miele visual-tile"><img src="assets/EssereAPE_vasetto_still_life_premium_verticale.jpg" alt="Prodotto" style="object-fit:cover;"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · 4:5</div>
+            <div class="mc">Millefiori,<br>mille storie<br>in ogni vasetto.</div>
+            <div class="mcta">Entra nello shop</div>
+          </div>
+          <div>
+            <div class="tag">02 · Prodotto premium</div>
+            <h3 style="margin:12px 0 4px">Prodotto premium</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5</span></li>
+              <li><span class="k">Testo</span><span class="v">«Millefiori, mille storie in ogni vasetto.»</span></li>
+              <li><span class="k">Logo</span><span class="v">alto a sinistra</span></li>
+              <li><span class="k">CTA</span><span class="v">Entra nello shop</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE VASETTO ESSEREAPE]</span></li>
+              <li><span class="k">Nota</span><span class="v">valorizza il vasetto senza deformarlo</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#c8841e"></i><i style="background:#e0a93b"></i><i style="background:#fdfbf6"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: click allo shop</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 02</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T3 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-salvia visual-tile o-amber"><img src="assets/1.EssereAPE_api_fiori_biodiversita.jpg" alt="Educational"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · 4:5</div>
+            <div class="mc">Le api custodiscono<br>la biodiversità.</div>
+            <div class="mcta">Salva questo contenuto</div>
+          </div>
+          <div>
+            <div class="tag">03 · Educational api</div>
+            <h3 style="margin:12px 0 4px">Educational api</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5 · cover carosello</span></li>
+              <li><span class="k">Testo</span><span class="v">«Le api custodiscono la biodiversità.»</span></li>
+              <li><span class="k">Logo</span><span class="v">basso a destra</span></li>
+              <li><span class="k">CTA</span><span class="v">Salva questo contenuto</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE API E FIORI]</span></li>
+              <li><span class="k">Nota</span><span class="v">tono educativo, nessun claim sanitario</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#6e7a45"></i><i style="background:#8a9a6b"></i><i style="background:#e0a93b"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: salvataggi &amp; condivisioni</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 03</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T4 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-oliva t-salvia visual-tile o-amber" style="background:linear-gradient(150deg,#5d6a38,#8a9a6b)"><img src="assets/EssereAPE_apiario_etico_salento.jpg" alt="Territorio"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · 4:5</div>
+            <div class="mc">Il Salento<br>in un vasetto.</div>
+            <div class="mcta">Leggi la storia</div>
+          </div>
+          <div>
+            <div class="tag">04 · Territorio salentino</div>
+            <h3 style="margin:12px 0 4px">Territorio salentino</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5 · adattabile 9:16</span></li>
+              <li><span class="k">Testo</span><span class="v">«Il Salento in un vasetto.»</span></li>
+              <li><span class="k">Logo</span><span class="v">alto al centro</span></li>
+              <li><span class="k">CTA</span><span class="v">Leggi la storia del vasetto</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE TERRITORIO SALENTO]</span></li>
+              <li><span class="k">Nota</span><span class="v">terroir come valore di marca</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#6e7a45"></i><i style="background:#c9a24b"></i><i style="background:#f7f1e6"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: tempo di permanenza</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 04</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T5 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-terra visual-tile"><img src="assets/EssereAPE_nonno_apicoltore_custode.jpg" alt="Nonno"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · 4:5</div>
+            <div class="mc">Custodire significa<br>attendere.</div>
+            <div class="mcta">Scopri la nostra etica</div>
+          </div>
+          <div>
+            <div class="tag">05 · Nonno custode / memoria</div>
+            <h3 style="margin:12px 0 4px">Nonno custode / memoria</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5</span></li>
+              <li><span class="k">Testo</span><span class="v">«Custodire significa attendere.»</span></li>
+              <li><span class="k">Logo</span><span class="v">basso a sinistra</span></li>
+              <li><span class="k">CTA</span><span class="v">Scopri la nostra etica</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE NONNO]</span></li>
+              <li><span class="k">Nota</span><span class="v">memoria, saggezza, tempo</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#6e4b2a"></i><i style="background:#8b5e34"></i><i style="background:#f7f1e6"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: commenti &amp; sentiment</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 05</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T6 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-miele visual-tile" style="background:linear-gradient(150deg,#d8a23a,#ecc873)"><img src="assets/EssereAPE_bambino_infanzia_attesa.jpg" alt="Bambino"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · 4:5</div>
+            <div class="mc">Imparare il tempo<br>della natura.</div>
+            <div class="mcta">Condividi</div>
+          </div>
+          <div>
+            <div class="tag">06 · Bambino / futuro</div>
+            <h3 style="margin:12px 0 4px">Bambino / futuro / apprendimento</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5</span></li>
+              <li><span class="k">Testo</span><span class="v">«Imparare il tempo della natura.»</span></li>
+              <li><span class="k">Logo</span><span class="v">alto a destra</span></li>
+              <li><span class="k">CTA</span><span class="v">Condividilo con chi ami</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE BAMBINO]</span></li>
+              <li><span class="k">Nota</span><span class="v">tenerezza, continuità, futuro</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#d8a23a"></i><i style="background:#f7f1e6"></i><i style="background:#8b5e34"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: condivisioni</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 06</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T7 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-favo visual-tile o-amber"><img src="assets/melia-tracciabilita.jpg" alt="Tracciabilità" style="object-fit:cover;"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · 4:5</div>
+            <div class="mc">Ogni vasetto ha<br>una storia da seguire.</div>
+            <div class="mcta">Inquadra il QR</div>
+          </div>
+          <div>
+            <div class="tag">07 · Tracciabilità digitale</div>
+            <h3 style="margin:12px 0 4px">Tracciabilità digitale / Mèlia</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5</span></li>
+              <li><span class="k">Testo</span><span class="v">«Ogni vasetto ha una storia da seguire.»</span></li>
+              <li><span class="k">Logo</span><span class="v">basso al centro</span></li>
+              <li><span class="k">CTA</span><span class="v">Chiedi a Mèlia</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE TRACCIABILITÀ / MÈLIA]</span></li>
+              <li><span class="k">Nota</span><span class="v">QR astratto, niente dati reali</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#1d1710"></i><i style="background:#c9a24b"></i><i style="background:#e0a93b"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: scansioni QR (futuro)</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 07</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T8 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-oro visual-tile o-amber"><img src="assets/EssereAPE_pattern_alveare_premium.jpg" alt="Carosello"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · carosello</div>
+            <div class="mc">Lo sapevi che…<br>un alveare è un<br>superorganismo?</div>
+            <div class="mcta">Scorri →</div>
+          </div>
+          <div>
+            <div class="tag">08 · Carosello “Lo sapevi che…”</div>
+            <h3 style="margin:12px 0 4px">Carosello “Lo sapevi che…”</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5 · cover di carosello</span></li>
+              <li><span class="k">Testo</span><span class="v">«Lo sapevi che un alveare è un superorganismo?»</span></li>
+              <li><span class="k">Logo</span><span class="v">basso a destra</span></li>
+              <li><span class="k">CTA</span><span class="v">Scorri / Salva</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE API E FIORI] · pattern alveare</span></li>
+              <li><span class="k">Nota</span><span class="v">curiosità verificabili, niente claim sanitari</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#b9892f"></i><i style="background:#c9a24b"></i><i style="background:#1d1710"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: completamento carosello</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 08</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T9 -->
+      <div class="card rev">
+        <div class="tpl">
+          <div class="mock t-terra visual-tile" style="background:linear-gradient(150deg,#2b2118,#6e4b2a)"><img src="assets/1.EssereAPE_hero_vasetto_tramonto.jpg" alt="CTA"><div class="visual-overlay"></div>
+            <div class="mt">essereAPE · 4:5</div>
+            <div class="mc">Scopri il progetto<br>EssereAPE.</div>
+            <div class="mcta">Esplora il progetto</div>
+          </div>
+          <div>
+            <div class="tag">09 · CTA / scoperta</div>
+            <h3 style="margin:12px 0 4px">CTA / scoperta sito</h3>
+            <ul class="spec">
+              <li><span class="k">Formato</span><span class="v">4:5</span></li>
+              <li><span class="k">Testo</span><span class="v">«Scopri il progetto EssereAPE.»</span></li>
+              <li><span class="k">Logo</span><span class="v">alto al centro · vasetto in primo piano</span></li>
+              <li><span class="k">CTA</span><span class="v">Esplora il progetto / Chiedi a Mèlia</span></li>
+              <li><span class="k">Asset</span><span class="v">[INSERIRE VASETTO ESSEREAPE]</span></li>
+              <li><span class="k">Nota</span><span class="v">“Prenota il tuo vasetto” solo se confermato nelle fonti</span></li>
+            </ul>
+            <div class="miniswatch"><i style="background:#2b2118"></i><i style="background:#6e4b2a"></i><i style="background:#c9a24b"></i></div>
+            <span class="tag tag--kpi" style="margin-top:12px">KPI futuro: conversioni al sito</span>
+            <div class="promptbox"><b>Prompt AI →</b> vedi sezione 20 · Prompt 09</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. CAROSELLO EDUCATIVO ===== -->
+<section class="sec sec--cream2" id="carosello">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">07</span> Carosello educativo</div>
+    <h2 class="h-sec">Perché il millefiori racconta <em>una stagione</em></h2>
+    <p class="lead">Sei slide che spiegano, senza claim sanitari, perché il miele millefiori è il ritratto di un territorio e di un tempo.</p>
+    <div class="grid g3" style="margin-top:34px">
+      <div class="card rev">
+        <div class="tile t-favo ar45 visual-tile o-amber" style="margin-bottom:14px;aspect-ratio:4/5"><img src="assets/EssereAPE_pattern_alveare_premium.jpg" alt="Pattern Alveare"><div class="visual-overlay"></div><span class="pill">Slide 1 · Cover</span>Millefiori, mille storie in ogni vasetto.</div>
+        <ul class="spec">
+          <li><span class="k">Testo</span><span class="v">titolo + apertura poetica</span></li>
+          <li><span class="k">Visual</span><span class="v">vasetto + fioriture</span></li>
+          <li><span class="k">Colore</span><span class="v">nero favo · ambra</span></li>
+          <li><span class="k">Azione</span><span class="v">Scorri →</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <div class="tile t-miele ar45 visual-tile" style="margin-bottom:14px;aspect-ratio:4/5"><img src="assets/EssereAPE_colata_miele_asmr.jpg" alt="Colata miele"><div class="visual-overlay"></div><span class="pill">Slide 2</span>Che cos'è il miele millefiori?</div>
+        <ul class="spec">
+          <li><span class="k">Testo</span><span class="v">nettare di molte fioriture diverse</span></li>
+          <li><span class="k">Visual</span><span class="v">api su fiori misti</span></li>
+          <li><span class="k">Colore</span><span class="v">miele · crema</span></li>
+          <li><span class="k">Azione</span><span class="v">continua →</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <div class="tile t-salvia ar45 visual-tile o-amber" style="margin-bottom:14px;aspect-ratio:4/5"><img src="assets/1.EssereAPE_api_fiori_biodiversita.jpg" alt="Api fiori"><div class="visual-overlay"></div><span class="pill">Slide 3</span>Perché cambia con le fioriture.</div>
+        <ul class="spec">
+          <li><span class="k">Testo</span><span class="v">ogni stagione, un profilo diverso</span></li>
+          <li><span class="k">Visual</span><span class="v">fioriture stagionali</span></li>
+          <li><span class="k">Colore</span><span class="v">verde salvia · oro</span></li>
+          <li><span class="k">Azione</span><span class="v">continua →</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <div class="tile t-oliva t-salvia ar45 visual-tile o-amber" style="margin-bottom:14px;aspect-ratio:4/5;background:linear-gradient(150deg,#5d6a38,#8a9a6b)"><img src="assets/1.EssereAPE_api_fiori_biodiversita.jpg" alt="Api biodiversità"><div class="visual-overlay"></div><span class="pill">Slide 4</span>Il ruolo delle api e della biodiversità.</div>
+        <ul class="spec">
+          <li><span class="k">Testo</span><span class="v">impollinatrici, custodi dell'equilibrio</span></li>
+          <li><span class="k">Visual</span><span class="v">api e fioriture</span></li>
+          <li><span class="k">Colore</span><span class="v">oliva · ambra</span></li>
+          <li><span class="k">Azione</span><span class="v">continua →</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <div class="tile t-terra ar45 visual-tile" style="margin-bottom:14px;aspect-ratio:4/5"><img src="assets/EssereAPE_apiario_etico_salento.jpg" alt="Territorio salentino"><div class="visual-overlay"></div><span class="pill">Slide 5</span>Il Salento e la macchia mediterranea.</div>
+        <ul class="spec">
+          <li><span class="k">Testo</span><span class="v">il terroir che dà sapore</span></li>
+          <li><span class="k">Visual</span><span class="v">territorio salentino</span></li>
+          <li><span class="k">Colore</span><span class="v">terra · dorato</span></li>
+          <li><span class="k">Azione</span><span class="v">continua →</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <div class="tile t-oro ar45 visual-tile" style="margin-bottom:14px;aspect-ratio:4/5"><img src="assets/1.EssereAPE_hero_vasetto_tramonto.jpg" alt="Vasetto finale"><div class="visual-overlay"></div><span class="pill">Slide 6 · CTA</span>Scopri la storia del vasetto.</div>
+        <ul class="spec">
+          <li><span class="k">Testo</span><span class="v">invito finale</span></li>
+          <li><span class="k">Visual</span><span class="v">vasetto + logo</span></li>
+          <li><span class="k">Colore</span><span class="v">oro · nero favo</span></li>
+          <li><span class="k">Azione</span><span class="v">Leggi la storia / Chiedi a Mèlia</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card rev" style="margin-top:22px;background:rgba(110,122,69,.06);border-color:rgba(110,122,69,.3)">
+      <div class="tag tag--proto">Nota metodologica</div>
+      <p style="font-family:'Jost';font-size:.86rem;color:var(--testo-soft);margin:12px 0 0">Contenuto educativo divulgativo. Nessuna proprietà terapeutica o claim sanitario sul miele: si racconta l'origine botanica e territoriale, non effetti sulla salute.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. STORIES SEQUENZA ===== -->
+<section class="sec" id="stories">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">08</span> Sequenza Stories</div>
+    <h2 class="h-sec">Quattro Stories <em>collegate</em></h2>
+    <div class="grid g4" style="margin-top:34px">
+      <div class="card rev">
+        <div class="tile t-favo ar916 visual-tile" style="margin-bottom:14px;aspect-ratio:9/16"><img src="assets/EssereAPE_apiario_etico_salento.jpg" alt="Territorio"><div class="visual-overlay"></div><span class="pill">1 · Hook</span>Il miele non si produce. Si attende.</div>
+        <ul class="spec">
+          <li><span class="k">Visual</span><span class="v">territorio al tramonto</span></li>
+          <li><span class="k">Sticker</span><span class="v">— (solo testo)</span></li>
+          <li><span class="k">CTA</span><span class="v">tieni premuto / continua</span></li>
+          <li><span class="k">Asset</span><span class="v">[INSERIRE TERRITORIO]</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <div class="tile t-salvia ar916 visual-tile o-amber" style="margin-bottom:14px;aspect-ratio:9/16"><img src="assets/1.EssereAPE_api_fiori_biodiversita.jpg" alt="Api e fiori"><div class="visual-overlay"></div><span class="pill">2 · Quiz</span>Il millefiori è sempre uguale?</div>
+        <ul class="spec">
+          <li><span class="k">Visual</span><span class="v">api su fioriture</span></li>
+          <li><span class="k">Sticker</span><span class="v">quiz Sì / No</span></li>
+          <li><span class="k">CTA</span><span class="v">rispondi al quiz</span></li>
+          <li><span class="k">Asset</span><span class="v">[INSERIRE API E FIORI]</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <div class="tile t-miele ar916 visual-tile" style="margin-bottom:14px;aspect-ratio:9/16"><img src="assets/EssereAPE_vasetto_still_life_premium_verticale.jpg" alt="Vasetto still life" style="object-fit:cover;"><div class="visual-overlay"></div><span class="pill">3 · Spiegazione</span>Ogni stagione cambia il racconto.</div>
+        <ul class="spec">
+          <li><span class="k">Visual</span><span class="v">vasetto still life</span></li>
+          <li><span class="k">Sticker</span><span class="v">testo + emoji ape</span></li>
+          <li><span class="k">CTA</span><span class="v">scorri ancora</span></li>
+          <li><span class="k">Asset</span><span class="v">[INSERIRE VASETTO]</span></li>
+        </ul>
+      </div>
+      <div class="card rev">
+        <div class="tile t-terra ar916 visual-tile" style="margin-bottom:14px;aspect-ratio:9/16"><img src="assets/melia-ui-interface.jpg" alt="Tracciabilità melia"><div class="visual-overlay"></div><span class="pill">4 · CTA</span>Scopri EssereAPE. Chiedi a Mèlia.</div>
+        <ul class="spec">
+          <li><span class="k">Visual</span><span class="v">vasetto + logo</span></li>
+          <li><span class="k">Sticker</span><span class="v">link / “altro”</span></li>
+          <li><span class="k">CTA</span><span class="v">Scopri / Chiedi a Mèlia</span></li>
+          <li><span class="k">Asset</span><span class="v">[INSERIRE TRACCIABILITÀ / MÈLIA]</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. HIGHLIGHTS ===== -->
+<section class="sec sec--dark" id="highlights">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">09</span> Highlights</div>
+    <h2 class="h-sec">Otto copertine <em>evidenziate</em></h2>
+    <p class="lead">Icone originali, minimali, esagonali, coerenti col sistema. Una grammatica visiva per ogni capitolo del brand.</p>
+    <div class="grid g4" style="margin-top:34px">
+      <div class="card rev" style="text-align:center">
+        <div class="hl" style="font-size:.8rem"><div class="cov" style="width:84px;height:84px;background:var(--crema)"><svg style="width:40px;height:40px"><use href="#bee"/></svg></div></div>
+        <h3 style="font-size:1.2rem;margin-top:4px">Progetto</h3>
+      </div>
+      <div class="card rev" style="text-align:center">
+        <div class="hl" style="font-size:.8rem"><div class="cov" style="width:84px;height:84px;background:var(--crema)"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5e34" stroke-width="1.5" style="width:38px;height:38px"><path d="M8 3h8M9 3v3l-2 4v10a1 1 0 001 1h8a1 1 0 001-1V10l-2-4V3"/><path d="M7 13h10"/></svg></div></div>
+        <h3 style="font-size:1.2rem;margin-top:4px">Miele</h3>
+      </div>
+      <div class="card rev" style="text-align:center">
+        <div class="hl" style="font-size:.8rem"><div class="cov" style="width:84px;height:84px;background:var(--crema)"><svg style="width:40px;height:40px"><use href="#bee"/></svg></div></div>
+        <h3 style="font-size:1.2rem;margin-top:4px">Api</h3>
+      </div>
+      <div class="card rev" style="text-align:center">
+        <div class="hl" style="font-size:.8rem"><div class="cov" style="width:84px;height:84px;background:var(--crema)"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5e34" stroke-width="1.5" style="width:38px;height:38px"><circle cx="12" cy="8" r="4"/><path d="M3 21c1-5 6-7 9-7s8 2 9 7"/></svg></div></div>
+        <h3 style="font-size:1.2rem;margin-top:4px">Salento</h3>
+      </div>
+      <div class="card rev" style="text-align:center">
+        <div class="hl" style="font-size:.8rem"><div class="cov" style="width:84px;height:84px;background:var(--crema)"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5e34" stroke-width="1.5" style="width:38px;height:38px"><path d="M6 18c-2-3-1-8 3-9 1-3 5-3 6 0 4 1 5 6 3 9"/><path d="M9 18v3M15 18v3M12 18v3"/></svg></div></div>
+        <h3 style="font-size:1.2rem;margin-top:4px">Nonno</h3>
+      </div>
+      <div class="card rev" style="text-align:center">
+        <div class="hl" style="font-size:.8rem"><div class="cov" style="width:84px;height:84px;background:var(--crema)"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5e34" stroke-width="1.5" style="width:38px;height:38px"><path d="M12 3v3M7 6l1.5 2.5M17 6l-1.5 2.5"/><circle cx="12" cy="14" r="6"/></svg></div></div>
+        <h3 style="font-size:1.2rem;margin-top:4px">Bambino</h3>
+      </div>
+      <div class="card rev" style="text-align:center">
+        <div class="hl" style="font-size:.8rem"><div class="cov" style="width:84px;height:84px;background:var(--crema)"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5e34" stroke-width="1.5" style="width:38px;height:38px"><path d="M5 11a7 7 0 0114 0v3l-2 5H7l-2-5z"/><circle cx="9.5" cy="11" r="1"/><circle cx="14.5" cy="11" r="1"/></svg></div></div>
+        <h3 style="font-size:1.2rem;margin-top:4px">Mèlia</h3>
+      </div>
+      <div class="card rev" style="text-align:center">
+        <div class="hl" style="font-size:.8rem"><div class="cov" style="width:84px;height:84px;background:var(--crema)"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5e34" stroke-width="1.5" style="width:38px;height:38px"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 14h3v3M20 14v6M17 20h3"/></svg></div></div>
+        <h3 style="font-size:1.2rem;margin-top:4px">Tracciabilità</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. DASHBOARD PIANO EDITORIALE ===== -->
+<section class="sec" id="dashboard">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">10</span> Dashboard piano editoriale</div>
+    <h2 class="h-sec">Il piano in <em>numeri</em></h2>
+    <p class="lead">Una panoramica del sistema editoriale proposto. Valori di pianificazione, non risultati ottenuti.</p>
+    <div class="statgrid rev" style="margin-top:34px">
+      <div class="stat"><div class="num">12</div><div class="lbl">Contenuti principali</div></div>
+      <div class="stat"><div class="num">16</div><div class="lbl">Stories</div></div>
+      <div class="stat"><div class="num">5</div><div class="lbl">Content pillar</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">Settimane</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">Piattaforme · Instagram / Facebook / TikTok / Sito web</div></div>
+      <div class="stat"><div class="num">9</div><div class="lbl">Template social</div></div>
+      <div class="stat"><div class="num">6</div><div class="lbl">Slide carosello</div></div>
+      <div class="stat" style="background:var(--nero-favo);color:var(--crema)"><div class="num" style="font-size:1.5rem;color:var(--miele);font-style:italic;font-family:'Cormorant Garamond'">Prototipo<br>progettuale</div><div class="lbl" style="color:rgba(247,241,230,.7)">Stato generale · KPI futuri</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. CONTENT PILLARS BOARD ===== -->
+<section class="sec sec--cream2" id="pillars">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">11</span> Content pillars board</div>
+    <h2 class="h-sec">Cinque <em>pilastri</em></h2>
+    <div class="grid g2" style="margin-top:34px">
+      <div class="card rev"><h3>1 · Il tempo delle api</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">comunicare attesa e cura</span></li>
+          <li><span class="k">Messaggio</span><span class="v">«Il miele non si produce. Si attende.»</span></li>
+          <li><span class="k">Tipologie</span><span class="v">manifesto, frasi, slow video</span></li>
+          <li><span class="k">Formato</span><span class="v">post 1:1, Reel</span></li>
+          <li><span class="k">CTA</span><span class="v">Scopri il progetto</span></li>
+          <li><span class="k">KPI futuro</span><span class="v">salvataggi, reach</span></li>
+        </ul>
+      </div>
+      <div class="card rev"><h3>2 · Api, biodiversità e cicli naturali</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">educare al valore ecologico</span></li>
+          <li><span class="k">Messaggio</span><span class="v">«Le api custodiscono la biodiversità.»</span></li>
+          <li><span class="k">Tipologie</span><span class="v">educational, “lo sapevi che…”</span></li>
+          <li><span class="k">Formato</span><span class="v">carosello, post</span></li>
+          <li><span class="k">CTA</span><span class="v">Salva questo contenuto</span></li>
+          <li><span class="k">KPI futuro</span><span class="v">salvataggi, condivisioni</span></li>
+        </ul>
+      </div>
+      <div class="card rev"><h3>3 · Il Salento in un vasetto</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">radicare il brand nel terroir</span></li>
+          <li><span class="k">Messaggio</span><span class="v">«Il Salento in un vasetto.»</span></li>
+          <li><span class="k">Tipologie</span><span class="v">paesaggio, prodotto in contesto</span></li>
+          <li><span class="k">Formato</span><span class="v">post, Reel, Stories</span></li>
+          <li><span class="k">CTA</span><span class="v">Leggi la storia del vasetto</span></li>
+          <li><span class="k">KPI futuro</span><span class="v">tempo di permanenza</span></li>
+        </ul>
+      </div>
+      <div class="card rev"><h3>4 · Nonno / bambino / memoria / futuro</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">trasmettere etica e continuità</span></li>
+          <li><span class="k">Messaggio</span><span class="v">«Custodire significa attendere.»</span></li>
+          <li><span class="k">Tipologie</span><span class="v">storytelling, ritratti simbolici</span></li>
+          <li><span class="k">Formato</span><span class="v">post, Reel narrativo</span></li>
+          <li><span class="k">CTA</span><span class="v">Condividi con chi ami</span></li>
+          <li><span class="k">KPI futuro</span><span class="v">commenti, sentiment</span></li>
+        </ul>
+      </div>
+      <div class="card rev" style="grid-column:1/-1"><h3>5 · Miele, tracciabilità, Mèlia e relazione digitale</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">costruire fiducia attraverso la trasparenza</span></li>
+          <li><span class="k">Messaggio</span><span class="v">«Ogni vasetto ha una storia da seguire.»</span></li>
+          <li><span class="k">Tipologie</span><span class="v">tracciabilità, demo Mèlia, QR</span></li>
+          <li><span class="k">Formato</span><span class="v">post, Stories, Reel</span></li>
+          <li><span class="k">CTA</span><span class="v">Chiedi a Mèlia</span></li>
+          <li><span class="k">KPI futuro</span><span class="v">interazioni con l'assistente (futuro)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 12. CONTENT IDEAS BOARD ===== -->
+<section class="sec" id="ideas">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">12</span> Content ideas board</div>
+    <h2 class="h-sec">Dieci categorie, <em>cinquanta idee</em></h2>
+    <div class="grid g2" style="margin-top:34px">
+      <div class="card rev"><h3>1 · Manifesto emozionale</h3><ul class="spec">
+        <li><span class="v">«Il miele non si produce. Si attende.»</span></li>
+        <li><span class="v">Il tempo come ingrediente invisibile</span></li>
+        <li><span class="v">Per ciò che amiamo non esistono scorciatoie</span></li>
+        <li><span class="v">L'attesa come gesto di rispetto</span></li>
+        <li><span class="v">Lentezza come valore premium</span></li>
+      </ul></div>
+      <div class="card rev"><h3>2 · Prodotto</h3><ul class="spec">
+        <li><span class="v">Still life del vasetto millefiori</span></li>
+        <li><span class="v">Colata di miele · dettaglio ASMR</span></li>
+        <li><span class="v">Formati 250g e 400g a confronto</span></li>
+        <li><span class="v">Il cartellino narrativo del vasetto</span></li>
+        <li><span class="v">Abbinamenti gourmet (no claim salute)</span></li>
+      </ul></div>
+      <div class="card rev"><h3>3 · Api e biodiversità</h3><ul class="spec">
+        <li><span class="v">Api su fioriture spontanee</span></li>
+        <li><span class="v">Il superorganismo alveare</span></li>
+        <li><span class="v">L'impollinazione spiegata semplice</span></li>
+        <li><span class="v">Apicoltura stanziale vs nomade</span></li>
+        <li><span class="v">Perché le fioriture cambiano il miele</span></li>
+      </ul></div>
+      <div class="card rev"><h3>4 · Territorio</h3><ul class="spec">
+        <li><span class="v">Ulivi e macchia mediterranea</span></li>
+        <li><span class="v">Golden hour nei campi salentini</span></li>
+        <li><span class="v">La luce del Salento nel vasetto</span></li>
+        <li><span class="v">Mappa poetica degli apiari (concept)</span></li>
+        <li><span class="v">Suoni e profumi della stagione</span></li>
+      </ul></div>
+      <div class="card rev"><h3>5 · Nonno / memoria</h3><ul class="spec">
+        <li><span class="v">«Custodire significa attendere.»</span></li>
+        <li><span class="v">Le mani che conoscono il tempo</span></li>
+        <li><span class="v">Gesti tramandati di generazione in generazione</span></li>
+        <li><span class="v">Il valore dell'osservare senza fretta</span></li>
+        <li><span class="v">Memoria come radice del futuro</span></li>
+      </ul></div>
+      <div class="card rev"><h3>6 · Bambino / futuro</h3><ul class="spec">
+        <li><span class="v">«Imparare il tempo della natura.»</span></li>
+        <li><span class="v">Lo sguardo che osserva il mondo</span></li>
+        <li><span class="v">La prima volta che assaggi il miele</span></li>
+        <li><span class="v">Custodire per chi verrà dopo</span></li>
+        <li><span class="v">Domande di un bambino sulle api</span></li>
+      </ul></div>
+      <div class="card rev"><h3>7 · Tracciabilità</h3><ul class="spec">
+        <li><span class="v">«Ogni vasetto ha una storia da seguire.»</span></li>
+        <li><span class="v">Dal racconto al QR (concept)</span></li>
+        <li><span class="v">Cosa significa filiera trasparente</span></li>
+        <li><span class="v">La storia di un lotto (prototipo)</span></li>
+        <li><span class="v">Perché la trasparenza è fiducia</span></li>
+      </ul></div>
+      <div class="card rev"><h3>8 · Mèlia</h3><ul class="spec">
+        <li><span class="v">«Chiedi a Mèlia la storia del miele.»</span></li>
+        <li><span class="v">Chi è Mèlia: nome e radice culturale</span></li>
+        <li><span class="v">Mèlia ti consiglia il miele giusto</span></li>
+        <li><span class="v">Domande frequenti con Mèlia</span></li>
+        <li><span class="v">Mèlia racconta l'apiario</span></li>
+      </ul></div>
+      <div class="card rev"><h3>9 · Educational</h3><ul class="spec">
+        <li><span class="v">«Lo sapevi che…» serie ricorrente</span></li>
+        <li><span class="v">Glossario del miele</span></li>
+        <li><span class="v">Come si legge un'etichetta</span></li>
+        <li><span class="v">Miti da sfatare sul miele</span></li>
+        <li><span class="v">Il calendario delle fioriture</span></li>
+      </ul></div>
+      <div class="card rev"><h3>10 · CTA / scoperta</h3><ul class="spec">
+        <li><span class="v">«Scopri il progetto EssereAPE.»</span></li>
+        <li><span class="v">Leggi la storia del vasetto</span></li>
+        <li><span class="v">Iscriviti alla newsletter</span></li>
+        <li><span class="v">Salva e condividi</span></li>
+        <li><span class="v">Scopri il progetto / Chiedi a Mèlia</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 13. MONTHLY CALENDAR ===== -->
+<section class="sec sec--dark" id="calendar">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">13</span> Calendario mensile</div>
+    <h2 class="h-sec">Quattro settimane, <em>dodici contenuti</em></h2>
+    <div class="legend">
+      <span class="status s-gen">da generare</span>
+      <span class="status s-rev">da revisionare</span>
+      <span class="status s-app">da approvare</span>
+      <span class="status s-pronto">pronto</span>
+      <span class="status s-prog">programmato</span>
+      <span class="status s-pub">pubblicato</span>
+    </div>
+    <div class="weekcols rev" style="margin-top:24px">
+      <div class="weekcol">
+        <div class="wh"><b>Settimana 1</b>Il tempo delle api</div>
+        <div class="evt"><div class="et">1 · Il miele non si produce. Si attende.</div><div class="em"><span class="dot" style="background:#c8841e"></span>Lun · Manifesto · IG post + Facebook · <span class="status s-pronto">pronto</span></div><div class="em">CTA: Scopri il progetto</div></div>
+        <div class="evt"><div class="et">2 · Millefiori, mille storie in ogni vasetto.</div><div class="em"><span class="dot" style="background:#e0a93b"></span>Mer · Prodotto · IG post + Facebook · <span class="status s-rev">da revisionare</span></div><div class="em">CTA: Scopri il progetto</div></div>
+        <div class="evt"><div class="et">3 · Il Salento in un vasetto.</div><div class="em"><span class="dot" style="background:#8a9a6b"></span>Ven · Territorio · IG + Facebook · <span class="status s-gen">da generare</span></div><div class="em">CTA: Leggi la storia</div></div>
+      </div>
+      <div class="weekcol">
+        <div class="wh"><b>Settimana 2</b>Api &amp; biodiversità</div>
+        <div class="evt"><div class="et">4 · Perché le api custodiscono la biodiversità.</div><div class="em"><span class="dot" style="background:#6e7a45"></span>Lun · Educational · Carosello (IG+FB) · <span class="status s-app">da approvare</span></div><div class="em">CTA: Salva</div></div>
+        <div class="evt"><div class="et">5 · Custodire significa attendere.</div><div class="em"><span class="dot" style="background:#8b5e34"></span>Mer · Nonno · IG post + Facebook · <span class="status s-gen">da generare</span></div><div class="em">CTA: Scopri l'etica</div></div>
+        <div class="evt"><div class="et">6 · Che cos'è il miele millefiori.</div><div class="em"><span class="dot" style="background:#e0a93b"></span>Ven · Educational · Carosello (IG+FB) · <span class="status s-gen">da generare</span></div><div class="em">CTA: Continua a leggere</div></div>
+      </div>
+      <div class="weekcol">
+        <div class="wh"><b>Settimana 3</b>Tracciabilità &amp; futuro</div>
+        <div class="evt"><div class="et">7 · Ogni vasetto ha una storia da seguire.</div><div class="em"><span class="dot" style="background:#c9a24b"></span>Lun · Tracciabilità · IG post + Facebook · <span class="status s-gen">da generare</span></div><div class="em">CTA: Scopri come</div></div>
+        <div class="evt"><div class="et">8 · Spot pubblicitario: Il tempo delle api.</div><div class="em"><span class="dot" style="background:#e0a93b"></span>Mer · Spot · YouTube + Reel (IG/TikTok) · <span class="status s-gen">da generare</span></div><div class="em">CTA: Condividi</div></div>
+        <div class="evt"><div class="et">9 · Mèlia: l'assistente virtuale EssereAPE.</div><div class="em"><span class="dot" style="background:#1d1710;border:1px solid #c9a24b"></span>Ven · Mèlia · Sito web / Shop · <span class="status s-gen">da generare</span></div><div class="em">CTA: Chiedi a Mèlia</div></div>
+      </div>
+      <div class="weekcol">
+        <div class="wh"><b>Settimana 4</b>Comunità &amp; scoperta</div>
+        <div class="evt"><div class="et">10 · Lo sapevi che un alveare è un superorganismo?</div><div class="em"><span class="dot" style="background:#c9a24b"></span>Lun · Educational · Carosello (IG+FB) · <span class="status s-gen">da generare</span></div><div class="em">CTA: Salva</div></div>
+        <div class="evt"><div class="et">11 · Dal racconto alla tracciabilità digitale.</div><div class="em"><span class="dot" style="background:#1d1710;border:1px solid #c9a24b"></span>Mer · Tracciabilità · Sito web / Shop · <span class="status s-gen">da generare</span></div><div class="em">CTA: Scopri come</div></div>
+        <div class="evt"><div class="et">12 · Scopri il progetto EssereAPE.</div><div class="em"><span class="dot" style="background:#8b5e34"></span>Ven · CTA · Sito web / Shop · <span class="status s-gen">da generare</span></div><div class="em">CTA: Esplora il progetto</div></div>
+      </div>
+    </div>
+    <p class="disclaimer" style="color:rgba(247,241,230,.6)">Giorni indicativi. Calendario di prototipo progettuale: gli stati operativi sono ipotesi di flusso, da confermare con il referente.</p>
+  </div>
+</section>
+
+<!-- ===== 14. WEEKLY CONTENT PLAN ===== -->
+<section class="sec" id="weekly">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">14</span> Weekly content plan</div>
+    <h2 class="h-sec">Le quattro settimane, <em>in dettaglio</em></h2>
+    <div class="grid g2" style="margin-top:34px">
+      <div class="card rev"><h3>Settimana 1 — Il tempo delle api</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">dare il tono e introdurre il claim</span></li>
+          <li><span class="k">Post 1</span><span class="v">Manifesto · «Si attende.»</span></li>
+          <li><span class="k">Post 2</span><span class="v">Prodotto · «Mille storie»</span></li>
+          <li><span class="k">Post 3</span><span class="v">Territorio · «Il Salento in un vasetto»</span></li>
+          <li><span class="k">Stories</span><span class="v">hook + quiz (2)</span></li>
+          <li><span class="k">Asset</span><span class="v">vasetto, territorio, tramonto</span></li>
+          <li><span class="k">Verifica</span><span class="v">tono di voce con referente</span></li>
+        </ul>
+      </div>
+      <div class="card rev"><h3>Settimana 2 — Api &amp; biodiversità</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">educare al valore ecologico</span></li>
+          <li><span class="k">Post 1</span><span class="v">Educational · biodiversità</span></li>
+          <li><span class="k">Post 2</span><span class="v">Nonno · «Custodire significa attendere»</span></li>
+          <li><span class="k">Post 3</span><span class="v">Carosello · cos'è il millefiori</span></li>
+          <li><span class="k">Stories</span><span class="v">spiegazione + sondaggio (2)</span></li>
+          <li><span class="k">Asset</span><span class="v">api, fiori, nonno</span></li>
+          <li><span class="k">Verifica</span><span class="v">nessun claim sanitario</span></li>
+        </ul>
+      </div>
+      <div class="card rev"><h3>Settimana 3 — Tracciabilità &amp; futuro</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">costruire fiducia e presentare Mèlia</span></li>
+          <li><span class="k">Post 1</span><span class="v">Tracciabilità · «una storia da seguire»</span></li>
+          <li><span class="k">Post 2</span><span class="v">Bambino · «Imparare il tempo»</span></li>
+          <li><span class="k">Post 3</span><span class="v">Mèlia · presentazione</span></li>
+          <li><span class="k">Stories</span><span class="v">demo Mèlia + domanda (2)</span></li>
+          <li><span class="k">Asset</span><span class="v">QR/smartphone, bambino, Mèlia</span></li>
+          <li><span class="k">Verifica</span><span class="v">funzioni Mèlia confermate</span></li>
+        </ul>
+      </div>
+      <div class="card rev"><h3>Settimana 4 — Comunità &amp; scoperta</h3>
+        <ul class="spec">
+          <li><span class="k">Obiettivo</span><span class="v">attivare community e invito al sito</span></li>
+          <li><span class="k">Post 1</span><span class="v">Carosello · «superorganismo»</span></li>
+          <li><span class="k">Post 2</span><span class="v">Tracciabilità · dal racconto al digitale</span></li>
+          <li><span class="k">Post 3</span><span class="v">CTA · «Scopri il progetto»</span></li>
+          <li><span class="k">Stories</span><span class="v">recap + CTA finale (2)</span></li>
+          <li><span class="k">Asset</span><span class="v">vasetto, logo, apiario</span></li>
+          <li><span class="k">Verifica</span><span class="v">link e CTA attivi sul sito</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 15. STORIES PLANNER ===== -->
+<section class="sec sec--cream2" id="storiesplanner">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">15</span> Stories planner</div>
+    <h2 class="h-sec">Sedici Stories, <em>quattro gruppi</em></h2>
+    <table class="tbl rev" style="margin-top:30px">
+      <thead><tr><th>#</th><th>Obiettivo</th><th>Testo breve</th><th>Visual</th><th>Sticker</th><th>CTA</th><th>Asset</th></tr></thead>
+      <tbody>
+        <tr><td><b>S1</b></td><td>Hook</td><td>Il miele non si produce. Si attende.</td><td>Territorio tramonto</td><td>—</td><td>Continua</td><td>[TERRITORIO]</td></tr>
+        <tr><td><b>S2</b></td><td>Quiz</td><td>Il millefiori è sempre uguale?</td><td>Api su fiori</td><td>Quiz</td><td>Rispondi</td><td>[API E FIORI]</td></tr>
+        <tr><td><b>S3</b></td><td>Curiosità</td><td>Ogni stagione, un sapore diverso.</td><td>Vasetto still life</td><td>Testo</td><td>Scopri</td><td>[VASETTO]</td></tr>
+        <tr><td><b>S4</b></td><td>CTA</td><td>Leggi la storia del vasetto.</td><td>Vasetto + logo</td><td>Link</td><td>Leggi</td><td>[VASETTO]</td></tr>
+        <tr><td><b>S5</b></td><td>Educational</td><td>Chi sono le api custodi?</td><td>Apiario</td><td>—</td><td>Continua</td><td>[API E FIORI]</td></tr>
+        <tr><td><b>S6</b></td><td>Sondaggio</td><td>Sai distinguere il millefiori?</td><td>Vasetti</td><td>Sondaggio</td><td>Vota</td><td>[VASETTO]</td></tr>
+        <tr><td><b>S7</b></td><td>Memoria</td><td>Custodire significa attendere.</td><td>Nonno / mani</td><td>Testo</td><td>Salva</td><td>[NONNO]</td></tr>
+        <tr><td><b>S8</b></td><td>CTA</td><td>Scopri l'etica EssereAPE.</td><td>Apiario</td><td>Link</td><td>Scopri</td><td>[TERRITORIO]</td></tr>
+        <tr><td><b>S9</b></td><td>Hook</td><td>Ogni vasetto ha una storia.</td><td>QR astratto</td><td>—</td><td>Continua</td><td>[TRACCIABILITÀ]</td></tr>
+        <tr><td><b>S10</b></td><td>Demo</td><td>Conosci Mèlia?</td><td>Avatar Mèlia</td><td>Domanda</td><td>Chiedi</td><td>[MÈLIA]</td></tr>
+        <tr><td><b>S11</b></td><td>Educational</td><td>Imparare il tempo della natura.</td><td>Bambino</td><td>Testo</td><td>Condividi</td><td>[BAMBINO]</td></tr>
+        <tr><td><b>S12</b></td><td>CTA</td><td>Chiedi a Mèlia.</td><td>Chat bubble</td><td>Link</td><td>Apri Mèlia</td><td>[MÈLIA]</td></tr>
+        <tr><td><b>S13</b></td><td>Curiosità</td><td>L'alveare è un superorganismo.</td><td>Pattern alveare</td><td>Quiz</td><td>Salva</td><td>[PATTERN ALVEARE]</td></tr>
+        <tr><td><b>S14</b></td><td>Behind</td><td>Dietro a un vasetto.</td><td>Mani / miele</td><td>—</td><td>Scopri</td><td>[VASETTO]</td></tr>
+        <tr><td><b>S15</b></td><td>Community</td><td>Cosa ami del miele autentico?</td><td>Crema/fondo</td><td>Domanda aperta</td><td>Rispondi</td><td>[API E FIORI]</td></tr>
+        <tr><td><b>S16</b></td><td>CTA finale</td><td>Scopri il progetto EssereAPE.</td><td>Vasetto + logo</td><td>Link</td><td>Scopri il progetto</td><td>[VASETTO]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== 16. HASHTAG GROUPS ===== -->
+<section class="sec" id="hashtag">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">16</span> Hashtag groups</div>
+    <h2 class="h-sec">Set di hashtag <em>da testare</em></h2>
+    <p class="lead">Gruppi tematici proposti come ipotesi operativa: vanno testati e ottimizzati nel tempo. Gli hashtag sono set operativi da testare e ottimizzare. I riferimenti a qualità, certificazione o tracciabilità devono essere usati solo quando coerenti con i materiali ufficiali del progetto.</p>
+    <div class="grid g3" style="margin-top:30px">
+      <div class="htgroup rev"><h4>Brand</h4><div class="tags">#essereape #ilmielenonsiproduce #millefiorimillestorie #apicolturaessereape</div></div>
+      <div class="htgroup rev"><h4>Miele</h4><div class="tags">#mielemillefiori #mieleartigianale #mieleitaliano #mielepremium #honeylover</div></div>
+      <div class="htgroup rev"><h4>Apicoltura etica</h4><div class="tags">#apicolturaetica #apicolturastanziale #apicoltura #cartasanmichele #apimellifera</div></div>
+      <div class="htgroup rev"><h4>Biodiversità</h4><div class="tags">#biodiversità #salviamoleapi #impollinatori #naturarispetto #savethebees</div></div>
+      <div class="htgroup rev"><h4>Salento</h4><div class="tags">#salento #salentodascoprire #puglia #weareinpuglia #salentolovers</div></div>
+      <div class="htgroup rev"><h4>Territorio</h4><div class="tags">#terroir #kmzero #filieracorta #madeinpuglia #prodottilocali</div></div>
+      <div class="htgroup rev"><h4>Sostenibilità</h4><div class="tags">#sostenibilità #slowfood #consapevole #naturale #ecofriendly</div></div>
+      <div class="htgroup rev"><h4>Educazione</h4><div class="tags">#losapeviche #educational #curiositàsullapi #imparareconlapi</div></div>
+      <div class="htgroup rev"><h4>Tracciabilità</h4><div class="tags">#tracciabilità #trasparenza #dallalvearealvasetto #qualitàcertificata</div></div>
+      <div class="htgroup rev"><h4>Community</h4><div class="tags">#community #storytelling #foodlovers #gourmet #regalogustoso</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 17. CTA PLANNER ===== -->
+<section class="sec sec--cream2" id="cta">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">17</span> CTA planner</div>
+    <h2 class="h-sec">Call to action per <em>fase funnel</em></h2>
+    <table class="tbl rev" style="margin-top:30px">
+      <thead><tr><th>Fase</th><th>Obiettivo</th><th>CTA proposte</th><th>KPI futuro</th></tr></thead>
+      <tbody>
+        <tr><td><b>Awareness</b></td><td>Farsi scoprire</td><td>Scopri il progetto EssereAPE · Segui per il tempo delle api</td><td>reach, nuovi follower</td></tr>
+        <tr><td><b>Engagement</b></td><td>Coinvolgere</td><td>Salva questo contenuto · Condividilo con chi ama il miele autentico</td><td>salvataggi, condivisioni</td></tr>
+        <tr><td><b>Consideration</b></td><td>Informare e rassicurare</td><td>Leggi la storia del vasetto · Chiedi a Mèlia</td><td>tempo permanenza, click bio</td></tr>
+        <tr><td><b>Conversion</b></td><td>Portare al sito</td><td>Scopri il progetto · Iscriviti alla newsletter</td><td>click sito, conversioni</td></tr>
+        <tr><td><b>Loyalty</b></td><td>Fidelizzare</td><td>Unisciti alla community · Racconta la tua esperienza</td><td>riacquisto, UGC</td></tr>
+      </tbody>
+    </table>
+    <p class="disclaimer">Le CTA proposte sono un modello teorico flessibile: andranno adattate alle funzionalità effettivamente attive sul sito finale. Le CTA verso sito web, e-commerce e shop fanno riferimento a canali esistenti o attivabili dal progetto Essere Ape. La creazione del sito e dell’e-commerce non rientra nel lavoro progettuale qui presentato; il piano editoriale ne prevede l’integrazione come touchpoint di conversione.</p>
+  </div>
+</section>
+
+<!-- ===== 18. WORKFLOW ===== -->
+<section class="sec sec--dark" id="workflow">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">18</span> Workflow operativo</div>
+    <h2 class="h-sec">Dal materiale al <em>KPI futuro</em></h2>
+    <p class="lead">Nove fasi sequenziali per produrre ogni contenuto con metodo, dalla fonte alla misurazione.</p>
+    <div class="flow rev" style="margin-top:34px">
+      <div class="step"><div class="n">1</div><h4>Analisi fonti</h4><p>Brief iniziale, documento spot, brand assets, fonti.</p></div>
+      <div class="step"><div class="n">2</div><h4>Brief contenuto</h4><p>Obiettivo, pillar, formato, CTA, asset necessari.</p></div>
+      <div class="step"><div class="n">3</div><h4>Prompt AI</h4><p>Stesura del prompt visuale (sezione 20) con vincoli.</p></div>
+      <div class="step"><div class="n">4</div><h4>Generazione visual</h4><p>Creazione immagini con spazio per i testi.</p></div>
+      <div class="step"><div class="n">5</div><h4>Revisione testi</h4><p>Tono di voce, brevità, coerenza poetica.</p></div>
+      <div class="step"><div class="n">6</div><h4>Verifica referente</h4><p>Controllo con il referente del progetto.</p></div>
+      <div class="step"><div class="n">7</div><h4>Programmazione</h4><p>Calendario, orari, piattaforme.</p></div>
+      <div class="step"><div class="n">8</div><h4>Pubblicazione</h4><p>Uscita sui canali previsti.</p></div>
+      <div class="step"><div class="n">9</div><h4>Lettura KPI futuri</h4><p>Misurazione e ottimizzazione successiva.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 19. CHECKLIST ===== -->
+<section class="sec" id="checklist">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">19</span> Checklist finale</div>
+    <h2 class="h-sec">Prima di <em>pubblicare</em></h2>
+    <p class="lead" style="margin-bottom:24px">Tocca ogni voce per spuntarla (verifica dimostrativa, non salvata).</p>
+    <ul class="checklist" id="checklist">
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Dati verificati e marcati come prototipo / KPI futuri</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Logo corretto, non deformato</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Vasetto ed etichetta non alterati</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Nessun claim sanitario o proprietà terapeutica</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Tono di voce coerente (poetico, etico, non promozionale)</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">CTA corretta per la fase del funnel</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Approvazione del referente del progetto</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Contenuto pronto e completo</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Pubblicazione programmata</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">KPI impostati come futuri, non come risultati</span></li>
+      <li><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span class="txt">Dicitura “prototipo progettuale” presente dove necessario</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 20. PROMPT AI ===== -->
+<section class="sec sec--cream2" id="prompt">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">20</span> Prompt AI per i visual</div>
+    <h2 class="h-sec">Nove prompt, <em>uno per template</em></h2>
+    <p class="lead">Prompt sintetici per generare i visual finali. Ogni prompt prevede spazio negativo per i testi e vincoli espliciti: nessun testo generato dall'AI, nessun watermark, logo/vasetto/etichetta mai alterati.</p>
+    <div class="grid g2" style="margin-top:30px">
+      <div class="card rev"><div class="tag">Prompt 01 · Manifesto</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5. <b>Soggetto</b> vasetto su pietra al tramonto nel Salento. <b>Composizione</b> off-center, ampio cielo. <b>Luce</b> golden hour calda. <b>Palette</b> ambra, nero favo, crema. <b>Stile</b> fotografico documentaristico premium. <b>Spazio</b> ampio in alto per claim. <b>Asset</b> vasetto EssereAPE. <b>No</b> testi generati, no watermark, non alterare logo/etichetta.</div></div>
+      <div class="card rev"><div class="tag">Prompt 02 · Prodotto</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5. <b>Soggetto</b> vasetto still life su pietra chiara con fiori secchi. <b>Composizione</b> centrale, profondità morbida. <b>Luce</b> diffusa calda. <b>Palette</b> miele, crema, terra. <b>Stile</b> still life editoriale. <b>Spazio</b> laterale per testo. <b>Asset</b> vasetto. <b>No</b> testi generati, no watermark, vasetto/etichetta intatti.</div></div>
+      <div class="card rev"><div class="tag">Prompt 03 · Educational api</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5. <b>Soggetto</b> api su fioriture spontanee. <b>Composizione</b> macro, bokeh dorato. <b>Luce</b> naturale soffusa. <b>Palette</b> verde salvia, oro, crema. <b>Stile</b> macro naturalistico. <b>Spazio</b> in alto per titolo. <b>Asset</b> api e fiori. <b>No</b> testi generati, no watermark.</div></div>
+      <div class="card rev"><div class="tag">Prompt 04 · Territorio</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5 (adatt. 9:16). <b>Soggetto</b> uliveti e macchia mediterranea salentina. <b>Composizione</b> orizzonte basso, profondità. <b>Luce</b> dorata di campagna. <b>Palette</b> oliva, dorato, crema. <b>Stile</b> paesaggistico cinematico. <b>Spazio</b> centrale per claim. <b>No</b> testi generati, no watermark.</div></div>
+      <div class="card rev"><div class="tag">Prompt 05 · Nonno</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5. <b>Soggetto</b> figura simbolica del nonno custode, mani sul legno. <b>Composizione</b> ritratto intimo, ambiente rustico. <b>Luce</b> da finestra calda. <b>Palette</b> terra, crema, ambra. <b>Stile</b> ritrattistico documentaristico. <b>Spazio</b> in basso per testo. <b>No</b> volti riconoscibili specifici, no testi generati, no watermark.</div></div>
+      <div class="card rev"><div class="tag">Prompt 06 · Bambino</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5. <b>Soggetto</b> bambino simbolico che osserva il miele. <b>Composizione</b> primo piano dolce. <b>Luce</b> calda naturale. <b>Palette</b> miele, crema, terra. <b>Stile</b> intimo cinematico. <b>Spazio</b> in alto per titolo. <b>No</b> volti specifici reali, no testi generati, no watermark.</div></div>
+      <div class="card rev"><div class="tag">Prompt 07 · Tracciabilità</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5. <b>Soggetto</b> mano con smartphone e QR astratto accanto al vasetto. <b>Composizione</b> dettaglio, fondo scuro. <b>Luce</b> calda focalizzata. <b>Palette</b> nero favo, oro, ambra. <b>Stile</b> still life tecnologico-caldo. <b>Spazio</b> centrale per testo. <b>Asset</b> vasetto. <b>No</b> QR reali/dati, no testi generati, no watermark, etichetta intatta.</div></div>
+      <div class="card rev"><div class="tag">Prompt 08 · Carosello</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5. <b>Soggetto</b> pattern di favo / api su sfondo grafico caldo. <b>Composizione</b> grafica pulita, geometrica. <b>Luce</b> uniforme. <b>Palette</b> oro, ambra, nero favo. <b>Stile</b> editoriale minimale. <b>Spazio</b> ampio per titolo e numeri slide. <b>No</b> testi generati, no watermark.</div></div>
+      <div class="card rev"><div class="tag">Prompt 09 · CTA</div><div class="promptbox" style="margin-top:12px"><b>Formato</b> 4:5. <b>Soggetto</b> vasetto in primo piano su fondo scuro elegante. <b>Composizione</b> centrale, alone di luce. <b>Luce</b> calda da lato. <b>Palette</b> nero favo, terra, oro. <b>Stile</b> premium pubblicitario sobrio. <b>Spazio</b> in basso per CTA e logo. <b>Asset</b> vasetto. <b>No</b> testi generati, no watermark, logo/vasetto/etichetta non alterati.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 21. COME LEGGERE IL SISTEMA ===== -->
+<section class="sec" id="metodo">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">21</span> Come leggere il sistema</div>
+    <h2 class="h-sec">Guida alla <em>lettura</em></h2>
+    <div class="grid g2" style="margin-top:30px">
+      <div class="usebox rev"><h4>Coerenza visiva</h4><p>Il sistema visivo e i pillar dimostrano l'applicazione operativa della content strategy, integrando l'identità esistente in modo armonioso e senza deformazioni.</p></div>
+      <div class="usebox rev"><h4>Flessibilità</h4><p>Feed preview, 9 template, carosello e stories planner documentano un laboratorio creativo-strategico progettato per adattarsi a vari formati.</p></div>
+      <div class="usebox rev"><h4>Pronto all'uso</h4><p>Gli asset sono organizzati e pronti per essere utilizzati sui principali canali social, mantenendo sempre l'etica del brand.</p></div>
+      <div class="usebox rev"><h4>Visione strategica</h4><p>Usa il claim, i 5 pillar e il workflow per raccontare il metodo; i KPI suggeriti sono orientati alla misurazione dell'efficacia futura.</p></div>
+    </div>
+    <div class="card rev" style="margin-top:22px;background:rgba(110,122,69,.06);border-color:rgba(110,122,69,.3)">
+      <p style="font-family:'Jost';font-size:.9rem;color:var(--testo-soft);margin:0">Il <b>sistema visivo è un prototipo progettuale</b>, il <b>piano editoriale è una proposta operativa</b>, i <b>KPI sono criteri futuri di misurazione</b>. Le scelte grafiche e narrative valorizzano e rispettano l'ecosistema del brand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 22. NOTA METODOLOGICA FINALE ===== -->
+<section class="sec sec--cream2" id="nota">
+  <div class="wrap">
+    <div class="eyebrow"><span class="hexnum">22</span> Nota metodologica finale</div>
+    <div class="notabox rev">
+      <div class="inner">
+        <p><b>Prototipo progettuale · Proposta operativa</b><br>Questo sistema visivo e piano editoriale costituiscono un prototipo strategico-operativo per Essere Ape. Il lavoro integra identità visiva esistente, spot pubblicitario, content strategy, calendario editoriale, canali social, sito web/e-commerce come touchpoint e KPI futuri. Non rappresenta una campagna già validata sul mercato, ma una proposta di sviluppo applicabile dal progetto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="wm" style="margin-bottom:10px">essere<b>APE</b></div>
+    <div style="font-style:italic;font-family:'Cormorant Garamond';font-size:1.2rem;color:var(--miele);margin-bottom:14px">Il miele non si produce. Si attende.</div>
+    A cura di Federica Centonze · Caso studio creativo-strategico · Socialin Communication / Federica Creative<br>
+    <span style="opacity:.6;font-size:.74rem">Prototipo progettuale · sistema visivo e piano editoriale · KPI futuri</span>
+  </div>
+</footer>
+
+<button class="totop" id="toTop" aria-label="Torna su"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 14l6-6 6 6"/></svg></button>
+
+<script>
+// nav toggle (mobile)
+document.getElementById('navToggle').addEventListener('click',function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('#navLinks a').forEach(function(a){
+  a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open');});
+});
+
+// scroll reveal
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.rev').forEach(function(el){io.observe(el);});
+
+// back to top
+var tt=document.getElementById('toTop');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>600){tt.classList.add('show');}else{tt.classList.remove('show');}
+});
+tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+// checklist toggle (in-memory only)
+document.querySelectorAll('#checklist li').forEach(function(li){
+  li.addEventListener('click',function(){li.classList.toggle('done');});
+});
+</script>
+</body>
+</html>

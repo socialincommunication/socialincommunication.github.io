@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   // --- FADE UP ANIMATIONS ---
   const fadeElements = document.querySelectorAll('.fade-up');
-  
+
   const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.1
   };
-  
+
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, observerOptions);
-  
+
   fadeElements.forEach(el => observer.observe(el));
 
   // --- MOBILE MENU ---
   const menuBtn = document.querySelector('.menu-btn');
   const navLinks = document.querySelector('.nav-links');
   const navItems = document.querySelectorAll('.nav-links a');
-  
+
   if (menuBtn && navLinks) {
     menuBtn.addEventListener('click', () => {
       const isActive = navLinks.classList.toggle('active');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   navItems.forEach(item => {
-    item.addEventListener('click', function(e) {
+    item.addEventListener('click', function (e) {
       if (navLinks && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
         menuBtn.classList.remove('active');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- CUSTOM CURSOR (Desktop Only) ---
   const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-  
+
   if (!isTouchDevice) {
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       explosion.style.left = `${cursor.getBoundingClientRect().left}px`;
       explosion.style.top = `${cursor.getBoundingClientRect().top}px`;
       document.body.appendChild(explosion);
-      
+
       setTimeout(() => explosion.remove(), 400);
     });
 
@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
     question.addEventListener('click', () => {
       const parent = question.parentElement;
       const isActive = parent.classList.contains('active');
-      
+
       // Close all others
       document.querySelectorAll('.faq-item').forEach(item => {
         item.classList.remove('active');
       });
-      
+
       if (!isActive) {
         parent.classList.add('active');
       }
@@ -115,49 +115,49 @@ document.addEventListener('DOMContentLoaded', () => {
   if (consulenzaForm) {
     consulenzaForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       const formData = new FormData(consulenzaForm);
       let bodyText = "Ciao Socialin, ho appena compilato il modulo. Ecco i dettagli della mia richiesta:\n\n";
-      
+
       // Info base
       bodyText += `Nome: ${formData.get('name') || '-'}\n`;
       bodyText += `Brand/Attività: ${formData.get('brand') || '-'}\n`;
       bodyText += `Email: ${formData.get('email') || '-'}\n`;
       bodyText += `Telefono: ${formData.get('phone') || '-'}\n\n`;
-      
+
       // Dettagli progetto
       bodyText += `Servizio di interesse: ${formData.get('service_interest') || '-'}\n`;
       bodyText += `Problema principale: ${formData.get('problem') || '-'}\n`;
       bodyText += `Budget indicativo: ${formData.get('budget') || '-'}\n\n`;
-      
+
       // Contatto
       bodyText += `Preferenza di contatto: ${formData.get('contact_pref') || '-'}\n`;
       bodyText += `Giorni/Orari preferiti: ${formData.get('time_pref') || '-'}\n\n`;
-      
+
       bodyText += "In attesa di un vostro riscontro per prenotare la consulenza.\n";
 
       // Encode for mailto
       const subject = encodeURIComponent("Richiesta consulenza Socialin Communication");
       const body = encodeURIComponent(bodyText);
       const mailtoLink = `mailto:socialincreative@gmail.com?subject=${subject}&body=${body}`;
-      
+
       // Visual feedback and redirect
       const submitBtn = consulenzaForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerText;
       submitBtn.innerText = "Email generata! Apertura in corso...";
       submitBtn.classList.add('success');
-      
+
       setTimeout(() => {
         window.location.href = mailtoLink;
-        
+
         setTimeout(() => {
-            submitBtn.innerText = originalText;
-            submitBtn.classList.remove('success');
-            // Scroll smoothly to calendar section
-            document.querySelector('#calendario-section').scrollIntoView({behavior: 'smooth'});
+          submitBtn.innerText = originalText;
+          submitBtn.classList.remove('success');
+          // Scroll smoothly to calendar section
+          document.querySelector('#calendario-section').scrollIntoView({ behavior: 'smooth' });
         }, 3000);
       }, 500);
-      
+
       // Nota: Per invio reale del form via email collegare Formspree, Netlify Forms, Supabase, backend Node.js o servizio CRM.
     });
   }
