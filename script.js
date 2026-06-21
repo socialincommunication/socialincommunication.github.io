@@ -64,8 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(cursor);
 
     document.addEventListener('mousemove', (e) => {
-      // Usiamo transform per performance
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      const x = e.clientX;
+      const y = e.clientY;
+      cursor.style.left = `${x}px`;
+      cursor.style.top = `${y}px`;
     });
 
     document.addEventListener('mousedown', () => {
