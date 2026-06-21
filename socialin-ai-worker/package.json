@@ -1,0 +1,17 @@
+{
+  "name": "socialin-ai-worker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "vectorstore:create": "node scripts/create-vector-store.mjs",
+    "vectorstore:check": "node scripts/check-vector-store.mjs",
+    "worker:dev": "wrangler dev",
+    "worker:deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

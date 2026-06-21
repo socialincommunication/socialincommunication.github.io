@@ -16,13 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Quick Replies predefined
     const quickReplies = [
-        "Voglio migliorare i social",
-        "Voglio creare un sito",
-        "Voglio un funnel",
-        "Voglio usare avatar AI",
-        "Voglio un e-commerce",
-        "Voglio sapere i costi",
-        "Voglio prenotare una consulenza"
+        "Voglio un sito o funnel",
+        "Mi serve una strategia social",
+        "Vorrei creare un avatar AI",
+        "Mi serve un video o spot",
+        "Voglio richiedere una consulenza"
     ];
 
     let isChatOpen = false;
@@ -166,42 +164,52 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleUserMessage(text) {
         appendMessage("user", text);
         
-        // Regola Hardcoded per i prezzi
-        if (text.toLowerCase().includes("costi") || text.toLowerCase().includes("prezzi")) {
-            setTimeout(() => {
-                appendMessage("bot", "I percorsi Socialin vengono costruiti su misura. Il budget minimo consigliato per un progetto professionale parte da 500€ in su. Per capire il percorso più adatto, ti chiedo di compilare il modulo consulenza: così arriviamo alla call con un'analisi più precisa.");
-                appendCtaButton("Compila il modulo consulenza", "#consulenza-form");
-            }, 800);
-            return;
-        }
-
-        if (text.toLowerCase().includes("consulenza")) {
-            setTimeout(() => {
-                appendMessage("bot", "Perfetto! Compila il modulo qui sotto e ti guiderò verso la prenotazione della call conoscitiva.");
-                appendCtaButton("Vai al Modulo", "#consulenza-form");
-            }, 800);
-            return;
-        }
-
-        // Se non è una risposta scriptata, invia ad AI
+        // Invia ad AI
         sendToAI(text);
     }
 
     /**
-     * PLACEHOLDER BACKEND AI
+     * BACKEND AI INTEGRATION
      */
     async function sendToAI(userText) {
         const typingDiv = document.createElement('div');
         typingDiv.classList.add('chat-msg', 'msg-bot', 'typing-indicator');
-        typingDiv.innerHTML = '<div class="msg-content">...</div>';
+        typingDiv.innerHTML = '<div class="msg-content">Sta scrivendo...</div>';
         chatbotMessages.appendChild(typingDiv);
         scrollToBottom();
 
-        setTimeout(() => {
+        if (!window.SOCIALIN_CHATBOT_API_URL || window.SOCIALIN_CHATBOT_API_URL.trim() === "") {
             typingDiv.remove();
-            appendMessage("bot", "Al momento sto imparando le funzioni avanzate. Per approfondire, seleziona una delle opzioni rapide o prenota una consulenza dedicata.");
-            appendCtaButton("Prenota una call", "#consulenza-form");
-        }, 1500);
+            appendMessage("bot", "L’assistente AI è in fase di attivazione. Per informazioni immediate usa la sezione contatti.");
+            return;
+        }
+
+        try {
+            const response = await fetch(window.SOCIALIN_CHATBOT_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userText })
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            typingDiv.remove();
+            
+            if (data && data.answer) {
+                appendMessage("bot", data.answer);
+            } else {
+                appendMessage("bot", "L’assistente è momentaneamente non disponibile. Puoi riprovare tra poco oppure contattare Socialin Communication / Federica Creative.");
+            }
+        } catch (error) {
+            console.error('Error in sendToAI:', error);
+            typingDiv.remove();
+            appendMessage("bot", "L’assistente è momentaneamente non disponibile. Puoi riprovare tra poco oppure contattare Socialin Communication / Federica Creative.");
+        }
     }
 
     function scrollToBottom() {
