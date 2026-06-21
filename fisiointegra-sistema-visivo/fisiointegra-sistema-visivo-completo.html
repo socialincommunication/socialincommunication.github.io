@@ -1,0 +1,3132 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FisioIntegra · Sistema Visivo Instagram — Project Work LUM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --petrolio: #0B4F5A;
+      --teal: #147C7C;
+      --verde: #3BA66B;
+      --salvia: #A8CDB2;
+      --crema: #F7F5EF;
+      --grigio: #E6ECEB;
+      --inchiostro: #12343B;
+      --acqua: #6ED3C6;
+      --display: 'Manrope', sans-serif;
+      --body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: var(--body);
+      background: #EAEFEE;
+      color: var(--inchiostro);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    /* ---------- PAGE SHELL ---------- */
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 22px 120px
+    }
+
+    .sec {
+      margin-top: 84px
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 26px
+    }
+
+    .sec-kicker {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sec-kicker::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--verde);
+      border-radius: 2px
+    }
+
+    .sec-title {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(26px, 4vw, 40px);
+      color: var(--petrolio);
+      letter-spacing: -.02em;
+      line-height: 1.05
+    }
+
+    .sec-desc {
+      color: #3d5a60;
+      max-width: 680px;
+      font-size: 15.5px;
+      margin-top: 4px
+    }
+
+    /* ---------- COVER ---------- */
+    .cover {
+      margin-top: 30px;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(120% 140% at 88% -10%, rgba(110, 211, 198, .30), transparent 55%),
+        linear-gradient(135deg, #0B4F5A 0%, #147C7C 58%, #1f8f81 100%);
+      color: var(--crema);
+      padding: 54px 48px 48px;
+    }
+
+    .cover-curve {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+      pointer-events: none
+    }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+      z-index: 2
+    }
+
+    .cover-logo {
+      height: 46px;
+      filter: brightness(0) invert(1);
+      opacity: .96
+    }
+
+    .cover-tag {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--acqua);
+      text-align: right;
+      line-height: 1.7
+    }
+
+    .cover h1 {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(32px, 6vw, 62px);
+      letter-spacing: -.03em;
+      line-height: 1.02;
+      margin-top: 36px;
+      position: relative;
+      z-index: 2;
+      max-width: 14ch
+    }
+
+    .cover h1 b {
+      color: var(--acqua);
+      font-weight: 800
+    }
+
+    .cover-lead {
+      margin-top: 18px;
+      max-width: 60ch;
+      font-size: 17px;
+      color: #dcefea;
+      position: relative;
+      z-index: 2
+    }
+
+    .cover-meta {
+      margin-top: 34px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(247, 245, 239, .12);
+      border: 1px solid rgba(247, 245, 239, .26);
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #eaf6f3
+    }
+
+    .chip b {
+      color: var(--acqua)
+    }
+
+    /* ---------- BRAND BOARD ---------- */
+    .board {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px
+    }
+
+    .card {
+      background: var(--crema);
+      border: 1px solid #dfe7e5;
+      border-radius: 22px;
+      padding: 24px
+    }
+
+    .card h3 {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .card h3 .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--verde)
+    }
+
+    .span4 {
+      grid-column: span 4
+    }
+
+    .span5 {
+      grid-column: span 5
+    }
+
+    .span6 {
+      grid-column: span 6
+    }
+
+    .span7 {
+      grid-column: span 7
+    }
+
+    .span8 {
+      grid-column: span 8
+    }
+
+    .span12 {
+      grid-column: span 12
+    }
+
+    .logobox {
+      background: var(--crema);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      min-height: 120px;
+      border: 1px dashed #c8d6d2
+    }
+
+    .logobox.dark {
+      background: linear-gradient(135deg, var(--petrolio), var(--teal));
+      border: none
+    }
+
+    .logobox img {
+      height: auto;
+      max-width: 220px;
+      width: 100%;
+      object-fit: contain;
+      object-position: center
+    }
+
+    .logobox.dark img {
+      height: auto;
+      max-width: 220px;
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
+      filter: brightness(0) invert(1)
+    }
+
+    .logo-note {
+      font-size: 12.5px;
+      color: #5a767c;
+      margin-top: 12px
+    }
+
+    .logo-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 6px
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px
+    }
+
+    .sw {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #dfe7e5;
+      background: #fff
+    }
+
+    .sw .chiph {
+      height: 62px
+    }
+
+    .sw .meta {
+      padding: 9px 10px
+    }
+
+    .sw .nm {
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--inchiostro);
+      line-height: 1.25
+    }
+
+    .sw .hex {
+      font-size: 11px;
+      color: #7a8f93;
+      font-family: var(--body);
+      letter-spacing: .02em
+    }
+
+    .type-row {
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .type-block .lbl {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .type-display {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 34px;
+      color: var(--petrolio);
+      letter-spacing: -.02em;
+      line-height: 1
+    }
+
+    .type-body {
+      font-family: var(--body);
+      font-size: 15px;
+      color: #3d5a60
+    }
+
+    .type-scale {
+      font-family: var(--display);
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--inchiostro)
+    }
+
+    .type-scale span {
+      line-height: 1
+    }
+
+    .photo-style {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px
+    }
+
+    .photo-style img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 12px
+    }
+
+    .ps-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--petrolio);
+      background: #e7f1ec;
+      border: 1px solid #cfe6da;
+      border-radius: 999px;
+      padding: 5px 12px
+    }
+
+    .elements-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px
+    }
+
+    .el {
+      background: #fff;
+      border: 1px solid #e2eae8;
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center
+    }
+
+    .el svg {
+      margin: 0 auto 10px
+    }
+
+    .el .en {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--petrolio)
+    }
+
+    .el .ed {
+      font-size: 12px;
+      color: #6a8186;
+      margin-top: 3px
+    }
+
+    .rules {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 22px
+    }
+
+    .rules li {
+      font-size: 14px;
+      color: #33545b;
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.4
+    }
+
+    .rules li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 11px;
+      height: 11px;
+      border-radius: 3px;
+      background: var(--verde);
+      box-shadow: 3px 3px 0 var(--salvia)
+    }
+
+    .method-note {
+      background: #fff;
+      border: 1px solid #e2eae8;
+      border-left: 4px solid var(--verde);
+      border-radius: 0 14px 14px 0;
+      padding: 18px 20px
+    }
+
+    .method-note .mt {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--verde);
+      margin-bottom: 7px
+    }
+
+    .method-note p {
+      font-size: 13.5px;
+      color: #3d5a60
+    }
+
+    .method-note b {
+      color: var(--petrolio)
+    }
+
+    /* ---------- FEED PREVIEW 3x3 ---------- */
+    .feed-wrap {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 34px;
+      align-items: start
+    }
+
+    .ig-phone {
+      background: #fff;
+      border: 1px solid #dde6e4;
+      border-radius: 26px;
+      padding: 16px 14px 18px;
+      box-shadow: 0 24px 60px -34px rgba(11, 79, 90, .5)
+    }
+
+    .ig-head {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 6px 6px 14px;
+      border-bottom: 1px solid #eef2f1
+    }
+
+    .ig-av {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--petrolio), var(--teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      overflow: hidden
+    }
+
+    .ig-av img {
+      width: 70%;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1)
+    }
+
+    .ig-id .h {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--inchiostro)
+    }
+
+    .ig-id .s {
+      font-size: 11.5px;
+      color: #7d9196
+    }
+
+    .ig-stats {
+      display: flex;
+      gap: 16px;
+      margin-left: auto;
+      text-align: center
+    }
+
+    .ig-stats div b {
+      display: block;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--inchiostro)
+    }
+
+    .ig-stats div span {
+      font-size: 10px;
+      color: #8a9da1
+    }
+
+    .ig-bio {
+      padding: 12px 6px 14px;
+      font-size: 12.5px;
+      color: #3d5a60;
+      line-height: 1.5
+    }
+
+    .ig-bio b {
+      color: var(--petrolio);
+      font-family: var(--display)
+    }
+
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      border-radius: 10px;
+      overflow: hidden
+    }
+
+    .feed-legend {
+      font-size: 13px
+    }
+
+    .feed-legend h4 {
+      font-family: var(--display);
+      font-weight: 800;
+      color: var(--petrolio);
+      font-size: 18px;
+      margin-bottom: 10px
+    }
+
+    .legend-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px
+    }
+
+    .legend-list li {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      font-size: 13.5px;
+      color: #33545b
+    }
+
+    .legend-list .ln {
+      flex: 0 0 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 12px;
+      color: #fff;
+      background: var(--teal)
+    }
+
+    .legend-list b {
+      color: var(--petrolio);
+      font-family: var(--display);
+      font-weight: 700
+    }
+
+    .rhythm {
+      margin-top: 18px;
+      background: var(--crema);
+      border: 1px solid #dfe7e5;
+      border-radius: 14px;
+      padding: 16px
+    }
+
+    .rhythm .rt {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 8px
+    }
+
+    .rhythm p {
+      font-size: 13px;
+      color: #3d5a60
+    }
+
+    /* ---------- TEMPLATE CANVAS ---------- */
+    .tpl-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px
+    }
+
+    .tpl-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .tpl-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .tpl-no {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 13px;
+      color: #fff;
+      background: var(--petrolio);
+      border-radius: 7px;
+      padding: 3px 9px
+    }
+
+    .tpl-name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--petrolio);
+      line-height: 1.1
+    }
+
+    .tpl-dim {
+      font-size: 11px;
+      color: #8a9da1;
+      margin-left: auto;
+      font-weight: 600
+    }
+
+    .canvas {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+      container-type: inline-size;
+      background: var(--crema);
+      box-shadow: 0 16px 40px -26px rgba(11, 79, 90, .55);
+    }
+
+    .canvas.feed {
+      aspect-ratio: 4/5
+    }
+
+    .canvas.story {
+      aspect-ratio: 9/16
+    }
+
+    .ph {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top
+    }
+
+    .layer {
+      position: absolute;
+      inset: 0
+    }
+
+    .pad {
+      position: absolute;
+      inset: 0;
+      padding: 7cqw;
+      display: flex;
+      flex-direction: column;
+      z-index: 5
+    }
+
+    .story .pad {
+      padding: 8cqw 7cqw
+    }
+
+    /* scrims */
+    .scrim-b {
+      background: linear-gradient(to top, rgba(11, 79, 90, .92) 0%, rgba(11, 79, 90, .55) 40%, rgba(11, 79, 90, .08) 70%, transparent 100%)
+    }
+
+    .scrim-full {
+      background: linear-gradient(160deg, rgba(11, 79, 90, .78), rgba(20, 124, 124, .62))
+    }
+
+    .scrim-t {
+      background: linear-gradient(to bottom, rgba(11, 79, 90, .85) 0%, rgba(11, 79, 90, .2) 45%, transparent 70%)
+    }
+
+    .bg-deep {
+      background: radial-gradient(130% 120% at 85% 0%, rgba(110, 211, 198, .26), transparent 55%), linear-gradient(150deg, var(--petrolio), var(--teal))
+    }
+
+    .bg-crema {
+      background: var(--crema)
+    }
+
+    .bg-grigio {
+      background: var(--grigio)
+    }
+
+    .bg-acqua {
+      background: radial-gradient(120% 120% at 20% 10%, rgba(110, 211, 198, .5), transparent 50%), linear-gradient(160deg, var(--salvia), #cfe6db)
+    }
+
+    /* type inside canvas */
+    .eyb {
+      font-family: var(--display);
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      font-size: 3.1cqw;
+      display: inline-flex;
+      align-items: center;
+      gap: 2cqw
+    }
+
+    .eyb::before {
+      content: "";
+      width: 7cqw;
+      height: .5cqw;
+      border-radius: 2px;
+      background: currentColor;
+      opacity: .85
+    }
+
+    .t-light {
+      color: var(--crema)
+    }
+
+    .t-acqua {
+      color: var(--acqua)
+    }
+
+    .t-teal {
+      color: var(--teal)
+    }
+
+    .t-petrolio {
+      color: var(--petrolio)
+    }
+
+    .t-verde {
+      color: var(--verde)
+    }
+
+    .h-xl {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 11cqw;
+      line-height: .98;
+      letter-spacing: -.02em
+    }
+
+    .h-lg {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 8.6cqw;
+      line-height: 1.02;
+      letter-spacing: -.02em
+    }
+
+    .h-md {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 7cqw;
+      line-height: 1.04;
+      letter-spacing: -.01em
+    }
+
+    .sub {
+      font-family: var(--body);
+      font-weight: 500;
+      font-size: 4.1cqw;
+      line-height: 1.32
+    }
+
+    .sub-sm {
+      font-family: var(--body);
+      font-weight: 500;
+      font-size: 3.5cqw;
+      line-height: 1.34
+    }
+
+    .spacer {
+      flex: 1
+    }
+
+    /* canvas footer strip */
+    .cfoot {
+      display: flex;
+      align-items: center;
+      gap: 2.4cqw;
+      z-index: 6
+    }
+
+    .cfoot img {
+      height: 4.6cqw;
+      width: auto
+    }
+
+    .cfoot.dark img {
+      filter: brightness(0) invert(1);
+      opacity: .95
+    }
+
+    .cfoot .hd {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 3.1cqw;
+      letter-spacing: .02em
+    }
+
+    .cfoot .ln {
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: .3
+    }
+
+    .logo-slot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--crema);
+      border-radius: 2.4cqw;
+      padding: 1.8cqw 3cqw
+    }
+
+    .logo-slot img {
+      height: 4.6cqw;
+      filter: none !important
+    }
+
+    /* movement curve motif */
+    .mv {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1
+    }
+
+    /* list inside */
+    .clist {
+      display: flex;
+      flex-direction: column;
+      gap: 2.6cqw;
+      z-index: 5
+    }
+
+    .cli {
+      display: flex;
+      align-items: flex-start;
+      gap: 3cqw
+    }
+
+    .cli .n {
+      flex: 0 0 auto;
+      width: 7.6cqw;
+      height: 7.6cqw;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 3.6cqw
+    }
+
+    .cli .tx {
+      font-family: var(--body);
+      font-size: 3.7cqw;
+      line-height: 1.28;
+      font-weight: 500;
+      padding-top: 1cqw
+    }
+
+    .cli .tx b {
+      font-weight: 700
+    }
+
+    /* steps / percorso nodes */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      z-index: 5
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 3.4cqw;
+      position: relative
+    }
+
+    .step .node {
+      flex: 0 0 auto;
+      width: 9.4cqw;
+      height: 9.4cqw;
+      border-radius: 50%;
+      background: rgba(247, 245, 239, .12);
+      border: 1.5px solid var(--acqua);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 4cqw;
+      color: var(--acqua)
+    }
+
+    .step .lbl {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 4.4cqw;
+      color: var(--crema)
+    }
+
+    .step .lbl small {
+      display: block;
+      font-family: var(--body);
+      font-weight: 400;
+      font-size: 2.8cqw;
+      color: #bfe3dc;
+      margin-top: .4cqw
+    }
+
+    .step .conn {
+      position: absolute;
+      left: 4.6cqw;
+      top: 9.4cqw;
+      width: 2px;
+      height: 4.5cqw;
+      background: linear-gradient(var(--acqua), transparent)
+    }
+
+    /* quiz poll */
+    .poll {
+      display: flex;
+      flex-direction: column;
+      gap: 2.6cqw;
+      z-index: 5
+    }
+
+    .poll-q {
+      background: rgba(247, 245, 239, .95);
+      border-radius: 4cqw;
+      padding: 4cqw 4.6cqw;
+      box-shadow: 0 6cqw 14cqw -8cqw rgba(11, 79, 90, .6)
+    }
+
+    .poll-q .ql {
+      font-family: var(--display);
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 2.7cqw;
+      color: var(--teal)
+    }
+
+    .poll-q .qt {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 5cqw;
+      color: var(--petrolio);
+      line-height: 1.08;
+      margin-top: 1.4cqw
+    }
+
+    .poll-opts {
+      display: flex;
+      gap: 3cqw
+    }
+
+    .poll-opts .opt {
+      flex: 1;
+      text-align: center;
+      border-radius: 99px;
+      padding: 3.4cqw;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 4.4cqw;
+      border: 2px solid rgba(247, 245, 239, .85)
+    }
+
+    .opt.si {
+      background: rgba(247, 245, 239, .95);
+      color: var(--verde)
+    }
+
+    .opt.no {
+      background: transparent;
+      color: var(--crema)
+    }
+
+    .poll-hint {
+      font-family: var(--body);
+      font-size: 2.9cqw;
+      color: rgba(247, 245, 239, .85);
+      text-align: center
+    }
+
+    /* myth split */
+    .myth {
+      display: flex;
+      flex-direction: column;
+      gap: 3cqw;
+      z-index: 5
+    }
+
+    .myth-row {
+      background: #fff;
+      border: 1px solid #e0eae7;
+      border-radius: 3.4cqw;
+      padding: 3.4cqw 4cqw;
+      display: flex;
+      gap: 3cqw;
+      align-items: flex-start
+    }
+
+    .myth-row .badge {
+      flex: 0 0 auto;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 2.7cqw;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border-radius: 99px;
+      padding: 1.4cqw 3cqw;
+      margin-top: .4cqw
+    }
+
+    .badge.m {
+      background: #f4e3df;
+      color: #b4592f
+    }
+
+    .badge.r {
+      background: #e0f0e7;
+      color: var(--verde)
+    }
+
+    .myth-row .mtx {
+      font-family: var(--body);
+      font-size: 3.5cqw;
+      line-height: 1.26;
+      color: var(--inchiostro)
+    }
+
+    .myth-row .mtx b {
+      color: var(--petrolio);
+      font-weight: 700
+    }
+
+    /* cta button */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 2.4cqw;
+      background: var(--verde);
+      color: #fff;
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 4.2cqw;
+      border-radius: 99px;
+      padding: 3.6cqw 5.4cqw;
+      align-self: flex-start;
+      box-shadow: 0 5cqw 12cqw -6cqw rgba(59, 166, 107, .8)
+    }
+
+    .cta-btn.lite {
+      background: var(--crema);
+      color: var(--petrolio)
+    }
+
+    /* photo inset (cards with photo on part) */
+    .ph-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      object-fit: cover;
+      object-position: center top;
+      width: 100%
+    }
+
+    .ph-side {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 46%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top
+    }
+
+    .curve-mask {
+      position: absolute;
+      z-index: 2;
+      pointer-events: none
+    }
+
+    /* ---------- CAROUSEL ROW ---------- */
+    .carousel {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px
+    }
+
+    .cslide .lbl-strip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 9px
+    }
+
+    .cslide .dotn {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 11px;
+      color: #fff;
+      background: var(--teal);
+      border-radius: 6px;
+      padding: 2px 8px
+    }
+
+    .cslide .dotn.cover {
+      background: var(--verde)
+    }
+
+    .cslide .lbl-strip span {
+      font-size: 11.5px;
+      color: #7d9196;
+      font-weight: 600
+    }
+
+    .swipe {
+      display: flex;
+      align-items: center;
+      gap: 1.6cqw;
+      z-index: 6;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 2.9cqw
+    }
+
+    /* ---------- STORIES ROW ---------- */
+    .stories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
+
+    .story-prog {
+      position: absolute;
+      top: 3cqw;
+      left: 4cqw;
+      right: 4cqw;
+      display: flex;
+      gap: 1.4cqw;
+      z-index: 7
+    }
+
+    .story-prog i {
+      flex: 1;
+      height: 1cqw;
+      border-radius: 2px;
+      background: rgba(247, 245, 239, .4)
+    }
+
+    .story-prog i.on {
+      background: var(--crema)
+    }
+
+    /* ---------- PLANNER ---------- */
+    .planner {
+      background: #fff;
+      border: 1px solid #dde6e4;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px -40px rgba(11, 79, 90, .45)
+    }
+
+    .pl-head {
+      background: linear-gradient(120deg, var(--petrolio), var(--teal));
+      color: var(--crema);
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap
+    }
+
+    .pl-head img {
+      height: 34px;
+      filter: brightness(0) invert(1)
+    }
+
+    .pl-head .pl-t {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -.01em
+    }
+
+    .pl-head .pl-s {
+      font-size: 12.5px;
+      color: #cdeae4
+    }
+
+    .pl-head .pl-week {
+      margin-left: auto;
+      background: rgba(247, 245, 239, .14);
+      border: 1px solid rgba(247, 245, 239, .28);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 12.5px;
+      font-weight: 600
+    }
+
+    .pl-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: #e6ecea
+    }
+
+    .kpi {
+      background: var(--crema);
+      padding: 14px 18px
+    }
+
+    .kpi .kl {
+      font-size: 10.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #7d9196;
+      font-weight: 700
+    }
+
+    .kpi .kv {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--petrolio);
+      line-height: 1.1;
+      margin-top: 3px
+    }
+
+    .kpi .kv small {
+      font-size: 12px;
+      color: var(--verde);
+      font-weight: 700;
+      margin-left: 5px
+    }
+
+    .pl-grid {
+      overflow-x: auto
+    }
+
+    .pl-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 880px
+    }
+
+    .pl-table th {
+      background: var(--crema);
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--teal);
+      padding: 12px 12px;
+      text-align: left;
+      border-bottom: 2px solid var(--grigio);
+      position: sticky;
+      top: 0
+    }
+
+    .pl-table td {
+      padding: 12px 12px;
+      border-bottom: 1px solid #eef2f1;
+      font-size: 12.5px;
+      vertical-align: top
+    }
+
+    .pl-day {
+      font-family: var(--display);
+      font-weight: 800;
+      color: var(--petrolio);
+      font-size: 13px
+    }
+
+    .pl-day small {
+      display: block;
+      font-family: var(--body);
+      font-weight: 500;
+      font-size: 10.5px;
+      color: #9aabae
+    }
+
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--display);
+      white-space: nowrap
+    }
+
+    .pl-topic {
+      font-weight: 600;
+      color: var(--inchiostro)
+    }
+
+    .pl-topic small {
+      display: block;
+      font-weight: 400;
+      color: #7d9196;
+      font-size: 11px;
+      margin-top: 2px
+    }
+
+    .st {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 600
+    }
+
+    .st::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%
+    }
+
+    .st.done::before {
+      background: var(--verde)
+    }
+
+    .st.prog::before {
+      background: var(--acqua)
+    }
+
+    .st.plan::before {
+      background: #c3b04e
+    }
+
+    .pl-legend {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      padding: 16px 22px;
+      background: var(--crema);
+      border-top: 1px solid #e6ecea
+    }
+
+    .pl-legend .lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #3d5a60
+    }
+
+    .pl-legend .sw2 {
+      width: 13px;
+      height: 13px;
+      border-radius: 4px
+    }
+
+    /* pillar colors */
+    .p-edu {
+      background: #e0f0e7;
+      color: #2c7a4e
+    }
+
+    .p-met {
+      background: #dceeee;
+      color: var(--teal)
+    }
+
+    .p-prev {
+      background: #e8f3ec;
+      color: #3a8f5d
+    }
+
+    .p-sport {
+      background: #dbe9ec;
+      color: var(--petrolio)
+    }
+
+    .p-comm {
+      background: #f0ede2;
+      color: #9a8326
+    }
+
+    .p-cta {
+      background: #cde8e1;
+      color: #0e7a6b
+    }
+
+    .logo,
+    .logo img,
+    .brand-logo,
+    .brand-logo img {
+      max-width: 220px;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .logo-on-dark,
+    .logo-white {
+      filter: brightness(0) invert(1) !important;
+    }
+
+    .image-person img,
+    .portrait img,
+    .person-photo img {
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .image-contain img {
+      object-fit: contain;
+      object-position: center;
+      background-color: #F7F5EF;
+    }
+
+    .card,
+    .template,
+    .story-preview {
+      overflow: hidden;
+    }
+
+    /* credits */
+    .credits {
+      margin-top: 84px;
+      background: linear-gradient(120deg, var(--petrolio), var(--teal));
+      color: var(--crema);
+      border-radius: 24px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden
+    }
+
+    .credits img {
+      height: 40px;
+      filter: brightness(0) invert(1)
+    }
+
+    .credits .ct {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 17px
+    }
+
+    .credits .cs {
+      font-size: 13px;
+      color: #cdeae4;
+      margin-top: 4px;
+      max-width: 46ch
+    }
+
+    .credits .cby {
+      text-align: right;
+      font-size: 13px
+    }
+
+    .credits .cby b {
+      font-family: var(--display);
+      color: var(--acqua)
+    }
+
+    @media(max-width:980px) {
+
+      .board .span4,
+      .board .span5,
+      .board .span6,
+      .board .span7,
+      .board .span8 {
+        grid-column: span 12
+      }
+
+      .feed-wrap {
+        grid-template-columns: 1fr
+      }
+
+      .ig-phone {
+        max-width: 360px
+      }
+
+      .tpl-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .carousel {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .stories {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(max-width:620px) {
+
+      .tpl-grid,
+      .carousel,
+      .stories {
+        grid-template-columns: 1fr
+      }
+
+      .rules {
+        grid-template-columns: 1fr
+      }
+
+      .cover {
+        padding: 38px 26px
+      }
+    }
+    .back-to-cases-section {
+      display: flex;
+      justify-content: center;
+      padding: 24px 20px 44px;
+    }
+
+    .back-to-cases-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 14px 22px;
+      transition: transform .2s ease, opacity .2s ease;
+      background-color: var(--petrolio, #0B4F5A);
+      color: var(--crema, #F7F5EF);
+      border: 1px solid var(--teal, #147C7C);
+    }
+
+    .back-to-cases-button:hover {
+      transform: translateY(-2px);
+      opacity: .92;
+    }
+    .scroll-top-button {
+      position: fixed;
+      right: clamp(18px, 3vw, 42px);
+      bottom: calc(18px + env(safe-area-inset-bottom));
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--teal, #147C7C);
+      background-color: var(--petrolio, #0B4F5A);
+      color: var(--crema, #F7F5EF);
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+      z-index: 999;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .scroll-top-button span {
+      font-size: 23px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .scroll-top-button.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .scroll-top-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .scroll-top-button:focus-visible {
+      outline: 3px solid rgba(255,255,255,0.85);
+      outline-offset: 3px;
+    }
+
+    /* ---------- STICKY MENU ---------- */
+    .sticky-menu {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 245, 239, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid #dfe7e5;
+      padding: 12px 22px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .sticky-menu a {
+      text-decoration: none;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--petrolio);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .sticky-menu a:hover {
+      background: rgba(20, 124, 124, 0.1);
+      color: var(--teal);
+    }
+    @media (max-width: 768px) {
+      .sticky-menu {
+        gap: 8px;
+        padding: 10px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+    /* ---------- NUOVE SEZIONI ---------- */
+    .spot-container {
+      background: var(--crema);
+      border: 1px dashed #c8d6d2;
+      border-radius: 24px;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 20px;
+      margin-top: 24px;
+    }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .dash-card {
+      background: #fff;
+      border: 1px solid #e2eae8;
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+    .dash-num {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 42px;
+      color: var(--petrolio);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .dash-label {
+      font-size: 13px;
+      color: #3d5a60;
+      font-weight: 600;
+    }
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .prompt-card {
+      background: #fff;
+      border: 1px solid #e2eae8;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .prompt-card .pt {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .prompt-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+    }
+    .prompt-card li {
+      font-size: 13px;
+      color: #3d5a60;
+      padding-left: 16px;
+      position: relative;
+    }
+    .prompt-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--verde);
+    }
+    .metodo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .metodo-card {
+      background: #fff;
+      border: 1px solid #e2eae8;
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .metodo-card .mc-num {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 13px;
+      color: #fff;
+      background: var(--teal);
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .metodo-card h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--petrolio);
+      margin-bottom: 8px;
+    }
+    .metodo-card p {
+      font-size: 14px;
+      color: #3d5a60;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .dashboard-grid, .prompt-grid, .metodo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    </style>
+</head>
+
+<body>
+  <!-- ============ STICKY MENU ============ -->
+  <nav class="sticky-menu">
+    <a href="#identita">Identità</a>
+    <a href="#spot">Spot</a>
+    <a href="#feed">Feed</a>
+    <a href="#template">Template</a>
+    <a href="#carosello">Carosello</a>
+    <a href="#calendario">Calendario</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#prompt-ai">Prompt AI</a>
+    <a href="#metodo">Metodo</a>
+  </nav>
+
+  <button
+    class="scroll-top-button"
+    id="scrollTopButton"
+    type="button"
+    aria-label="Torna all'inizio della pagina"
+    title="Torna su"
+  >
+    <span aria-hidden="true">↑</span>
+  </button>
+  <div class="page">
+
+    <!-- ============ COVER ============ -->
+    <section class="cover">
+      <svg class="cover-curve" viewBox="0 0 1180 520" preserveAspectRatio="none">
+        <path d="M-50,360 C260,200 520,470 820,300 C1010,190 1120,260 1240,150" fill="none" stroke="#6ED3C6"
+          stroke-width="2.5" opacity=".55" />
+        <path d="M-50,430 C300,300 560,540 900,360 C1060,275 1160,330 1260,250" fill="none" stroke="#A8CDB2"
+          stroke-width="1.6" opacity=".4" />
+        <circle cx="822" cy="300" r="7" fill="#6ED3C6" />
+      </svg>
+      <div class="cover-top">
+        <img class="cover-logo" data-img="logo" src="assets/logo-fisiointegra.png" 
+           alt="FisioIntegra">
+        <div class="cover-tag">Caso studio digitale<br>Visual system · Content strategy · Piano editoriale</div>
+      </div>
+      <h1>Un sistema grafico che <b>comunica il movimento</b>, non solo il dolore.</h1>
+      <p class="cover-lead">Visual identity applicata, piano editoriale e calendario strategico per FisioIntegra: una
+        comunicazione professionale, rassicurante e umana attorno a prevenzione, riabilitazione ed educazione al
+        movimento.</p>
+      <div class="cover-meta">
+        <a href="#identita" class="chip" style="text-decoration:none;"><b>01</b> Brand board</a>
+        <a href="#feed" class="chip" style="text-decoration:none;"><b>02</b> Feed preview 3×3</a>
+        <a href="#template" class="chip" style="text-decoration:none;"><b>03</b> 9 template Instagram</a>
+        <a href="#carosello" class="chip" style="text-decoration:none;"><b>04</b> Carosello 6 slide</a>
+        <a href="#stories" class="chip" style="text-decoration:none;"><b>05</b> Stories 4 slide</a>
+        <a href="#calendario" class="chip" style="text-decoration:none;"><b>06</b> Content planner</a>
+      </div>
+    </section>
+
+    <!-- ============ 1. BRAND BOARD ============ -->
+    <section class="sec" id="identita">
+      <div class="sec-head">
+        <span class="sec-kicker">01 · Mini brand board</span>
+      </div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">Le regole del sistema FisioIntegra</h2>
+        <p class="sec-desc">Un'unica grammatica visiva: logo, palette, tipografia, stile fotografico ed elementi
+          ricorrenti che rendono ogni contenuto riconoscibile come parte dello stesso brand.</p>
+      </div>
+
+      <div class="board">
+        <!-- LOGO -->
+        <div class="card span4">
+          <h3><span class="dot"></span>Logo &amp; clear space</h3>
+          <div class="logo-grid">
+            <div class="logobox"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                 alt="logo su chiaro">
+            </div>
+            <div class="logobox dark"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                 alt="logo su scuro">
+            </div>
+          </div>
+          <p class="logo-note">Logo originale su fondo <b>crema</b> e su fondo <b>petrolio</b>. Mantenere sempre uno
+            spazio di rispetto pari all'altezza del simbolo. Non distorcere, non ruotare, non cambiare i colori. Sui
+            fondi scuri a basso contrasto usare il logo dentro una <b>pastiglia crema</b>.</p>
+        </div>
+
+        <!-- PALETTE -->
+        <div class="card span8">
+          <h3><span class="dot"></span>Palette ufficiale</h3>
+          <div class="swatches">
+            <div class="sw">
+              <div class="chiph" style="background:#0B4F5A"></div>
+              <div class="meta">
+                <div class="nm">Blu petrolio</div>
+                <div class="hex">#0B4F5A</div>
+              </div>
+            </div>
+            <div class="sw">
+              <div class="chiph" style="background:#147C7C"></div>
+              <div class="meta">
+                <div class="nm">Teal professionale</div>
+                <div class="hex">#147C7C</div>
+              </div>
+            </div>
+            <div class="sw">
+              <div class="chiph" style="background:#3BA66B"></div>
+              <div class="meta">
+                <div class="nm">Verde benessere</div>
+                <div class="hex">#3BA66B</div>
+              </div>
+            </div>
+            <div class="sw">
+              <div class="chiph" style="background:#A8CDB2"></div>
+              <div class="meta">
+                <div class="nm">Verde salvia</div>
+                <div class="hex">#A8CDB2</div>
+              </div>
+            </div>
+            <div class="sw">
+              <div class="chiph" style="background:#F7F5EF;border-bottom:1px solid #e3e9e6"></div>
+              <div class="meta">
+                <div class="nm">Bianco caldo</div>
+                <div class="hex">#F7F5EF</div>
+              </div>
+            </div>
+            <div class="sw">
+              <div class="chiph" style="background:#E6ECEB"></div>
+              <div class="meta">
+                <div class="nm">Grigio chiaro</div>
+                <div class="hex">#E6ECEB</div>
+              </div>
+            </div>
+            <div class="sw">
+              <div class="chiph" style="background:#12343B"></div>
+              <div class="meta">
+                <div class="nm">Blu testo</div>
+                <div class="hex">#12343B</div>
+              </div>
+            </div>
+            <div class="sw">
+              <div class="chiph" style="background:#6ED3C6"></div>
+              <div class="meta">
+                <div class="nm">Accento acqua</div>
+                <div class="hex">#6ED3C6</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TYPOGRAPHY -->
+        <div class="card span5">
+          <h3><span class="dot"></span>Tipografia</h3>
+          <div class="type-row">
+            <div class="type-block">
+              <div class="lbl">Titoli — Manrope</div>
+              <div class="type-display">Aa Bb Cc 0123</div>
+              <div class="type-scale" style="margin-top:8px">
+                <span style="font-weight:800;font-size:30px;color:var(--petrolio)">800</span>
+                <span style="font-weight:700;font-size:26px;color:var(--teal)">700</span>
+                <span style="font-weight:600;font-size:22px;color:#3d5a60">600</span>
+              </div>
+            </div>
+            <div class="type-block">
+              <div class="lbl">Testo — Inter</div>
+              <div class="type-body">Comunicazione chiara e leggibile da smartphone. Frasi brevi, gerarchia netta,
+                niente claim medici assoluti: il testo accompagna, non spaventa.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHOTO STYLE -->
+        <div class="card span7">
+          <h3><span class="dot"></span>Stile fotografico</h3>
+          <div class="photo-style">
+            <img data-img="giovanni" src="assets/giovanni-cavone-fisiointegra.png"  
+              alt="">
+            <img data-img="metodo" src="assets/metodo-fisiointegra.jpg"  
+              alt="">
+            <img data-img="movimento" src="assets/problema-movimento.jpg"  
+              alt="">
+          </div>
+          <div class="ps-tags">
+            <span class="tag">Luce naturale</span>
+            <span class="tag">Ambiente luminoso</span>
+            <span class="tag">Gesto di ascolto</span>
+            <span class="tag">Movimento controllato</span>
+            <span class="tag">Toni teal &amp; verde</span>
+            <span class="tag">Nessuna estetica ospedaliera</span>
+          </div>
+        </div>
+
+        <!-- RECURRING ELEMENTS -->
+        <div class="card span6">
+          <h3><span class="dot"></span>Elementi grafici ricorrenti</h3>
+          <div class="elements-row">
+            <div class="el">
+              <svg width="64" height="40" viewBox="0 0 64 40">
+                <path d="M2,30 C18,6 30,34 46,14 C54,5 60,12 62,10" fill="none" stroke="#3BA66B" stroke-width="3"
+                  stroke-linecap="round" />
+                <circle cx="46" cy="14" r="3.4" fill="#147C7C" />
+              </svg>
+              <div class="en">Linea del movimento</div>
+              <div class="ed">curva continua, mai spezzata</div>
+            </div>
+            <div class="el">
+              <svg width="64" height="44" viewBox="0 0 64 44">
+                <path d="M10,42 C10,18 22,4 44,4 L54,4 C54,28 42,42 20,42 Z" fill="#A8CDB2" opacity=".55" />
+                <path d="M16,42 C16,22 26,10 46,10" fill="none" stroke="#147C7C" stroke-width="2.4" />
+              </svg>
+              <div class="en">Forma morbida</div>
+              <div class="ed">maschere e blob organici</div>
+            </div>
+            <div class="el">
+              <svg width="60" height="44" viewBox="0 0 60 44">
+                <circle cx="30" cy="12" r="6" fill="#6ED3C6" />
+                <path d="M14,40 C14,26 20,20 30,20 C40,20 46,26 46,40" fill="none" stroke="#0B4F5A" stroke-width="3"
+                  stroke-linecap="round" />
+              </svg>
+              <div class="en">Simbolo respiro</div>
+              <div class="ed">dettaglio dal logo</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAYOUT RULES -->
+        <div class="card span8">
+          <h3><span class="dot"></span>Regole di layout</h3>
+          <ul class="rules">
+            <li>Molto spazio bianco: il contenuto respira, mai saturo.</li>
+            <li>Gerarchia fissa: occhiello → titolo → sottotitolo.</li>
+            <li>Curve morbide ispirate al movimento come firma visiva.</li>
+            <li>Foto a tutto campo o in contenitori a bordi arrotondati.</li>
+            <li>Ritmo del feed: alternanza fondi chiari e fondi petrolio.</li>
+            <li>Numeri solo dove esiste una vera sequenza (percorso, slide).</li>
+            <li>Testi sempre leggibili da mobile, frasi brevi.</li>
+            <li>Footer costante: logo + handle in ogni contenuto.</li>
+          </ul>
+        </div>
+
+        <!-- METHOD NOTE -->
+        <div class="card span4" style="display:flex;align-items:stretch">
+          <div class="method-note">
+            <div class="mt">Nota metodologica</div>
+            <p>Sistema <b>progettato e prototipato</b> nel contesto del Project Work LUM. Dati, KPI e proiezioni del
+              planner sono <b>ipotesi simulate</b> a fini didattici: il setup creativo non equivale a una validazione di
+              mercato.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ============ SPOT FISIOINTEGRA ============ -->
+    <section class="sec" id="spot">
+      <div class="sec-head">
+        <span class="sec-kicker">Spot</span>
+      </div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">Spot di presentazione FisioIntegra</h2>
+        <p class="sec-desc">Un contenuto video pensato per raccontare movimento, ascolto, prevenzione e fiducia attraverso un tono professionale, umano e rassicurante.</p>
+      </div>
+      <div class="spot-container" style="padding: 0; overflow: hidden; border: none; background: transparent; aspect-ratio: 16/9; border-radius: 24px; margin-top: 24px;">
+        <video width="100%" height="auto" controls style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <source src="assets/hero-fisiointegra.mp4" type="video/mp4">
+          Il tuo browser non supporta il tag video.
+        </video>
+      </div>
+      <div class="method-note" style="margin-top:24px; border-left:4px solid var(--teal);">
+        <p>Lo spot è un contenuto progettuale sviluppato da Socialin Communication / Federica Creative come proposta narrativa per il caso FisioIntegra.</p>
+      </div>
+    </section>
+
+    <!-- ============ 2. FEED PREVIEW ============ -->
+    <section class="sec" id="feed">
+      <div class="sec-head"><span class="sec-kicker">02 · Feed preview</span></div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">Griglia 3×3 coerente</h2>
+        <p class="sec-desc">Nove contenuti pensati per convivere nella stessa griglia: l'alternanza tra fondi chiari e
+          petrolio crea ritmo, mentre la curva del movimento e la tipografia li tengono insieme.</p>
+      </div>
+
+      <div class="feed-wrap">
+        <div class="ig-phone">
+          <div class="ig-head">
+            <div class="ig-av"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                 alt=""></div>
+            <div class="ig-id">
+              <div class="h">fisiointegra</div>
+              <div class="s">Studio di Fisioterapia</div>
+            </div>
+            <div class="ig-stats">
+              <div><b>128</b><span>post</span></div>
+              <div><b>4.2k</b><span>follower</span></div>
+            </div>
+          </div>
+          <div class="ig-bio"><b>FisioIntegra · Movimento &amp; Prevenzione</b><br>Ascolto del corpo, percorsi guidati,
+            educazione al movimento.<br>📍 Studio Giovanni Cavone · Colloquio informativo in DM</div>
+          <div class="ig-grid" id="igGrid"></div>
+        </div>
+
+        <div class="feed-legend">
+          <h4>Logica della griglia</h4>
+          <ul class="legend-list">
+            <li><span class="ln" style="background:var(--petrolio)">01</span>
+              <div><b>Reel · Il dolore è un segnale</b> — apertura emotiva ma non drammatica.</div>
+            </li>
+            <li><span class="ln" style="background:var(--verde)">02</span>
+              <div><b>Carosello · Prima valutazione</b> — il metodo, passo dopo passo.</div>
+            </li>
+            <li><span class="ln" style="background:var(--teal)">03</span>
+              <div><b>Infografica · Le fasi del percorso</b> — la sequenza guidata.</div>
+            </li>
+            <li><span class="ln" style="background:var(--petrolio)">04</span>
+              <div><b>Educativo · Giornata sedentaria</b> — abitudini quotidiane.</div>
+            </li>
+            <li><span class="ln" style="background:var(--verde)">05</span>
+              <div><b>Reel · Pausa attiva</b> — movimento, energia controllata.</div>
+            </li>
+            <li><span class="ln" style="background:var(--teal)">06</span>
+              <div><b>Falso mito · Postura</b> — sfatare un'idea comune.</div>
+            </li>
+            <li><span class="ln" style="background:var(--petrolio)">07</span>
+              <div><b>Sport · Tornare allo sport</b> — riabilitazione e gradualità.</div>
+            </li>
+            <li><span class="ln" style="background:var(--verde)">08</span>
+              <div><b>Story quiz · Postura perfetta</b> — interazione.</div>
+            </li>
+            <li><span class="ln" style="background:var(--teal)">09</span>
+              <div><b>CTA · Da dove iniziare</b> — colloquio informativo.</div>
+            </li>
+          </ul>
+          <div class="rhythm">
+            <div class="rt">Ritmo cromatico</div>
+            <p>Diagonali di fondi petrolio e contenuti chiari: la griglia resta ordinata anche aggiungendo nuovi post,
+              perché ogni casella segue la stessa regola di alternanza.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. NINE TEMPLATES ============ -->
+    <section class="sec" id="template">
+      <div class="sec-head"><span class="sec-kicker">03 · Template Instagram</span></div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">I 9 template del sistema</h2>
+        <p class="sec-desc">Formato reale: <b>1080×1350 px</b> per i post feed (4:5) e <b>1080×1920 px</b> per Reel
+          cover e Stories (9:16). Ogni template è modificabile e usa le foto caricate.</p>
+      </div>
+
+      <div class="tpl-grid">
+
+        <!-- 01 REEL COVER -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">01</span><span class="tpl-name">Reel cover · Il dolore è un
+              segnale</span><span class="tpl-dim">1080×1920</span></div>
+          <div class="canvas story">
+            <img class="ph" data-img="dolore" src="assets/Copertina Reel “Il dolore è un segnale”.png" 
+               alt="">
+            <div class="layer scrim-b"></div>
+            <svg class="mv" style="top:0;left:0;width:100%;height:100%" viewBox="0 0 90 160" preserveAspectRatio="none">
+              <path d="M-5,118 C25,98 45,128 70,108 C82,98 90,104 96,100" fill="none" stroke="#6ED3C6"
+                stroke-width="1.1" opacity=".8" />
+            </svg>
+            <div class="pad">
+              <div class="eyb t-acqua">Ascolto del corpo</div>
+              <div class="spacer"></div>
+              <div class="h-xl t-light">IL DOLORE<br>È UN <span class="t-acqua">SEGNALE</span></div>
+              <div class="sub t-light" style="margin-top:3.4cqw;color:#dcefea">non una sentenza.</div>
+              <div class="cfoot dark" style="margin-top:7cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-light">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 CAROSELLO -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">02</span><span class="tpl-name">Carosello · Prima
+              valutazione</span><span class="tpl-dim">1080×1350</span></div>
+          <div class="canvas feed bg-crema">
+            <img class="ph-top" data-img="carosello" src="assets/_anteprima_carosello.png" 
+               alt="">
+            <svg class="curve-mask" style="top:44%;left:0;width:100%;height:14%" viewBox="0 0 100 14"
+              preserveAspectRatio="none">
+              <path d="M0,14 L0,9 C28,1 60,12 100,3 L100,14 Z" fill="#F7F5EF" />
+            </svg>
+            <div class="pad" style="justify-content:flex-end">
+              <div class="eyb t-teal">Il metodo</div>
+              <div class="h-lg t-petrolio" style="margin-top:2.6cqw">COSA SUCCEDE<br>NELLA PRIMA<br>VALUTAZIONE?</div>
+              <div class="sub-sm" style="margin-top:2.6cqw;color:#3d5a60">Ascolto, osservazione e percorso guidato.
+                Niente protocolli standard.</div>
+              <div class="cfoot" style="margin-top:5cqw;color:var(--teal)"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-teal">Scorri →</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 INFOGRAFICA -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">03</span><span class="tpl-name">Infografica · Le fasi del
+              percorso</span><span class="tpl-dim">1080×1350</span></div>
+          <div class="canvas feed bg-deep">
+            <svg class="mv" style="bottom:-2cqw;left:0;width:100%;height:30%" viewBox="0 0 100 30"
+              preserveAspectRatio="none">
+              <path d="M-5,22 C25,8 50,26 75,12 C88,5 96,10 105,6" fill="none" stroke="#6ED3C6" stroke-width=".7"
+                opacity=".5" />
+            </svg>
+            <div class="pad">
+              <div class="eyb t-acqua">Il percorso</div>
+              <div class="h-md t-light" style="margin-top:2.4cqw">UN PERCORSO NON<br>È UNA SERIE<br>DI SEDUTE</div>
+              <div class="sub-sm" style="margin-top:1.8cqw;color:#bfe3dc">è una sequenza di decisioni guidate.</div>
+              <div class="steps" style="margin-top:4.4cqw">
+                <div class="step">
+                  <div class="node">1</div>
+                  <div class="lbl">Ascolto<small>storia, abitudini, obiettivi</small></div>
+                  <div class="conn"></div>
+                </div>
+                <div class="step">
+                  <div class="node">2</div>
+                  <div class="lbl">Valutazione<small>test funzionali e di movimento</small></div>
+                  <div class="conn"></div>
+                </div>
+                <div class="step">
+                  <div class="node">3</div>
+                  <div class="lbl">Obiettivo<small>cosa vuoi tornare a fare</small></div>
+                  <div class="conn"></div>
+                </div>
+                <div class="step">
+                  <div class="node">4</div>
+                  <div class="lbl">Piano<small>costruito su di te</small></div>
+                  <div class="conn"></div>
+                </div>
+                <div class="step">
+                  <div class="node">5</div>
+                  <div class="lbl">Progressione<small>carichi e movimento, per gradi</small></div>
+                  <div class="conn"></div>
+                </div>
+                <div class="step">
+                  <div class="node">6</div>
+                  <div class="lbl">Autonomia<small>gestire il corpo da solo</small></div>
+                </div>
+              </div>
+              <div class="cfoot dark" style="margin-top:auto;padding-top:4cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-light">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 EDUCATIVO -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">04</span><span class="tpl-name">Educativo · Giornata
+              sedentaria</span><span class="tpl-dim">1080×1350</span></div>
+          <div class="canvas feed bg-crema">
+            <img class="ph-side" data-img="sedentaria" src="assets/Post educativo “Cinque errori della giornata sedentaria”.png" 
+               alt="">
+            <svg class="curve-mask" style="top:0;left:48%;width:14%;height:100%" viewBox="0 0 14 100"
+              preserveAspectRatio="none">
+              <path d="M14,0 L9,0 C2,30 12,60 4,100 L14,100 Z" fill="#F7F5EF" />
+            </svg>
+            <div class="pad" style="width:58%; padding-top:4cqw; padding-bottom:4cqw;">
+              <div class="eyb t-teal">Educazione al movimento</div>
+              <div class="h-md t-petrolio" style="margin-top:0.8cqw">5 ERRORI<br>DELLA GIORNATA<br>SEDENTARIA</div>
+              <div class="clist" style="margin-top:1.4cqw; gap:1.4cqw;">
+                <div class="cli">
+                  <div class="n"
+                    style="background:#e0f0e7;color:var(--verde); width:6.5cqw; height:6.5cqw; font-size:3cqw;">1</div>
+                  <div class="tx" style="font-size:3.3cqw; line-height:1.15; padding-top:0.5cqw;"><b>Restare fermi</b>
+                    per ore nella stessa posizione</div>
+                </div>
+                <div class="cli">
+                  <div class="n"
+                    style="background:#e0f0e7;color:var(--verde); width:6.5cqw; height:6.5cqw; font-size:3cqw;">2</div>
+                  <div class="tx" style="font-size:3.3cqw; line-height:1.15; padding-top:0.5cqw;"><b>Schermo basso</b> e
+                    collo proteso in avanti</div>
+                </div>
+                <div class="cli">
+                  <div class="n"
+                    style="background:#e0f0e7;color:var(--verde); width:6.5cqw; height:6.5cqw; font-size:3cqw;">3</div>
+                  <div class="tx" style="font-size:3.3cqw; line-height:1.15; padding-top:0.5cqw;"><b>Zero pause</b> tra
+                    una call e l'altra</div>
+                </div>
+                <div class="cli">
+                  <div class="n"
+                    style="background:#e0f0e7;color:var(--verde); width:6.5cqw; height:6.5cqw; font-size:3cqw;">4</div>
+                  <div class="tx" style="font-size:3.3cqw; line-height:1.15; padding-top:0.5cqw;"><b>Respiro corto</b>,
+                    spalle sempre contratte</div>
+                </div>
+                <div class="cli">
+                  <div class="n"
+                    style="background:#e0f0e7;color:var(--verde); width:6.5cqw; height:6.5cqw; font-size:3cqw;">5</div>
+                  <div class="tx" style="font-size:3.3cqw; line-height:1.15; padding-top:0.5cqw;"><b>Idratazione</b>
+                    dimenticata fino a sera</div>
+                </div>
+              </div>
+              <div class="cfoot" style="margin-top:auto;padding-top:1cqw;color:var(--teal)"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="hd t-teal">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 REEL PAUSA ATTIVA -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">05</span><span class="tpl-name">Reel cover · Pausa
+              attiva</span><span class="tpl-dim">1080×1920</span></div>
+          <div class="canvas story">
+            <img class="ph" data-img="movimento" src="assets/problema-movimento.jpg" 
+               alt="">
+            <div class="layer scrim-t"></div>
+            <div class="layer" style="background:linear-gradient(to top,rgba(20,124,124,.85),transparent 42%)"></div>
+            <svg class="mv" style="bottom:18cqw;left:0;width:100%;height:20%" viewBox="0 0 90 30"
+              preserveAspectRatio="none">
+              <path d="M-5,20 C20,8 40,24 62,12 C74,6 84,11 96,8" fill="none" stroke="#6ED3C6" stroke-width="1.1"
+                opacity=".9" />
+            </svg>
+            <div class="pad">
+              <div class="eyb t-light">Movimento quotidiano</div>
+              <div class="spacer"></div>
+              <div class="h-xl t-light">PAUSA<br><span class="t-acqua">ATTIVA</span></div>
+              <div class="sub t-light" style="margin-top:3cqw;color:#eafaf6">3 movimenti semplici<br>per ripartire.
+              </div>
+              <div class="cfoot dark" style="margin-top:6cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-light">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 FALSO MITO -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">06</span><span class="tpl-name">Falso mito · Postura</span><span
+              class="tpl-dim">1080×1350</span></div>
+          <div class="canvas feed bg-grigio">
+            <img class="ph-top" data-img="postura" src="assets/problema-postura.jpg" 
+               alt=""
+              style="height:40%">
+            <svg class="curve-mask" style="top:34%;left:0;width:100%;height:12%" viewBox="0 0 100 12"
+              preserveAspectRatio="none">
+              <path d="M0,12 L0,7 C30,0 64,10 100,2 L100,12 Z" fill="#E6ECEB" />
+            </svg>
+            <div class="pad" style="justify-content:flex-end">
+              <div class="eyb t-teal" style="position:absolute;top:6cqw;left:7cqw;color:#fff">Falso mito</div>
+              <div class="h-md t-petrolio">«DEVI STARE<br>SEMPRE DRITTO?»</div>
+              <div class="myth" style="margin-top:3.2cqw">
+                <div class="myth-row"><span class="badge m">Mito</span>
+                  <div class="mtx">Esiste una sola postura corretta da tenere sempre.</div>
+                </div>
+                <div class="myth-row"><span class="badge r">Realtà</span>
+                  <div class="mtx"><b>La colonna è fatta per muoversi.</b> La postura migliore è quella che cambia
+                    spesso.</div>
+                </div>
+              </div>
+              <div class="cfoot" style="margin-top:3.6cqw;color:var(--teal)"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-teal">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 07 SPORT -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">07</span><span class="tpl-name">Sport · Tornare allo
+              sport</span><span class="tpl-dim">1080×1350</span></div>
+          <div class="canvas feed">
+            <img class="ph" data-img="sport" src="assets/Post “Tornare allo sport”.png" 
+               alt="">
+            <div class="layer"
+              style="background:linear-gradient(to top,rgba(11,79,90,.94) 4%,rgba(11,79,90,.5) 38%,transparent 64%)">
+            </div>
+            <div class="pad" style="justify-content:flex-end">
+              <div class="eyb t-acqua">Riabilitazione</div>
+              <div class="h-md t-light" style="margin-top:2.2cqw">TORNARE<br>ALLO SPORT</div>
+              <div class="sub-sm t-light" style="margin-top:2cqw;color:#dcefea">non significa solo «non sentire dolore».
+              </div>
+              <div style="display:flex;gap:2cqw;flex-wrap:wrap;margin-top:3cqw">
+                <span
+                  style="font-family:var(--display);font-weight:700;font-size:3cqw;color:#fff;background:rgba(247,245,239,.16);border:1px solid rgba(247,245,239,.3);border-radius:99px;padding:1.8cqw 3.4cqw">Forza</span>
+                <span
+                  style="font-family:var(--display);font-weight:700;font-size:3cqw;color:#fff;background:rgba(247,245,239,.16);border:1px solid rgba(247,245,239,.3);border-radius:99px;padding:1.8cqw 3.4cqw">Controllo</span>
+                <span
+                  style="font-family:var(--display);font-weight:700;font-size:3cqw;color:#fff;background:rgba(247,245,239,.16);border:1px solid rgba(247,245,239,.3);border-radius:99px;padding:1.8cqw 3.4cqw">Gradualità</span>
+                <span
+                  style="font-family:var(--display);font-weight:700;font-size:3cqw;color:#fff;background:rgba(247,245,239,.16);border:1px solid rgba(247,245,239,.3);border-radius:99px;padding:1.8cqw 3.4cqw">Fiducia</span>
+              </div>
+              <div class="cfoot dark" style="margin-top:4.4cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-light">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 08 STORY QUIZ -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">08</span><span class="tpl-name">Story quiz · Postura
+              perfetta</span><span class="tpl-dim">1080×1920</span></div>
+          <div class="canvas story bg-acqua">
+            <div class="story-prog"><i class="on"></i><i></i><i></i><i></i></div>
+            <img data-img="postura" src="assets/problema-postura.jpg"  
+              alt=""
+              style="position:absolute;bottom:0;left:0;width:100%;height:44%;object-fit:cover;object-position:center top">
+            <svg class="curve-mask" style="bottom:42%;left:0;width:100%;height:10%" viewBox="0 0 100 10"
+              preserveAspectRatio="none">
+              <path d="M0,0 L0,5 C32,11 66,1 100,8 L100,0 Z" fill="#bfe0d2" />
+            </svg>
+            <div class="pad" style="justify-content:flex-start">
+              <div class="eyb t-petrolio" style="margin-top:3cqw">Quiz veloce</div>
+              <div class="poll" style="margin-top:auto;margin-bottom:46cqw">
+                <div class="poll-q">
+                  <div class="ql">Vero o falso</div>
+                  <div class="qt">La postura perfetta<br>esiste davvero?</div>
+                </div>
+                <div class="poll-opts">
+                  <div class="opt si">Sì</div>
+                  <div class="opt no" style="background:rgba(11,79,90,.9);border-color:rgba(11,79,90,.9)">No</div>
+                </div>
+                <div class="poll-hint" style="color:var(--petrolio)">↑ Tocca per rispondere · sticker sondaggio</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 09 CTA -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">09</span><span class="tpl-name">CTA · Da dove iniziare</span><span
+              class="tpl-dim">1080×1350</span></div>
+          <div class="canvas feed bg-crema">
+            <img class="ph-side" data-img="cta" src="assets/05_cta.png" 
+               alt="" style="width:42%">
+            <svg class="curve-mask" style="top:0;left:42%;width:14%;height:100%" viewBox="0 0 14 100"
+              preserveAspectRatio="none">
+              <path d="M14,0 L8,0 C1,32 11,64 3,100 L14,100 Z" fill="#F7F5EF" />
+            </svg>
+            <div class="pad" style="width:60%;justify-content:center">
+              <div class="eyb t-verde">Primo passo</div>
+              <div class="h-md t-petrolio" style="margin-top:2.6cqw">VUOI CAPIRE<br>DA DOVE<br>INIZIARE?</div>
+              <div class="sub-sm" style="margin-top:2.6cqw;color:#3d5a60">Richiedi un colloquio informativo: capiamo
+                insieme la tua situazione, senza impegno.</div>
+              <div class="cta-btn" style="margin-top:4cqw">Scrivici in DM →</div>
+              <div class="cfoot" style="margin-top:auto;padding-top:5cqw;color:var(--teal)"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="hd t-teal">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ 4. CAROUSEL 6 SLIDE ============ -->
+    <section class="sec" id="carosello">
+      <div class="sec-head"><span class="sec-kicker">04 · Carosello educativo</span></div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">«La prima valutazione» — 6 slide</h2>
+        <p class="sec-desc">Un carosello che racconta il metodo passo dopo passo, dalla copertina alla call to action.
+          Stessa griglia, stessa curva, numerazione reale perché c'è una sequenza.</p>
+      </div>
+
+      <div class="carousel">
+        <!-- C1 cover -->
+        <div class="cslide">
+          <div class="lbl-strip"><span class="dotn cover">COVER</span><span>Apertura</span></div>
+          <div class="canvas feed">
+            <img class="ph" data-img="carosello" src="assets/_anteprima_carosello.png" 
+               alt="">
+            <div class="layer scrim-b"></div>
+            <div class="pad" style="justify-content:flex-end">
+              <div class="eyb t-acqua">Il metodo FisioIntegra</div>
+              <div class="h-md t-light" style="margin-top:2.4cqw">COSA SUCCEDE<br>NELLA PRIMA<br>VALUTAZIONE</div>
+              <div class="swipe t-light" style="margin-top:3cqw;color:#dcefea">Scorri per scoprirlo <span
+                  style="font-size:4cqw">→</span></div>
+              <div class="cfoot dark" style="margin-top:3.6cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="hd t-light">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- C2 -->
+        <div class="cslide">
+          <div class="lbl-strip"><span class="dotn">01</span><span>Ascolto</span></div>
+          <div class="canvas feed bg-crema">
+            <img class="ph-top" data-img="ascolto" src="assets/02_ascolto.png" 
+               alt="">
+            <svg class="curve-mask" style="top:44%;left:0;width:100%;height:12%" viewBox="0 0 100 12"
+              preserveAspectRatio="none">
+              <path d="M0,12 L0,7 C30,0 64,10 100,2 L100,12 Z" fill="#F7F5EF" />
+            </svg>
+            <div class="pad" style="justify-content:flex-end">
+              <div style="display:flex;align-items:center;gap:2.6cqw">
+                <div class="n"
+                  style="width:9cqw;height:9cqw;border-radius:50%;background:var(--verde);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:4cqw">
+                  1</div>
+                <div class="eyb t-teal" style="margin:0">Ascolto</div>
+              </div>
+              <div class="h-md t-petrolio" style="margin-top:2.6cqw">La tua storia<br>viene prima</div>
+              <div class="sub-sm" style="margin-top:2cqw;color:#3d5a60">Abitudini, lavoro, obiettivi: capire il contesto
+                è già parte della cura.</div>
+              <div class="cfoot" style="padding-top:3cqw;color:var(--teal)"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="hd t-teal">→</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- C3 -->
+        <div class="cslide">
+          <div class="lbl-strip"><span class="dotn">02</span><span>Osservazione</span></div>
+          <div class="canvas feed bg-deep">
+            <img class="ph-top" data-img="osservazione" src="assets/03_osservazione.png" 
+               alt=""
+              style="height:46%;opacity:.96">
+            <div class="layer" style="background:linear-gradient(to top,var(--petrolio) 42%,transparent 62%)"></div>
+            <div class="pad" style="justify-content:flex-end">
+              <div style="display:flex;align-items:center;gap:2.6cqw">
+                <div
+                  style="width:9cqw;height:9cqw;border-radius:50%;background:var(--acqua);color:var(--petrolio);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:4cqw">
+                  2</div>
+                <div class="eyb t-acqua" style="margin:0">Osservazione</div>
+              </div>
+              <div class="h-md t-light" style="margin-top:2.6cqw">Come ti muovi,<br>come stai in piedi</div>
+              <div class="sub-sm" style="margin-top:2cqw;color:#bfe3dc">Osserviamo il movimento reale, non solo il
+                sintomo.</div>
+              <div class="cfoot dark" style="padding-top:3cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="hd t-light">→</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- C4 -->
+        <div class="cslide">
+          <div class="lbl-strip"><span class="dotn">03</span><span>Valutazione</span></div>
+          <div class="canvas feed bg-crema">
+            <img class="ph-top" data-img="metodo" src="assets/metodo-fisiointegra.jpg" 
+               alt="">
+            <svg class="curve-mask" style="top:44%;left:0;width:100%;height:12%" viewBox="0 0 100 12"
+              preserveAspectRatio="none">
+              <path d="M0,12 L0,7 C30,0 64,10 100,2 L100,12 Z" fill="#F7F5EF" />
+            </svg>
+            <div class="pad" style="justify-content:flex-end">
+              <div style="display:flex;align-items:center;gap:2.6cqw">
+                <div
+                  style="width:9cqw;height:9cqw;border-radius:50%;background:var(--verde);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:4cqw">
+                  3</div>
+                <div class="eyb t-teal" style="margin:0">Valutazione</div>
+              </div>
+              <div class="h-md t-petrolio" style="margin-top:2.6cqw">Test funzionali<br>e di movimento</div>
+              <div class="sub-sm" style="margin-top:2cqw;color:#3d5a60">Misuriamo forza, mobilità e controllo per
+                orientare le scelte.</div>
+              <div class="cfoot" style="padding-top:3cqw;color:var(--teal)"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="hd t-teal">→</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- C5 -->
+        <div class="cslide">
+          <div class="lbl-strip"><span class="dotn">04</span><span>Percorso</span></div>
+          <div class="canvas feed bg-deep">
+            <img class="ph-top" data-img="prevenzione" src="assets/problema-prevenzione.jpg" 
+               alt=""
+              style="height:46%;opacity:.96">
+            <div class="layer" style="background:linear-gradient(to top,var(--teal) 42%,transparent 62%)"></div>
+            <div class="pad" style="justify-content:flex-end">
+              <div style="display:flex;align-items:center;gap:2.6cqw">
+                <div
+                  style="width:9cqw;height:9cqw;border-radius:50%;background:var(--acqua);color:var(--petrolio);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:4cqw">
+                  4</div>
+                <div class="eyb t-acqua" style="margin:0">Percorso guidato</div>
+              </div>
+              <div class="h-md t-light" style="margin-top:2.6cqw">Un piano<br>su misura</div>
+              <div class="sub-sm" style="margin-top:2cqw;color:#eafaf6">Costruito su di te e aggiornato passo dopo
+                passo, non un protocollo uguale per tutti.</div>
+              <div class="cfoot dark" style="padding-top:3cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="hd t-light">→</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- C6 CTA -->
+        <div class="cslide">
+          <div class="lbl-strip"><span class="dotn cover">CTA</span><span>Chiusura</span></div>
+          <div class="canvas feed bg-crema">
+            <img class="ph-side" data-img="cta" src="assets/05_cta.png" 
+               alt="" style="width:40%">
+            <svg class="curve-mask" style="top:0;left:40%;width:14%;height:100%" viewBox="0 0 14 100"
+              preserveAspectRatio="none">
+              <path d="M14,0 L8,0 C1,32 11,64 3,100 L14,100 Z" fill="#F7F5EF" />
+            </svg>
+            <div class="pad" style="width:62%;justify-content:center">
+              <div class="eyb t-verde">Inizia dall'ascolto</div>
+              <div class="h-md t-petrolio" style="margin-top:2.6cqw">Pronto a<br>fare il primo<br>passo?</div>
+              <div class="cta-btn" style="margin-top:3.6cqw">Colloquio informativo →</div>
+              <div class="cfoot" style="margin-top:auto;padding-top:4cqw;color:var(--teal)"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="hd t-teal">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. STORIES 4 SLIDE ============ -->
+    <section class="sec" id="stories">
+      <div class="sec-head"><span class="sec-kicker">05 · Sequenza Stories</span></div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">4 Stories collegate</h2>
+        <p class="sec-desc">Una mini-sequenza verticale (9:16): hook → spunto educativo → quiz interattivo → call to
+          action. Barra di avanzamento e spazio per gli sticker nativi di Instagram.</p>
+      </div>
+
+      <div class="stories">
+        <!-- S1 -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">1/4</span><span class="tpl-name">Hook · Ascolto del
+              corpo</span><span class="tpl-dim">1080×1920</span></div>
+          <div class="canvas story">
+            <div class="story-prog"><i class="on"></i><i></i><i></i><i></i></div>
+            <img class="ph" data-img="dolore" src="assets/Copertina Reel “Il dolore è un segnale”.png" 
+               alt="">
+            <div class="layer scrim-b"></div>
+            <div class="pad">
+              <div class="spacer"></div>
+              <div class="eyb t-acqua">Oggi parliamo di</div>
+              <div class="h-lg t-light" style="margin-top:2.4cqw">ASCOLTARE<br>IL CORPO</div>
+              <div class="sub-sm t-light" style="margin-top:2.4cqw;color:#dcefea">3 spunti veloci 👇</div>
+              <div class="cfoot dark" style="margin-top:5cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-light">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- S2 -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">2/4</span><span class="tpl-name">Spunto · Il segnale</span><span
+              class="tpl-dim">1080×1920</span></div>
+          <div class="canvas story bg-deep">
+            <div class="story-prog"><i></i><i class="on"></i><i></i><i></i></div>
+            <img data-img="osservazione" src="assets/03_osservazione.png" 
+               alt=""
+              style="position:absolute;bottom:0;left:0;width:100%;height:40%;object-fit:cover;object-position:center top;opacity:.95">
+            <div class="layer" style="background:linear-gradient(to top,var(--petrolio) 36%,transparent 56%)"></div>
+            <div class="pad">
+              <div class="eyb t-acqua" style="margin-top:4cqw">Spunto 01</div>
+              <div class="h-md t-light" style="margin-top:2.6cqw">Il dolore<br>è un messaggio</div>
+              <div class="sub-sm" style="margin-top:2.6cqw;color:#bfe3dc">Non va spento e basta: va ascoltato e capito.
+                È il punto di partenza, non il nemico.</div>
+              <div class="spacer"></div>
+              <div class="cfoot dark"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-light">Continua →</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- S3 quiz -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">3/4</span><span class="tpl-name">Quiz · Postura
+              perfetta</span><span class="tpl-dim">1080×1920</span></div>
+          <div class="canvas story bg-acqua">
+            <div class="story-prog"><i></i><i></i><i class="on"></i><i></i></div>
+            <img data-img="postura" src="assets/problema-postura.jpg"  
+              alt=""
+              style="position:absolute;bottom:0;left:0;width:100%;height:42%;object-fit:cover;object-position:center top">
+            <svg class="curve-mask" style="bottom:40%;left:0;width:100%;height:10%" viewBox="0 0 100 10"
+              preserveAspectRatio="none">
+              <path d="M0,0 L0,5 C32,11 66,1 100,8 L100,0 Z" fill="#bfe0d2" />
+            </svg>
+            <div class="pad">
+              <div class="eyb t-petrolio" style="margin-top:3cqw">Quiz veloce</div>
+              <div class="poll" style="margin-top:6cqw">
+                <div class="poll-q">
+                  <div class="ql">Vero o falso</div>
+                  <div class="qt">La postura perfetta<br>esiste davvero?</div>
+                </div>
+                <div class="poll-opts">
+                  <div class="opt si">Sì</div>
+                  <div class="opt no" style="background:rgba(11,79,90,.9);border-color:rgba(11,79,90,.9)">No</div>
+                </div>
+                <div class="poll-hint" style="color:var(--petrolio)">sticker sondaggio Instagram</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- S4 CTA -->
+        <div class="tpl-card">
+          <div class="tpl-meta"><span class="tpl-no">4/4</span><span class="tpl-name">CTA · Colloquio
+              informativo</span><span class="tpl-dim">1080×1920</span></div>
+          <div class="canvas story">
+            <div class="story-prog"><i></i><i></i><i></i><i class="on"></i></div>
+            <img class="ph" data-img="cta" src="assets/05_cta.png" 
+               alt="">
+            <div class="layer"
+              style="background:linear-gradient(to top,rgba(11,79,90,.95) 8%,rgba(11,79,90,.4) 50%,rgba(11,79,90,.15) 100%)">
+            </div>
+            <div class="pad">
+              <div class="eyb t-acqua">Vuoi capire da dove iniziare?</div>
+              <div class="spacer"></div>
+              <div class="h-lg t-light">PARLIAMONE<br>INSIEME</div>
+              <div class="sub-sm t-light" style="margin-top:2.4cqw;color:#dcefea">Richiedi un colloquio informativo,
+                senza impegno.</div>
+              <div class="cta-btn lite" style="margin-top:4cqw">Tocca qui · scrivici 💬</div>
+              <div class="cfoot dark" style="margin-top:5cqw"><img data-img="logo" src="assets/logo-fisiointegra.png" 
+                   alt=""><span
+                  class="ln"></span><span class="hd t-light">@fisiointegra</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. PLANNER ============ -->
+    <section class="sec" id="calendario">
+      <div class="sec-head"><span class="sec-kicker">06 · Content planner</span></div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">Calendario editoriale settimanale</h2>
+        <p class="sec-desc">Dashboard orizzontale, pulita e modificabile: pilastri di contenuto, formato, stato di
+          lavorazione e KPI. I valori mostrati sono ipotesi simulate a scopo dimostrativo.</p>
+      </div>
+
+      <div class="planner">
+        <div class="pl-head">
+          <img data-img="logo" src="assets/logo-fisiointegra.png"   alt="">
+          <div>
+            <div class="pl-t">Piano editoriale · FisioIntegra</div>
+            <div class="pl-s">Socialin Communication / Federica Creative — Project Work LUM</div>
+          </div>
+          <div class="pl-week">Settimana 14–20 · Tema: «Ascolto del corpo»</div>
+        </div>
+
+        <div class="pl-kpis">
+          <div class="kpi">
+            <div class="kl">Post pianificati</div>
+            <div class="kv">7</div>
+          </div>
+          <div class="kpi">
+            <div class="kl">Pubblicati</div>
+            <div class="kv">4 <small>57%</small></div>
+          </div>
+          <div class="kpi">
+            <div class="kl">Reel in settimana</div>
+            <div class="kv">2</div>
+          </div>
+          <div class="kpi">
+            <div class="kl">Interazioni stimate*</div>
+            <div class="kv">1.180 <small>sim.</small></div>
+          </div>
+        </div>
+
+        <div class="pl-grid">
+          <table class="pl-table">
+            <thead>
+              <tr>
+                <th style="width:120px">Giorno</th>
+                <th style="width:120px">Pilastro</th>
+                <th>Contenuto</th>
+                <th style="width:120px">Formato</th>
+                <th style="width:110px">Orario</th>
+                <th style="width:120px">Stato</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="pl-day">Lun<small>14 apr</small></div>
+                </td>
+                <td><span class="pill p-edu">Educazione</span></td>
+                <td class="pl-topic">Il dolore è un segnale<small>Reel cover · hook emotivo</small></td>
+                <td>Reel</td>
+                <td>18:30</td>
+                <td><span class="st done">Pubblicato</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="pl-day">Mar<small>15 apr</small></div>
+                </td>
+                <td><span class="pill p-met">Metodo</span></td>
+                <td class="pl-topic">Cosa succede nella prima valutazione<small>Carosello 6 slide</small></td>
+                <td>Carosello</td>
+                <td>13:00</td>
+                <td><span class="st done">Pubblicato</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="pl-day">Mer<small>16 apr</small></div>
+                </td>
+                <td><span class="pill p-prev">Prevenzione</span></td>
+                <td class="pl-topic">5 errori della giornata sedentaria<small>Post educativo</small></td>
+                <td>Post 4:5</td>
+                <td>18:00</td>
+                <td><span class="st done">Pubblicato</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="pl-day">Gio<small>17 apr</small></div>
+                </td>
+                <td><span class="pill p-comm">Community</span></td>
+                <td class="pl-topic">Quiz: la postura perfetta esiste?<small>Stories interattive · sondaggio</small>
+                </td>
+                <td>Stories</td>
+                <td>11:00</td>
+                <td><span class="st done">Pubblicato</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="pl-day">Ven<small>18 apr</small></div>
+                </td>
+                <td><span class="pill p-edu">Educazione</span></td>
+                <td class="pl-topic">Falso mito: «devi stare sempre dritto»<small>Post falso mito</small></td>
+                <td>Post 4:5</td>
+                <td>18:30</td>
+                <td><span class="st prog">In lavorazione</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="pl-day">Sab<small>19 apr</small></div>
+                </td>
+                <td><span class="pill p-sport">Sport</span></td>
+                <td class="pl-topic">Tornare allo sport<small>Reel cover · riabilitazione</small></td>
+                <td>Reel</td>
+                <td>10:30</td>
+                <td><span class="st prog">In lavorazione</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="pl-day">Dom<small>20 apr</small></div>
+                </td>
+                <td><span class="pill p-cta">CTA</span></td>
+                <td class="pl-topic">Vuoi capire da dove iniziare?<small>Post CTA · colloquio informativo</small></td>
+                <td>Post 4:5</td>
+                <td>11:00</td>
+                <td><span class="st plan">Pianificato</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pl-legend">
+          <span class="lg"><span class="sw2 p-edu"></span>Educazione al movimento</span>
+          <span class="lg"><span class="sw2 p-met"></span>Metodo &amp; percorso</span>
+          <span class="lg"><span class="sw2 p-prev"></span>Prevenzione</span>
+          <span class="lg"><span class="sw2 p-sport"></span>Sport &amp; riabilitazione</span>
+          <span class="lg"><span class="sw2 p-comm"></span>Community &amp; interazione</span>
+          <span class="lg"><span class="sw2 p-cta"></span>Call to action</span>
+          <span class="lg" style="margin-left:auto;color:#9aabae">* valori simulati a fini didattici</span>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ============ DASHBOARD ============ -->
+    <section class="sec" id="dashboard">
+      <div class="sec-head">
+        <span class="sec-kicker">Dashboard</span>
+      </div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">Dashboard del piano editoriale</h2>
+        <p class="sec-desc">Una lettura sintetica del sistema progettuale: formati, contenuti e touchpoint previsti.</p>
+      </div>
+      <div class="dashboard-grid">
+        <div class="dash-card">
+          <div class="dash-num">9</div>
+          <div class="dash-label">Template social</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-num">6</div>
+          <div class="dash-label">Slide carosello</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-num">4</div>
+          <div class="dash-label">Stories collegate</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-num">7</div>
+          <div class="dash-label">Contenuti nella settimana esempio</div>
+        </div>
+      </div>
+      <div class="method-note" style="margin-top:24px; border-left:4px solid var(--teal);">
+        <p>Dashboard dimostrativa. I numeri descrivono l’organizzazione del sistema editoriale proposto e non rappresentano risultati, pubblicazioni effettive o performance misurate.</p>
+      </div>
+    </section>
+
+    <!-- ============ PROMPT AI ============ -->
+    <section class="sec" id="prompt-ai">
+      <div class="sec-head">
+        <span class="sec-kicker">Prompt AI</span>
+      </div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">Prompt AI per i visual FisioIntegra</h2>
+        <p class="sec-desc">Prompt progettuali per generare o adattare visual coerenti con il sistema grafico, mantenendo una comunicazione professionale, rassicurante e non sensazionalistica.</p>
+      </div>
+      <div class="prompt-grid">
+        <div class="prompt-card">
+          <div class="pt">01 · Il dolore è un segnale</div>
+          <ul>
+            <li>Formato 4:5</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+        <div class="prompt-card">
+          <div class="pt">02 · Prima valutazione</div>
+          <ul>
+            <li>Formato 4:5</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+        <div class="prompt-card">
+          <div class="pt">03 · Le fasi del percorso</div>
+          <ul>
+            <li>Formato 4:5</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+        <div class="prompt-card">
+          <div class="pt">04 · Giornata sedentaria</div>
+          <ul>
+            <li>Formato 4:5</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+        <div class="prompt-card">
+          <div class="pt">05 · Pausa attiva</div>
+          <ul>
+            <li>Formato 9:16</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+        <div class="prompt-card">
+          <div class="pt">06 · Falso mito sulla postura</div>
+          <ul>
+            <li>Formato 4:5</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+        <div class="prompt-card">
+          <div class="pt">07 · Tornare allo sport</div>
+          <ul>
+            <li>Formato 4:5</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+        <div class="prompt-card">
+          <div class="pt">08 · Quiz postura perfetta</div>
+          <ul>
+            <li>Formato 9:16</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+        <div class="prompt-card">
+          <div class="pt">09 · CTA colloquio informativo</div>
+          <ul>
+            <li>Formato 4:5</li>
+            <li>Mantenere palette FisioIntegra</li><li>Evitare stile ospedaliero</li><li>Evitare dolore estremo e scene drammatiche</li><li>Luce naturale, persone rilassate</li><li>Lasciare spazio negativo per i testi</li><li>No testo generato o watermark</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METODO ============ -->
+    <section class="sec" id="metodo">
+      <div class="sec-head">
+        <span class="sec-kicker">Metodo</span>
+      </div>
+      <div class="sec-head" style="margin-top:-14px">
+        <h2 class="sec-title">Come leggere il sistema</h2>
+      </div>
+      <div class="metodo-grid">
+        <div class="metodo-card">
+          <div class="mc-num">1</div>
+          <h3>Coerenza visiva</h3>
+          <p>Logo, palette, curva del movimento, tipografia e fotografia costruiscono un linguaggio riconoscibile.</p>
+        </div>
+        <div class="metodo-card">
+          <div class="mc-num">2</div>
+          <h3>Flessibilità dei formati</h3>
+          <p>I contenuti sono progettati per adattarsi a feed 4:5, Reel cover e Stories 9:16.</p>
+        </div>
+        <div class="metodo-card">
+          <div class="mc-num">3</div>
+          <h3>Comunicazione responsabile</h3>
+          <p>Il sistema evita diagnosi, promesse di guarigione, toni drammatici e claim medici assoluti.</p>
+        </div>
+        <div class="metodo-card">
+          <div class="mc-num">4</div>
+          <h3>Misurazione futura</h3>
+          <p>KPI, stati del planner e metriche sono criteri progettuali da validare in una futura fase operativa.</p>
+        </div>
+      </div>
+      <div class="method-note" style="margin-top:24px; border-left:4px solid var(--teal);">
+        <p>Il sistema visivo è un prototipo progettuale; il piano editoriale è una proposta operativa; numeri, KPI, stati del planner e metriche sono scenari dimostrativi e non dati reali di campagne già pubblicate.</p>
+      </div>
+    </section>
+
+    <section class="back-to-cases-section" aria-label="Navigazione casi studio">
+      <a class="back-to-cases-button" href="/#casi-studio">
+        <span aria-hidden="true">←</span>
+        Torna ai casi studio
+      </a>
+    </section>
+
+    
+    <!-- ============ NOTA FINALE ============ -->
+    <div style="max-width:1180px; margin: 40px auto 20px; padding: 0 22px; font-size:13px; color:#5a767c; text-align:center; line-height:1.5;">
+      Caso studio FisioIntegra · Sistema visivo, content strategy e piano editoriale sviluppati da Socialin Communication / Federica Creative. Il progetto integra materiali visuali, planner, template e touchpoint digitali come proposta operativa di sviluppo futuro. I contenuti non costituiscono diagnosi, indicazioni sanitarie personalizzate o risultati clinici.
+    </div>
+
+    <!-- ============ CREDITS ============ -->
+    <div class="credits">
+      <svg class="cover-curve" viewBox="0 0 1180 200" preserveAspectRatio="none" style="opacity:.4">
+        <path d="M-50,140 C300,40 560,180 900,80 C1040,40 1160,90 1260,50" fill="none" stroke="#6ED3C6"
+          stroke-width="2" />
+      </svg>
+      <div style="position:relative;z-index:2;display:flex;align-items:center;gap:18px">
+        <img data-img="logo" src="assets/logo-fisiointegra.png"   alt="">
+        <div>
+          <div class="ct">Sistema visivo FisioIntegra</div>
+          <div class="cs">Visual identity applicata, piano editoriale e calendario strategico — proposta originale,
+            ispirata alla logica dei contenuti, non ai template di riferimento.</div>
+        </div>
+      </div>
+      <div class="cby" style="position:relative;z-index:2">
+        Progetto a cura di<br><b>Socialin Communication · Federica Creative</b><br>Project Work — LUM School of
+        Management
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    if (IMG_DATA[k]) el.src = IMG_DATA[k]; });
+    // Build feed 3x3 thumbnails from the rendered templates (4:5 crops)
+    const feedItems = [
+      { img: 'dolore', scrim: 'b', no: '01', tone: 'light' },
+      { img: 'carosello', scrim: 'top-crema', no: '02', tone: 'petrolio' },
+      { img: null, deep: true, no: '03', tone: 'light', label: 'PERCORSO' },
+      { img: 'sedentaria', scrim: 'top-crema', no: '04', tone: 'petrolio' },
+      { img: 'movimento', scrim: 'b', no: '05', tone: 'light' },
+      { img: 'postura', scrim: 'top-crema', no: '06', tone: 'petrolio' },
+      { img: 'sport', scrim: 'b', no: '07', tone: 'light' },
+      { img: null, acqua: true, no: '08', tone: 'petrolio', label: 'QUIZ' },
+      { img: 'cta', scrim: 'top-crema', no: '09', tone: 'petrolio' },
+    ];
+    const grid = document.getElementById('igGrid');
+    feedItems.forEach(it => {
+      const cell = document.createElement('div');
+      cell.style.cssText = 'position:relative;aspect-ratio:4/5;overflow:hidden;background:' + (it.deep ? 'linear-gradient(150deg,#0B4F5A,#147C7C)' : it.acqua ? 'linear-gradient(160deg,#A8CDB2,#cfe6db)' : '#F7F5EF');
+      if (it.img) {
+        const im = document.createElement('img');
+        var M={"logo":"logo-fisiointegra.png","giovanni":"giovanni-cavone-fisiointegra.png","metodo":"metodo-fisiointegra.jpg","movimento":"problema-movimento.jpg","dolore":"Copertina Reel “Il dolore è un segnale”.png","carosello":"_anteprima_carosello.png","sedentaria":"Post educativo “Cinque errori della giornata sedentaria”.png","postura":"problema-postura.jpg","sport":"Post “Tornare allo sport”.png","cta":"05_cta.png","ascolto":"02_ascolto.png","osservazione":"03_osservazione.png","prevenzione":"problema-prevenzione.jpg"}; im.src = 'assets/' + M[it.img]; im.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top' + (it.scrim === 'top-crema' ? ';height:60%' : '');
+        cell.appendChild(im);
+        const sc = document.createElement('div');
+        if (it.scrim === 'b') sc.style.cssText = 'position:absolute;inset:0;background:linear-gradient(to top,rgba(11,79,90,.85),transparent 60%)';
+        else sc.style.cssText = 'position:absolute;bottom:0;left:0;right:0;height:46%;background:#F7F5EF';
+        cell.appendChild(sc);
+      }
+      const tag = document.createElement('div');
+      const col = it.tone === 'light' ? '#F7F5EF' : '#0B4F5A';
+      tag.textContent = it.label || '';
+      tag.style.cssText = 'position:absolute;left:7px;bottom:6px;font-family:Manrope,sans-serif;font-weight:800;font-size:8px;letter-spacing:.12em;color:' + col;
+      const num = document.createElement('div');
+      num.textContent = it.no;
+      num.style.cssText = 'position:absolute;top:6px;right:7px;font-family:Manrope,sans-serif;font-weight:800;font-size:9px;color:' + (it.tone === 'light' ? 'rgba(247,245,239,.85)' : 'rgba(11,79,90,.6)');
+      cell.appendChild(tag); cell.appendChild(num);
+      grid.appendChild(cell);
+    });
+  </script>
+  <script>
+    const scrollTopButton = document.getElementById('scrollTopButton');
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        const shouldShowButton = window.scrollY > 400;
+        scrollTopButton.classList.toggle('is-visible', shouldShowButton);
+      },
+      { passive: true }
+    );
+
+    scrollTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+
+</html>
