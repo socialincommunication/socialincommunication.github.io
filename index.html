@@ -638,7 +638,7 @@
     </footer>
 
     <!-- CHATBOT FLOATING UI -->
-    <button class="chatbot-toggle" id="chatbot-toggle" data-chatbot-build="local-v2" aria-label="Apri assistente Socialin" title="Apri assistente Socialin">
+    <button class="chatbot-toggle" id="chatbot-toggle" data-chatbot-build="local-v2" aria-label="Apri assistente Socialin">
         <span aria-hidden="true">✦</span>
     </button>
     
@@ -673,6 +673,11 @@ window.addEventListener("load", function () {
       return;
     }
 
+    originalToggle.style.setProperty("cursor", "none", "important");
+    originalToggle.querySelectorAll("*").forEach(function (element) {
+      element.style.setProperty("cursor", "none", "important");
+    });
+
     if (document.getElementById("socialin-chatbot-recovery-toggle")) {
       return;
     }
@@ -683,7 +688,6 @@ window.addEventListener("load", function () {
     recoveryToggle.id = "socialin-chatbot-recovery-toggle";
     recoveryToggle.type = "button";
     recoveryToggle.setAttribute("aria-label", "Apri assistente Socialin");
-    recoveryToggle.setAttribute("title", "Apri assistente Socialin");
     recoveryToggle.innerHTML = "<span aria-hidden='true'>✦</span>";
 
     recoveryToggle.style.setProperty("display", "grid", "important");
@@ -701,7 +705,7 @@ window.addEventListener("load", function () {
     recoveryToggle.style.setProperty("color", "#ffffff", "important");
     recoveryToggle.style.setProperty("font-size", "25px", "important");
     recoveryToggle.style.setProperty("line-height", "1", "important");
-    recoveryToggle.style.setProperty("cursor", "pointer", "important");
+    recoveryToggle.style.setProperty("cursor", "none", "important");
     recoveryToggle.style.setProperty("visibility", "visible", "important");
     recoveryToggle.style.setProperty("opacity", "1", "important");
     recoveryToggle.style.setProperty("z-index", "2147483646", "important");
@@ -709,6 +713,10 @@ window.addEventListener("load", function () {
 
     recoveryToggle.addEventListener("click", function () {
       originalToggle.click();
+    });
+
+    recoveryToggle.querySelectorAll("*").forEach(function (element) {
+      element.style.setProperty("cursor", "none", "important");
     });
 
     document.body.appendChild(recoveryToggle);
