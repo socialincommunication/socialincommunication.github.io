@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inizializza la chat
     function initChat() {
-        appendMessage("bot", "Ciao, sono Socialin Assistant. Posso aiutarti a capire quale percorso è più adatto al tuo brand: social media, branding, sito web, funnel, e-commerce, AI content creation o Avatar Strategy AI.");
+        appendMessage("bot", "Ciao, sono l’assistente virtuale di Socialin Communication. Posso aiutarti a orientarti tra sito e funnel, strategia social, avatar AI, video, branding e consulenza.");
         appendQuickReplies(quickReplies);
     }
 
@@ -196,44 +196,24 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const intents = [
             {
-                triggers: ["servizi", "cosa fate", "socialin", "agenzia", "comunicazione"],
-                response: "Socialin Communication / Federica Creative integra branding, gestione social, contenuti foto e video, siti web, funnel, e-commerce, campagne pubblicitarie, avatar AI, automazioni e consulenza strategica. Posso aiutarti a capire da quale servizio partire."
-            },
-            {
                 triggers: ["sito", "funnel", "landing", "ecommerce", "e-commerce", "shop"],
-                response: "Possiamo progettare un sito, una landing page o un funnel in base al tuo obiettivo: presentare il brand, raccogliere contatti, vendere prodotti o organizzare richieste di consulenza. Per orientarti bene: hai già un sito oppure parti da zero?"
+                response: "Possiamo progettare un sito, una landing page, un e-commerce o un funnel in base al tuo obiettivo: presentare il brand, raccogliere contatti, vendere prodotti o organizzare richieste di consulenza. Hai già un sito oppure parti da zero?"
             },
             {
                 triggers: ["social", "instagram", "tiktok", "facebook", "piano editoriale", "contenuti"],
-                response: "Una strategia social parte da obiettivo, target, posizionamento, contenuti, calendario editoriale e analisi dei risultati. Socialin può affiancarti nella costruzione del sistema, non solo nella pubblicazione dei post. Qual è il tuo settore?"
+                response: "Una strategia social parte da obiettivo, target, posizionamento, contenuti, calendario editoriale e analisi. Socialin può affiancarti nella costruzione del sistema, non solo nella pubblicazione dei post. Qual è il tuo settore?"
             },
             {
                 triggers: ["avatar", "ai", "intelligenza artificiale", "virtual influencer", "strategia senza volto"],
-                response: "Gli avatar AI possono essere usati per contenuti, video, presentazioni, assistenti virtuali e strategie senza volto. Il progetto viene costruito partendo da identità, tono di voce, immagini, script, formati video e obiettivo di comunicazione. Vuoi usare un avatar per il tuo brand, per vendere un servizio o per creare un personaggio digitale?"
+                response: "Gli avatar AI possono essere usati per contenuti, video, presentazioni, assistenti virtuali e strategie senza volto. Il progetto parte da identità, tono di voce, immagini, script e obiettivo di comunicazione. Vuoi usare un avatar per un brand, un servizio o un personaggio digitale?"
             },
             {
                 triggers: ["video", "spot", "reel", "fotografia", "shooting", "contenuti"],
-                response: "Socialin può progettare contenuti video, reel, spot, shooting fotografici e visual per i social, con attenzione a identità visiva, messaggio e obiettivo strategico. Hai già un prodotto o servizio da raccontare?"
+                response: "Socialin può progettare reel, spot, shooting fotografici, contenuti video e sistemi visivi per social e sito. Hai già un prodotto, servizio o progetto da raccontare?"
             },
             {
                 triggers: ["consulenza", "preventivo", "contatto", "prezzo", "costi", "budget"],
-                response: "Per una consulenza o un preventivo serve prima comprendere il progetto, il settore, gli obiettivi e i canali già attivi. Puoi lasciare una breve descrizione del tuo bisogno e Socialin potrà ricontattarti tramite la sezione contatti del sito."
-            },
-            {
-                triggers: ["aia pura bio", "filiera", "bianca"],
-                response: "Aia Pura Bio è uno studio di fattibilità strategica su un modello consortile ipotetico di filiera avicola biologica. Il progetto non deve essere presentato come azienda già attiva o come caso con vendite validate."
-            },
-            {
-                triggers: ["fisiointegra", "fisioterapia", "salute", "riabilitazione"],
-                response: "FisioIntegra è un caso di strategia comunicativa dedicato a fisioterapia, prevenzione, riabilitazione ed educazione al movimento. Il chatbot non fornisce diagnosi, consigli medici o indicazioni terapeutiche: per esigenze personali è necessario rivolgersi a professionisti sanitari qualificati."
-            },
-            {
-                triggers: ["essereape", "miele", "apicoltura", "melia"],
-                response: "EssereApe è un caso dedicato all’apicoltura etica, territoriale e digitale, con focus su racconto della filiera, tracciabilità e assistente virtuale Mèlia."
-            },
-            {
-                triggers: ["claudio", "scrittore", "libro", "romanzo", "autore"],
-                response: "Il caso Claudio Stella riguarda una proposta strategica di posizionamento autore, contenuti social e promozione editoriale. È un caso reale potenziale, non un risultato già validato."
+                response: "Per una consulenza o un preventivo occorre comprendere settore, obiettivi, canali già attivi e priorità. Raccontami brevemente il progetto e utilizza la sezione contatti del sito per essere ricontattato."
             }
         ];
 
