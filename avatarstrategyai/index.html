@@ -1,3 +1,21 @@
+
+
+
+<section class="section bg-alt" id="ai-transparency">
+  <div class="container">
+    <div class="ai-transparency-box">
+      <h2>Tecnologia dichiarata. Direzione umana.</h2>
+      <p>ATHANASYA / ATHY è un’identità virtuale artistica sviluppata con il supporto di tecnologie di intelligenza artificiale.</p>
+      <p>Socialin utilizza l’AI come strumento di progettazione, art direction e produzione; la scelta strategica, la supervisione creativa, il controllo dei contenuti e la responsabilità comunicativa restano umani.</p>
+      <p>Ogni progetto richiede una valutazione specifica su identità, target, linguaggio, diritti sui materiali, trasparenza commerciale e contesto d’uso.</p>
+      <div class="ai-transparency-footer">
+        <p>L’avatar non sostituisce la relazione: la rende più progettata, riconoscibile e continuativa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -138,7 +156,178 @@
                 height: 200px;
             }
         }
-    </style>
+    
+/* Nuovi Stili Avatar Strategy AI */
+.athy-video-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media(max-width: 991px) {
+  .athy-video-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.athy-video-shell {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.athy-video-player {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.athy-production-note {
+  background: var(--bg-alt);
+  padding: 24px;
+  border-radius: 8px;
+  border-left: 4px solid var(--brand-magenta);
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+.athy-production-note strong {
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+}
+.athy-production-note p {
+  margin-bottom: 10px;
+}
+.athy-production-note p:last-child {
+  margin-bottom: 0;
+}
+.athy-transparency-line {
+  font-size: 0.8em;
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Visual System Grid */
+.athy-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+@media(max-width: 991px) {
+  .athy-visual-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media(max-width: 575px) {
+  .athy-visual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.athy-visual-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+}
+.athy-card-img-wrap {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.athy-card-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.athy-visual-card h4 {
+  font-size: 1.1em;
+  margin-bottom: 12px;
+}
+.athy-visual-card p {
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* Metodo Grid */
+.avatar-method-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 50px auto 0;
+}
+.avatar-method-step {
+  display: flex;
+  align-items: flex-start;
+  background: var(--bg-alt);
+  padding: 30px;
+  border-radius: 12px;
+}
+@media(max-width: 575px) {
+  .avatar-method-step {
+    flex-direction: column;
+  }
+}
+.avatar-method-step .step-num {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--brand-magenta);
+  margin-right: 30px;
+  min-width: 40px;
+}
+@media(max-width: 575px) {
+  .avatar-method-step .step-num {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+.avatar-method-step h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+.avatar-method-step p {
+  margin-bottom: 0;
+  font-size: 0.95em;
+  color: var(--text-muted);
+}
+
+/* Transparency Box */
+.ai-transparency-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  text-align: center;
+}
+@media(max-width: 575px) {
+  .ai-transparency-box {
+    padding: 30px;
+  }
+}
+.ai-transparency-box h2 {
+  font-size: 1.8em;
+  margin-bottom: 24px;
+}
+.ai-transparency-box p {
+  margin-bottom: 15px;
+  font-size: 1.05em;
+  color: var(--text-color);
+}
+.ai-transparency-footer {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  font-weight: 600;
+  color: var(--brand-magenta);
+}
+</style>
 </head>
 <body>
 
@@ -303,6 +492,64 @@
             </div>
         </div>
     </section>
+
+
+<section class="section" id="athy-video">
+  <div class="container athy-video-container">
+    <div class="athy-video-col-left">
+      <div class="athy-video-shell">
+        <video src="../assets/athanasya-presentazione-spoiler-canzone.mp4" poster="../assets/athy-reference-intera-verticale.png" controls playsinline preload="metadata" class="athy-video-player"></video>
+      </div>
+    </div>
+    <div class="athy-video-col-right text-content">
+      <span class="kicker">PRESENTAZIONE AUDIOVISIVA &middot; ATHANASYA / ATHY</span>
+      <h2>ATHY prende forma</h2>
+      <p>ATHANASYA / ATHY è un’identità virtuale proprietaria sviluppata per mostrare come immagine, voce, musica, narrazione e intelligenza artificiale possano costruire una presenza riconoscibile nel tempo.</p>
+      <p>Il video presenta il suo universo visivo e, nella parte conclusiva, contiene uno spoiler della sua prima anteprima musicale.</p>
+      
+      <div class="athy-production-note">
+        <strong>NOTA DI PRODUZIONE</strong>
+        <p>Le scene musicali presenti nella parte finale sono un esempio rappresentativo dell’universo narrativo e visivo del brano. Non corrispondono alle scene definitive del videoclip.</p>
+        <p>Il videoclip completo sarà sviluppato successivamente attraverso una pipeline audiovisiva dedicata, con Character Bible, immagini di riferimento, performance guide, motion design, image-to-video, lip-sync mirato, compositing e post-produzione, per ricercare una maggiore continuità di volto, corpo, movimento e linguaggio cinematografico.</p>
+        <p>Nel teaser il labiale è volutamente contenuto: le clip privilegiano atmosfera, gesto, sguardo, ritmo e montaggio, non una performance vocale definitiva.</p>
+      </div>
+      <p class="athy-transparency-line">ATHANASYA / ATHY è un’identità virtuale artistica sviluppata con il supporto di tecnologie di intelligenza artificiale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt" id="athy-visual-system">
+  <div class="container">
+    <div class="text-center">
+      <h2>Non un’immagine singola. Un sistema di presenza.</h2>
+      <p class="subtitle">Un avatar credibile non nasce da una sola generazione. Nasce da regole visive, narrative e tecniche capaci di rendere coerenti volto, corpo, voce, movimento, contenuti e relazione.</p>
+    </div>
+    
+    <div class="athy-visual-grid">
+      <div class="athy-visual-card">
+        <div class="athy-card-img-wrap"><img src="../assets/athy-generated-02-verticale.png" alt="Character Bible"></div>
+        <h4>1. Character Bible</h4>
+        <p>Volto, proporzioni, capelli, palette, espressioni, outfit e dettagli ricorrenti.</p>
+      </div>
+      <div class="athy-visual-card">
+        <div class="athy-card-img-wrap"><img src="../assets/athy-generated-03-verticale.png" alt="Performance e movimento"></div>
+        <h4>2. Performance e movimento</h4>
+        <p>Pose, sguardi, mani, silhouette, azioni e micro-espressioni.</p>
+      </div>
+      <div class="athy-visual-card">
+        <div class="athy-card-img-wrap"><img src="../assets/athy-generated-04-verticale.png" alt="Scene e formati"></div>
+        <h4>3. Scene e formati</h4>
+        <p>Reel, teaser, cover musicali, frame cinematografici, visual editoriali e contenuti verticali.</p>
+      </div>
+      <div class="athy-visual-card">
+        <div class="athy-card-img-wrap"><img src="../assets/athy-generated-05-verticale.png" alt="Identità narrativa"></div>
+        <h4>4. Identità narrativa</h4>
+        <p>Voce, universo musicale, tono, frasi manifesto e simboli visuali.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
     <!-- CLARIFICATION SECTION -->
     <section class="section" id="clarification">
         <div class="container">
@@ -366,6 +613,45 @@
         </div>
     </section>
 
+
+<section class="section" id="metodo-avatar">
+  <div class="container">
+    <div class="text-center">
+      <h2>Dal concept alla presenza digitale</h2>
+      <p class="subtitle">Avatar Strategy AI non consiste nella semplice generazione di un volto. È un percorso che collega identità, contenuti, relazione e obiettivi di comunicazione.</p>
+    </div>
+    
+    <div class="avatar-method-grid">
+      <div class="avatar-method-step">
+        <div class="step-num">01</div>
+        <h4>Diagnosi strategica</h4>
+        <p>Obiettivi, target, ruolo dell’avatar e confini della comunicazione.</p>
+      </div>
+      <div class="avatar-method-step">
+        <div class="step-num">02</div>
+        <h4>Identità e Character Bible</h4>
+        <p>Volto, stile, tono di voce, comportamento, valori e immaginario.</p>
+      </div>
+      <div class="avatar-method-step">
+        <div class="step-num">03</div>
+        <h4>Produzione degli asset</h4>
+        <p>Immagini, clip, voice-over, contenuti verticali, scene cinematiche e materiali per il funnel.</p>
+      </div>
+      <div class="avatar-method-step">
+        <div class="step-num">04</div>
+        <h4>Sistema editoriale e distribuzione</h4>
+        <p>Reel, TikTok, landing page, email, campagne, teaser, social proof progettuale e automazioni.</p>
+      </div>
+      <div class="avatar-method-step">
+        <div class="step-num">05</div>
+        <h4>Monitoraggio e ottimizzazione</h4>
+        <p>Analisi di attenzione, interazioni, richieste di contatto, contenuti più efficaci e miglioramento progressivo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
     <!-- CTA FINALE -->
     <section class="cta-section">
         <div class="container fade-up">
@@ -405,6 +691,9 @@
             </div>
         </div>
     </footer>
+
+
+
 
 </body>
 </html>
