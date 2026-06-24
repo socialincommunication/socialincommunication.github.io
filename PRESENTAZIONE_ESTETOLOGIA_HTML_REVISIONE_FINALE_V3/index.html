@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESTETOLOGIA E AVATAR AI - Presentazione Tesi</title>
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body>
+
+  <div class="presentation-container" id="presentation">
+    
+    <!-- Fullscreen Button -->
+    <button class="fullscreen-btn" id="btn-fullscreen" title="Modalità Schermo Intero (Tasto F)">Schermo Intero</button>
+    
+    <!-- Index Toggle Button -->
+    <button class="index-toggle" id="btn-index" title="Mostra Indice">Indice</button>
+    
+    <!-- Index Menu -->
+    <div class="index-menu" id="menu-index">
+      <h3>INDICE DELLA PRESENTAZIONE</h3>
+      <ul class="index-list">
+        <li class="index-item active" data-slide="0"><a href="#slide-01">01. Copertina</a></li>
+        <li class="index-item" data-slide="1"><a href="#slide-02">02. Estetologia e domanda di ricerca</a></li>
+        <li class="index-item" data-slide="2"><a href="#slide-03">03. Quattro Livelli di Evidenza</a></li>
+        <li class="index-item" data-slide="3"><a href="#slide-04">04. Quattro Lenti del Modello</a></li>
+        <li class="index-item" data-slide="4"><a href="#slide-05">05. Laboratorio Creativo-Strategico</a></li>
+        <li class="index-item" data-slide="5"><a href="#slide-06">06. Scenario As Is / To Be</a></li>
+        <li class="index-item" data-slide="6"><a href="#slide-07">07. Il Sito come Dimostratore</a></li>
+        <li class="index-item" data-slide="7"><a href="#slide-08">08. Quattro Casi e Matrice</a></li>
+        <li class="index-item" data-slide="8"><a href="#slide-09">09. Caso Aia Pura Bio</a></li>
+        <li class="index-item" data-slide="9"><a href="#slide-10">10. Caso FisioIntegra</a></li>
+        <li class="index-item" data-slide="10"><a href="#slide-11">11. Caso EssereApe</a></li>
+        <li class="index-item" data-slide="11"><a href="#slide-12">12. Caso Claudio Stella</a></li>
+        <li class="index-item" data-slide="12"><a href="#slide-13">13. Caso Athy (Identità AI)</a></li>
+        <li class="index-item" data-slide="13"><a href="#slide-14">14. Analisi SWOT</a></li>
+        <li class="index-item" data-slide="14"><a href="#slide-15">15. Benchmark di Posizionamento</a></li>
+        <li class="index-item" data-slide="15"><a href="#slide-16">16. Criteri e KPI di Validazione</a></li>
+        <li class="index-item" data-slide="16"><a href="#slide-17">17. Parametri e Dati di Contesto</a></li>
+        <li class="index-item" data-slide="17"><a href="#slide-18">18. Roadmap e Condizioni di Sviluppo</a></li>
+        <li class="index-item" data-slide="18"><a href="#slide-19">19. Conclusioni ed Estetologia</a></li>
+      </ul>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 01 — COPERTINA & DOMANDA DI RICERCA (Light Theme)
+         ========================================== -->
+    <div class="slide active" id="slide-01">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="cover-layout-v2">
+          <div class="cover-left-v2">
+            
+            <!-- Top logos & label -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--bg-alt-darker); padding-bottom: 10px; width: 100%;">
+              <div class="cover-logos" style="display: flex; gap: 15px; align-items: center;">
+                <img src="assets/image1.jpeg" alt="Logo LUM Università" class="logo-lum" style="height: 45px; width: auto; object-fit: contain; background: white; padding: 2px 8px; border-radius: var(--radius-sm); border: 1px solid var(--bg-alt-darker);">
+                <img src="assets/02-logo-socialin-quadrata.gif" alt="Logo Socialin Animato" class="logo-socialin-gif" style="height: 45px; width: 45px; object-fit: contain;">
+              </div>
+              <span class="slide-label" style="margin: 0; font-size: 12px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px;">PROJECT WORK • MASTER MADIMAV 2025/2026</span>
+            </div>
+
+            <!-- Tesi titles -->
+            <div style="display: flex; flex-direction: column; gap: 4px; border-left: 4px solid var(--brand-magenta); padding-left: 15px;">
+              <h1 style="font-size: 28px; letter-spacing: -0.5px; color: #2E2E35; margin: 0; line-height: 1.1;">ESTETOLOGIA E AVATAR AI</h1>
+              <p style="font-size: 16px; color: var(--brand-magenta); font-weight: 600; margin: 0;">Arte, identità e strategie di marketing</p>
+              <p style="font-size: 12.5px; line-height: 1.4; color: var(--text-dark); margin: 0; font-weight: 500; font-style: italic;">
+                Socialin e Federica Creative come laboratorio creativo-strategico per integrare arte, marketing, AI, avatar iperrealistici, neuromarketing e casi operativi.
+              </p>
+            </div>
+
+            <!-- Meta names -->
+            <div style="border-top: 1px solid var(--bg-alt-darker); padding-top: 10px; display: flex; justify-content: space-between; width: 100%;">
+              <div style="width: 48%; display: flex; flex-direction: column; gap: 1px;">
+                <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;">Candidata</span>
+                <span style="font-size: 13.5px; color: var(--text-dark); font-weight: 600;">Dott.ssa Federica Centonze</span>
+                <span style="font-size: 11.5px; color: var(--text-muted);">Master Universitario MADIMAV • A.A. 2025/2026</span>
+              </div>
+              <div style="width: 48%; display: flex; flex-direction: column; gap: 1px;">
+                <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px;">Commissione di Laurea</span>
+                <span style="font-size: 13.5px; color: var(--text-dark); font-weight: 600;">Relatore: Prof. Domenico Morrone</span>
+                <span style="font-size: 12px; color: var(--text-dark); font-weight: 500;">Correlatore: Dott. Pietro Coletta</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Athy portrait right columns -->
+          <div class="cover-right-v2">
+            <img src="assets/athy-brand-character-verticale.jpg" alt="Athy virtual artist brand character">
+          </div>
+        </div>
+      </div>
+      
+      <div class="speaker-box">
+        <div class="speaker-title">CHIAVE DI LETTURA</div>
+        <div class="speaker-text">Questo Project Work presenta Socialin e Federica Creative come laboratorio creativo-strategico. Il titolo introduce il rapporto tra Estetologia, identità digitale, Avatar AI, neuromarketing e strategie di marketing.</div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <div class="btn-container" style="flex-wrap: wrap;">
+          <span class="btn-caption" style="width: 100%; margin-bottom: 5px;">Per vedere il laboratorio creativo e i materiali visivi che supportano la ricerca, apri il pulsante qui sotto.</span>
+          <a href="https://socialincommunication.com/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Esplora Socialin Communication</a>
+        </div>
+        <span class="slide-indicator">1 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 02 — ESTETOLOGIA E PUNTO DI PARTENZA (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-02">
+      <div class="slide-header">
+        <span class="slide-label">PUNTO DI PARTENZA</span>
+        <h2 class="slide-title">Estetologia: immagine, identità e rapporto con il digitale</h2>
+        <p class="slide-intro">Nel Project Work, l’Estetologia non viene trattata come decorazione. Diventa un criterio per leggere corpo, apparenza, immagine, bellezza artificiale, rappresentazione e fiducia nella comunicazione digitale.</p>
+      </div>
+      
+      <div class="slide-body">
+        <div class="estetologia-layout">
+          <div class="estetologia-left">
+            <div class="estetologia-bullets">
+              <div class="estetologia-bullet">Estetologia</div>
+              <div class="estetologia-bullet">Identità digitale</div>
+              <div class="estetologia-bullet">Immagine</div>
+              <div class="estetologia-bullet">Apparenza e verità</div>
+              <div class="estetologia-bullet">Bellezza artificiale</div>
+              <div class="estetologia-bullet">Relazione persona-tecnologia</div>
+            </div>
+          </div>
+          
+          <div class="estetologia-right">
+            <div class="rq-container" style="display: flex; flex-direction: column; gap: 8px;">
+              <div class="rq-label">Domanda di Ricerca</div>
+              <blockquote class="rq-quote" style="margin: 0; font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--text-dark); font-style: italic;">
+                “In che modo Socialin e Federica Creative possono configurarsi come laboratorio creativo-strategico capace di integrare arte, Estetologia, Avatar AI, neuromarketing e digital marketing per progettare fiducia, identità digitale e valore nei brand?”
+              </blockquote>
+              <p style="font-size: 12.5px; color: var(--text-muted); margin: 4px 0 0 0; font-weight: 500; line-height: 1.35;">
+                La convergenza tra evoluzione tecnologica e mercati digitali richiede nuove tecnologie relazionali.
+              </p>
+              <p style="font-size: 12.5px; color: var(--text-muted); margin: 0 0 4px 0; font-weight: 500; line-height: 1.35;">
+                Quattro pilastri ridefiniscono il rapporto tra marca e consumatore:
+              </p>
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;">
+                <div class="estetologia-bullet" style="font-size: 11px; padding: 4px 2px; text-align: center; margin: 0; box-shadow: none; border-left: 3px solid var(--brand-magenta); border-radius: 4px; background: white; white-space: nowrap;">Estetologia e marketing</div>
+                <div class="estetologia-bullet" style="font-size: 11px; padding: 4px 2px; text-align: center; margin: 0; box-shadow: none; border-left: 3px solid var(--brand-magenta); border-radius: 4px; background: white; white-space: nowrap;">Identità digitale</div>
+                <div class="estetologia-bullet" style="font-size: 11px; padding: 4px 2px; text-align: center; margin: 0; box-shadow: none; border-left: 3px solid var(--brand-magenta); border-radius: 4px; background: white; white-space: nowrap;">Avatar AI</div>
+                <div class="estetologia-bullet" style="font-size: 11px; padding: 4px 2px; text-align: center; margin: 0; box-shadow: none; border-left: 3px solid var(--brand-magenta); border-radius: 4px; background: white; white-space: nowrap;">AI responsabile</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="speaker-box">
+        <div class="speaker-title">CHIAVE DI LETTURA</div>
+        <div class="speaker-text">L'Estetologia analizza l'immagine digitale e la bellezza artificiale per costruire fiducia. La ricerca indaga come integrare arte, marketing ed AI in un laboratorio creativo-strategico.</div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <div class="btn-container" style="flex-wrap: wrap;">
+          <span class="btn-caption" style="width: 100%; margin-bottom: 5px;">Per proseguire la lettura attraverso sito, progetto e materiali collegati, apri il pulsante qui sotto.</span>
+          <a href="https://socialincommunication.com/#strategia" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Esplora la strategia Socialin</a>
+        </div>
+        <span class="slide-indicator">2 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 03 — METODO (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-03">
+      <div class="slide-header">
+        <span class="slide-label">METODOLOGIA</span>
+        <h2 class="slide-title">Quattro livelli di evidenza</h2>
+        <p class="slide-intro">La ricerca non certifica performance commerciali. Organizza fonti, casi, prototipi e proposte per definire un modello verificabile.</p>
+      </div>
+      
+      <div class="slide-body">
+        <div style="display: flex; flex-direction: column; height: 100%; width: 100%; justify-content: space-between; gap: 3vh;">
+          <div class="grid-4" style="flex: 1;">
+            <div class="card">
+              <div class="card-num">01</div>
+              <h3>Documentato</h3>
+              <p>Elementi storici, contratti, loghi o touchpoint reali di terzi osservabili e tracciabili.</p>
+            </div>
+            
+            <div class="card">
+              <div class="card-num">02</div>
+              <h3>Prototipo / simulazione</h3>
+              <p>Mock-up interattivi, interfacce di assistenti virtuali o demo create a scopo di studio.</p>
+            </div>
+            
+            <div class="card">
+              <div class="card-num">03</div>
+              <h3>Proposta operativa</h3>
+              <p>Architetture editoriali, concept di branding e piani creativi descritti ma non formalizzati.</p>
+            </div>
+            
+            <div class="card">
+              <div class="card-num">04</div>
+              <h3>Sviluppo da validare</h3>
+              <p>Integrazioni complesse, chatbot intelligenti e performance condizionate a verifiche future.</p>
+            </div>
+          </div>
+          
+          <div class="method-phrase-container" style="padding-top: 0;">
+            <div class="method-phrase" style="font-size: clamp(1.1rem, 2vh, 1.4rem); padding: 0.6rem 2.5rem;">“Ciò che è progettato non è automaticamente validato.”</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="speaker-box">
+        <div class="speaker-title">CHIAVE DI LETTURA</div>
+        <div class="speaker-text">Il modello distingue rigorosamente ciò che è documentato da prototipi, proposte operative e sviluppi futuri da validare. Ricordiamo che la progettazione non coincide con la validazione automatica.</div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <div class="btn-container" style="flex-wrap: wrap;">
+          <span class="btn-caption" style="width: 100%; margin-bottom: 5px;">Per proseguire la lettura attraverso sito, progetto e materiali collegati, apri il pulsante qui sotto.</span>
+          <a href="https://socialincommunication.com/#trust" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Approfondisci il metodo responsabile</a>
+        </div>
+        <span class="slide-indicator">3 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 04 — QUADRO TEORICO (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-04">
+      <div class="slide-header">
+        <span class="slide-label">QUADRO TEORICO</span>
+        <h2 class="slide-title">Quattro lenti per leggere il modello</h2>
+        <p class="slide-intro">Il laboratorio nasce dall’integrazione tra progettazione del valore, cultura visuale, fiducia e responsabilità.</p>
+      </div>
+      
+      <div class="slide-body">
+        <div class="theory-grid">
+          <div class="theory-card">
+            <div class="theory-header">
+              <h3>VALORE</h3>
+              <span class="theory-link">Marketing strategico</span>
+            </div>
+            <p class="theory-desc">Spostamento del focus dal bene al servizio e alla relazione. Narrazioni interattive e personalizzate per creare valore duraturo.</p>
+          </div>
+          
+          <div class="theory-card gold">
+            <div class="theory-header">
+              <h3>IDENTITÀ</h3>
+              <span class="theory-link">Estetologia e cultura visuale</span>
+            </div>
+            <p class="theory-desc">Coerenza dell'immagine coordinata e dei codici sensoriali. Traduzione visiva dell'identità attraverso prototipi grafici.</p>
+          </div>
+          
+          <div class="theory-card cyan" style="border-left-color: var(--brand-pink-med);">
+            <div class="theory-header">
+              <h3>FIDUCIA</h3>
+              <span class="theory-link">Neuromarketing responsabile</span>
+            </div>
+            <p class="theory-desc">Fiducia e onestà informativa. Coinvolgimento emotivo nel rispetto dell'utente, senza manipolazioni o distorsioni.</p>
+          </div>
+          
+          <div class="theory-card pink">
+            <div class="theory-header">
+              <h3>RESPONSABILITÀ</h3>
+              <span class="theory-link">AI, Avatar e trasparenza</span>
+            </div>
+            <p class="theory-desc">Necessità di disclosure esplicita per gli agenti sintetici. Supervisione dell'output e garanzia legale dei diritti.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="speaker-box">
+        <div class="speaker-title">CHIAVE DI LETTURA</div>
+        <div class="speaker-text">Analizziamo il modello attraverso quattro lenti: il valore del marketing di relazione, l'identità visiva dell'Estetologia, la fiducia del neuromarketing etico e la responsabilità nell'uso trasparente dell'AI.</div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <div class="btn-container" style="flex-wrap: wrap;">
+          <span class="btn-caption" style="width: 100%; margin-bottom: 5px;">Per proseguire la lettura attraverso sito, progetto e materiali collegati, apri il pulsante qui sotto.</span>
+          <a href="https://socialincommunication.com/#insight" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Approfondisci Avatar, Digital Human e AI</a>
+        </div>
+        <span class="slide-indicator">4 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 05 — SOCIALIN E FEDERICA CREATIVE (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-05">
+      <div class="slide-header">
+        <span class="slide-label">IL LABORATORIO</span>
+        <h2 class="slide-title">Laboratorio creativo-strategico</h2>
+        <p class="slide-intro">Socialin e Federica Creative vengono analizzati come laboratorio in evoluzione, capace di mettere in relazione cultura autoriale, visual design, branding, siti web, funnel, contenuti e AI.</p>
+      </div>
+      
+      <div class="slide-body">
+        <div class="ecosystem-layout">
+          <div class="ecosystem-left">
+            <div class="ecosystem-card">
+              <div class="ecosystem-gif-container">
+                <img src="assets/02-logo-socialin-quadrata.gif" alt="Socialin Logo Animato" class="ecosystem-gif">
+                <h3 style="margin: 0; color: var(--brand-magenta);">Coerenza visiva</h3>
+              </div>
+              <p style="font-size: 0.95rem; line-height: 1.5;">Il framework organizza touchpoint digitali ed estetologia all'interno di un unico ecosistema metodologico integrato.</p>
+            </div>
+            
+            <p style="font-size: 1rem; color: var(--text-dark); font-weight: 500; font-style: italic; line-height: 1.5; border-left: 3px solid var(--brand-magenta); padding-left: 1rem;">
+              “Arte, visual design, marketing, AI e touchpoint in un ecosistema progettuale da validare progressivamente.”
+            </p>
+          </div>
+          
+          <div class="ecosystem-right">
+            <div class="diagram-container" style="padding: 0;">
+              <img src="assets/image2.jpeg" alt="Mappa del modello Socialin Communication">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="speaker-box">
+        <div class="speaker-title">CHIAVE DI LETTURA</div>
+        <div class="speaker-text">Il framework organizza touchpoint digitali ed Estetologia in un ecosistema integrato. Il diagramma mostra la sinergia tra visual design, branding, siti web e intelligenza artificiale.</div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <div class="btn-container" style="flex-wrap: wrap;">
+          <span class="btn-caption" style="width: 100%; margin-bottom: 5px;">La parte visiva, i materiali di supporto e gli approfondimenti operativi sono disponibili nel pulsante qui sotto.</span>
+          <a href="https://socialincommunication.com/#ecosistema" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Esplora l’ecosistema Socialin</a>
+        </div>
+        <span class="slide-indicator">5 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 06 — AS IS / TO BE (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-06">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">DIAGNOSI</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Dallo scenario documentabile alla direzione progettuale</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                Il modello parte da materiali, proposte, casi, sito e sperimentazioni disponibili. Il To Be non rappresenta un risultato già raggiunto, ma una direzione progettuale da verificare con fonti, test, consenso e dati osservabili.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text">Il diagramma illustra il passaggio dallo scenario documentabile a quello propositivo. Questo percorso definisce una direzione metodologica condizionata a verifiche e dati osservabili.</div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">La parte visiva, i materiali di supporto e gli approfondimenti operativi sono disponibili nel pulsante qui sotto.</span>
+              <a href="https://socialincommunication.com/#ecosistema" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Scopri come nasce l’ecosistema</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/image1.png" alt="Figura As Is / To Be del modello">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">6 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 07 — SOCIALIN COMMUNICATION (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-07">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">IL DIMOSTRATORE</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Il sito come dimostratore metodologico-operativo</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                Il sito rende osservabile una direzione progettuale e un insieme di materiali pubblicati; non certifica automaticamente traffico, conversioni, automazioni, richieste commerciali o risultati economici.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text">Il sito web di Socialin Communication funge da dimostratore metodologico delle soluzioni proposte. Esso rende visibile la direzione progettuale, senza certificare performance commerciali pregressi.</div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">La parte visiva, i materiali di supporto e gli approfondimenti operativi sono disponibili nel pulsante qui sotto.</span>
+              <a href="https://socialincommunication.com/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Apri Socialin Communication</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/image2.png" alt="Dimostratore metodologico e infrastruttura">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">7 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 08 — QUATTRO CASI (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-08">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">CASI DI STUDIO</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Quattro contesti, una stessa griglia di analisi</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                Il confronto non costruisce una graduatoria di performance. Rende espliciti stato del caso, fonti, ruoli, touchpoint, limiti e condizioni di validazione.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0; padding: 10px 15px;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text" style="font-size: 12px; line-height: 1.35; font-weight: 500;">
+                  La matrice confronta Aia Pura Bio, FisioIntegra, EssereApe e Claudio Stella attraverso dieci criteri comuni: problema affrontato, target, proposta di valore, identità, touchpoint, presenza di AI o automazioni, livello di documentazione, limiti e condizioni di validazione.
+                  <br><br>
+                  Non costruisce una graduatoria tra i casi. Rende invece visibili differenze di settore, maturità progettuale, attribuzione dei ruoli e possibilità di attivazione.
+                  <br><br>
+                  Per Socialin, questa tabella funziona come uno strumento di diagnosi: consente di individuare gli asset già disponibili, gli elementi mancanti, le proposte ancora da validare e le condizioni necessarie prima di dichiarare risultati o performance.
+                </div>
+              </div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="matrix-buttons" style="grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 5px;">
+                <a href="https://aiapurabio.github.io/piano-editoriale/" target="_blank" rel="noopener noreferrer" class="matrix-btn">
+                  <span class="matrix-btn-title">Aia Pura Bio</span>
+                  <span class="matrix-btn-sub">Studio di fattibilità</span>
+                </a>
+                
+                <a href="https://socialincommunication.com/fisiointegra-sistema-visivo/index.html" target="_blank" rel="noopener noreferrer" class="matrix-btn">
+                  <span class="matrix-btn-title">FisioIntegra</span>
+                  <span class="matrix-btn-sub">Supporto esterno</span>
+                </a>
+                
+                <a href="https://socialincommunication.com/ESSEREAPE_SISTEMA_VISIVO/essereape_sistema_visivo.html" target="_blank" rel="noopener noreferrer" class="matrix-btn">
+                  <span class="matrix-btn-title">EssereApe</span>
+                  <span class="matrix-btn-sub">Caso reale</span>
+                </a>
+                
+                <a href="https://socialincommunication.com/claudio-stella-caso-studio/index.html" target="_blank" rel="noopener noreferrer" class="matrix-btn">
+                  <span class="matrix-btn-title">Claudio Stella</span>
+                  <span class="matrix-btn-sub">Proposta editoriale</span>
+                </a>
+              </div>
+              
+              <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px; margin-top: 5px;">
+                <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per consultare gli approfondimenti, i materiali visivi e i collegamenti operativi, utilizza il pulsante di riferimento.</span>
+                <a href="https://socialincommunication.com/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Esplora Socialin</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/Tabella_1_Matrice_comparativa_REVISIONE.png" alt="Matrice comparativa dei quattro casi studio">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">8 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 09 — AIA PURA BIO (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-09">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">CASO 1 • AIA PURA BIO</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Filiera, fiducia informativa e prototipi progettuali</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                Aia Pura Bio è uno studio di fattibilità. Il caso mostra come identità, catalogo, packaging, QR code, sito prototipale, Bianca e funnel possano essere organizzati prima dell’attivazione commerciale.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text">Aia Pura Bio è uno studio di fattibilità che simula packaging, funnel e l'assistente virtuale Bianca. Mostra come strutturare l'identità digitale prima del lancio sul mercato.</div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per approfondire il singolo caso, consulta il relativo pulsante di riferimento.</span>
+              <a href="https://aiapurabio.github.io/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Apri il sito Aia Pura Bio</a>
+              <a href="https://aiapurabio.github.io/piano-editoriale/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-secondary">Apri il piano editoriale</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/image3.png" alt="Caso Aia Pura Bio - Touchpoints e Prototipi">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">9 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 10 — FISIOINTEGRA (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-10">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">CASO 2 • FISIOINTEGRA</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Comunicazione professionale e limiti dell’automazione</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                FisioIntegra è un progetto professionale di Giovanni Cavone. Il contributo di Federica/Socialin è tecnico-creativo e comunicativo nei limiti documentati, senza sovrapporsi a competenze cliniche, diagnosi o prescrizioni.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text">FisioIntegra è un caso professionale in cui Socialin supporta l'immagine visiva e conversazionale. L'intervento è limitato alla comunicazione, escludendo qualunque competenza o diagnosi medica.</div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per approfondire il singolo caso, consulta il relativo pulsante di riferimento.</span>
+              <a href="https://fisiointegra.it/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Apri il sito FisioIntegra</a>
+              <a href="https://socialincommunication.com/fisiointegra-sistema-visivo/index.html" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-secondary">Apri il sistema visivo</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/image4.png" alt="Caso FisioIntegra - Percorso Conversazionale">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">10 di 19</span>
+      </div>
+    </div>
+    <!-- ==========================================
+         SLIDE 11 — ESSEREAPE (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-11">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">CASO 3 • ESSEREAPE</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Territorio, apicoltura e proposta creativa</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                EssereApe è un caso reale con identità, territorio e touchpoint preesistenti. Il progetto ‘Il Tempo delle Api’ è una proposta creativa distinta, costruita per valorizzare narrazione territoriale, art design, contenuti e possibili integrazioni da validare.
+              </p>
+              
+              <div style="background-color: var(--bg-alt); border-radius: var(--radius-sm); border: 1px solid var(--bg-alt-darker); padding: 12px 15px;">
+                <h3 style="color: var(--brand-magenta); font-size: 14px; margin-bottom: 5px;">Attribuzione dei Touchpoint</h3>
+                <p style="font-size: 12px; line-height: 1.4; color: var(--text-dark); margin: 0;">
+                  I loghi, il sito, la piattaforma e-commerce e la blockchain Mèlia sono infrastrutture preesistenti o di terze parti. Il contributo del Project Work è limitato alla proposta narrativa e visiva de "Il Tempo delle Api".
+                </p>
+              </div>
+              
+              <div class="speaker-box" style="margin-top: 0;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text">Per EssereApe, brand reale del territorio, si propone il progetto narrativo 'Il Tempo delle Api'. I touchpoint preesistenti e la blockchain non sono attribuiti al Project Work.</div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per approfondire il singolo caso, consulta il relativo pulsante di riferimento.</span>
+              <a href="https://www.essereape.it/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Visita EssereApe</a>
+              <a href="https://socialincommunication.com/ESSEREAPE_SISTEMA_VISIVO/essereape_sistema_visivo.html" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-secondary">Apri il sistema visivo</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div style="display: flex; flex-direction: column; width: 100%; height: 100%; justify-content: center; gap: 10px;">
+              <div class="diagram-container" style="flex: 1; padding: 10px;">
+                <img src="assets/image5.png" alt="Caso EssereApe - Touchpoint">
+              </div>
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-align: center; font-style: italic;">
+                “Proposta creativa distinta da brand e touchpoint preesistenti.”
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">11 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 12 — CLAUDIO STELLA (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-12">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">CASO 4 • CLAUDIO STELLA</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Narrazione, identità autoriale e continuità editoriale</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                Claudio Stella rappresenta una proposta editoriale e strategica non formalizzata. Il caso mette in relazione copertina, autore, universo thriller-crime, contenuti narrativi e possibili touchpoint, senza dichiarare newsletter, funnel, campagne o risultati già attivi.
+              </p>
+              
+              <div style="background-color: var(--bg-alt); border-radius: var(--radius-sm); border: 1px solid var(--bg-alt-darker); padding: 12px 15px;">
+                <h3 style="color: var(--brand-magenta); font-size: 14px; margin-bottom: 5px;">Elementi della Proposta</h3>
+                <p style="font-size: 12px; line-height: 1.4; color: var(--text-dark); margin: 0;">
+                  La proposta strategica organizza una sinergia editoriale tra copertine e canali digitali. I touchpoint, come la newsletter o le automazioni, sono da intendersi come scenari propositivi e non come strumenti attivi.
+                </p>
+              </div>
+              
+              <div class="speaker-box" style="margin-top: 0;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text">Il caso Claudio Stella è una proposta editoriale thriller-crime non formalizzata. Definisce la sinergia tra copertine e canali digitali, ma le automazioni e la newsletter rimangono scenari propositivi.</div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per approfondire il singolo caso, consulta il relativo pulsante di riferimento.</span>
+              <a href="https://socialincommunication.com/claudio-stella-caso-studio/index.html" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Apri il caso studio</a>
+              <a href="https://www.amazon.it/stores/Claudio-Stella/author/B0H49FKX5Y" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-secondary">Profilo autore Amazon</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div style="display: flex; flex-direction: column; width: 100%; height: 100%; justify-content: center; gap: 10px;">
+              <div class="diagram-container" style="flex: 1; padding: 10px;">
+                <img src="assets/image6.png" alt="Caso Claudio Stella - Percorso proposto">
+              </div>
+              <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-align: center; font-style: italic;">
+                “Proposta editoriale non formalizzata, subordinata ad accordi e validazione.”
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">12 di 19</span>
+      </div>
+    </div>    <!-- ==========================================
+         SLIDE 13 — ATHY / ATHANASYA (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-13">
+      <div class="slide-header">
+        <span class="slide-label">PROTOTIPO SPERIMENTALE • AVATAR AI</span>
+        <h2 class="slide-title">Strategia senza volto e identità sintetica</h2>
+        <p class="slide-intro">ATHY è un prototipo proprietario sperimentale. Non è un quinto caso cliente e non è presentata come influencer virtuale già attiva: è uno spazio controllato per testare identità sintetica, continuità narrativa, contenuti e disclosure.</p>
+      </div>
+      
+      <div class="slide-body">
+        <div class="athy-cover-layout">
+          <div class="athy-portrait">
+            <img src="assets/athy-strategia-senza-volto-verticale.jpg" alt="Athy virtual artist model">
+          </div>
+          <div class="athy-info">
+            <div class="athy-list-grid">
+              <div class="athy-item"><span class="athy-item-title">Universo visivo coordinato</span></div>
+              <div class="athy-item"><span class="athy-item-title">Voce e tonalità editoriale</span></div>
+              <div class="athy-item"><span class="athy-item-title">Continuità narrativa</span></div>
+              <div class="athy-item"><span class="athy-item-title">Disclosure sintetica obbligatoria</span></div>
+              <div class="athy-item"><span class="athy-item-title">Supervisione e controllo umano</span></div>
+              <div class="athy-item"><span class="athy-item-title">Licenze e diritti d'uso dei modelli</span></div>
+            </div>
+            <p class="athy-note-bottom">
+              “Prototipo proprietario sperimentale. Non quinto caso cliente.”
+            </p>
+            <!-- Additional relevant previews from assets -->
+            <div style="display: flex; gap: 15px; align-items: center; margin-top: 10px;">
+              <img src="assets/athy-brand-character-verticale.jpg" alt="Athy Brand Character Preview" style="width: 100px; height: 100px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--brand-pink-med); box-shadow: var(--shadow-soft);">
+              <img src="assets/01-scena-orbita-athanasya-verticale.png" alt="Athanasya Orbita Preview" style="width: 100px; height: 100px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--brand-pink-med); box-shadow: var(--shadow-soft);">
+              <p style="font-size: 12px; color: var(--text-muted); font-style: italic; margin: 0;">Anteprime dei prototipi grafici Athy / Athanasya nel laboratorio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="speaker-box">
+        <div class="speaker-title">CHIAVE DI LETTURA</div>
+        <div class="speaker-text">Athy è un prototipo sperimentale proprietario per testare l'identità sintetica e la disclosure obbligatoria dell'AI. Non costituisce un caso cliente né un'influencer virtuale attiva.</div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <div class="btn-container" style="flex-wrap: wrap;">
+          <span class="btn-caption" style="width: 100%; margin-bottom: 5px;">Per vedere il prototipo visivo, la presentazione e il percorso Avatar Strategy AI, apri il pulsante qui sotto.</span>
+          <a href="https://socialincommunication.com/avatarstrategyai/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Apri la presentazione ATHANASYA</a>
+        </div>
+        <span class="slide-indicator">13 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 14 — SWOT (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-14">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">ANALISI DI METODO</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Punti di forza, fragilità, opportunità e rischi</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                La SWOT non misura performance: individua condizioni interne ed esterne che possono rendere il laboratorio più coerente, tracciabile e validabile.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0; padding: 10px 15px;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text" style="font-size: 12px; line-height: 1.35; font-weight: 500;">
+                  L’analisi SWOT evidenzia il potenziale del modello Socialin e Federica Creative, ma anche le condizioni necessarie per renderlo stabile, tracciabile e verificabile nel tempo.
+                  <br><br>
+                  I punti di forza riguardano l’integrazione tra cultura visuale, strategia, contenuti, branding, AI e touchpoint digitali. Le debolezze richiamano invece la necessità di consolidare documentazione, attribuzioni, licenze, consensi, fonti, analytics e prove tecniche.
+                  <br><br>
+                  Le opportunità indicano possibili sviluppi: workflow più ordinati, test pilota circoscritti, portfolio documentato e sperimentazioni responsabili con avatar e automazioni. I rischi ricordano che un prototipo non può essere presentato come risultato, né un sistema AI può sostituire controllo umano, trasparenza e responsabilità.
+                </div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per consultare gli approfondimenti, i materiali visivi e i collegamenti operativi, utilizza il pulsante di riferimento.</span>
+              <a href="https://socialincommunication.com/#trust" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Approfondisci il metodo Socialin</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/Tabella_2_SWOT_REVISIONE.png" alt="Tabella 2 SWOT Analysis" class="table-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">14 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 15 — BENCHMARK (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-15">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">POSIZIONAMENTO COMPETITIVO</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Posizionamento e apprendimento competitivo</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                Il benchmark mette a confronto servizi e posizionamenti dichiarati da diapositive e agenzie. Non serve a proclamare superiorità, ma a individuare elementi utili per definire un modello più chiaro e documentato.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0; padding: 10px 15px;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text" style="font-size: 12px; line-height: 1.35; font-weight: 500;">
+                  Il benchmark confronta cinque agenzie attraverso ciò che dichiarano pubblicamente nelle rispettive pagine ufficiali: posizionamento, servizi, branding, contenuti, ADV, SEO, Google, Meta, dati, AI, funnel e automazioni.
+                  <br><br>
+                  Non confronta fatturati, numero di clienti, conversioni, ROI o risultati economici. Il confronto riguarda esclusivamente l’offerta dichiarata e la modalità con cui ogni soggetto presenta il proprio posizionamento digitale.
+                  <br><br>
+                  La lettura comparativa aiuta Socialin a individuare uno spazio distintivo: non soltanto gestione social, siti o advertising, ma integrazione tra art direction, cultura visuale, Estetologia, storytelling, avatar AI e metodo trasparente di validazione.
+                </div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per consultare gli approfondimenti, i materiali visivi e i collegamenti operativi, utilizza il pulsante di riferimento.</span>
+              <a href="https://socialincommunication.com/#servizi" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Esplora i servizi Socialin</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/Tabella_3_Benchmark_comparativo_REVISIONE_V2.png" alt="Tabella 3 Benchmark" class="table-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">15 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 16 — KPI E CRITERI DI VALIDAZIONE (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-16">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">KPI DI PROGETTO</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Dalla visibilità alla verifica</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                I KPI non sono risultati già misurati. Sono criteri da raccogliere dopo un’attivazione reale, per distinguere coerenza, comprensione, relazione, qualità tecnica e responsabilità progettuale.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0; padding: 10px 15px;">
+                <div class="speaker-title">PREMESSA METODOLOGICA</div>
+                <div class="speaker-text" style="font-size: 11px; line-height: 1.35; font-weight: 500; margin-bottom: 8px;">
+                  Le tabelle del Project Work non presentano risultati economici o KPI già ottenuti da Socialin. I casi analizzati hanno livelli di attivazione diversi e non sarebbe corretto dichiarare conversioni, ROI, performance o risultati commerciali senza dati verificabili.
+                </div>
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text" style="font-size: 11px; line-height: 1.35; font-weight: 500;">
+                  I KPI indicati non sono risultati già raggiunti, ma criteri da rilevare dopo l’attivazione effettiva di un progetto. Servono a verificar coerenza dell’identità, chiarezza delle informazioni, fiducia percepita, qualità delle interazioni, funzionamento tecnico dei touchpoint e conformità progettuale.
+                  <br><br>
+                  Per Socialin, la misurazione non deve fermarsi a like o visualizzazioni. Un progetto deve essere anche comprensibile, accessibile, coerente con il brand, tecnicamente funzionante e trasparente rispetto a fonti, ruoli, consenso e uso dell’AI.
+                </div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per consultare gli approfondimenti, i materiali visivi e i collegamenti operativi, utilizza il pulsante di riferimento.</span>
+              <a href="https://socialincommunication.com/#trust" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Scopri il principio dei prototipi dichiarati</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/Tabella_4_KPI_VALIDAZIONE_REVISIONE.png" alt="Tabella 4 KPI di validazione" class="table-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">16 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 17 — DATI DI CONTESTO (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-17">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">DATI DI CONTESTO</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Danti di contesto e parametri metodologici</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                I dati di contesto non identificano pubblici, conversioni o performance dei casi. Servono a delimitare una sperimentazione proporzionata, controllabile e verificabile.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0; padding: 10px 15px;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text" style="font-size: 11px; line-height: 1.35; font-weight: 500;">
+                  La tabella unisce dati di contesto nazionale e parametri metodologici del Project Work. I dati relativi alla diffusione di Internet, e-commerce e AI mostrano che i touchpoint digitali rappresentano oggi una possibilità concreta per persone e imprese.
+                  <br><br>
+                  L’86,2% delle famiglie ha accesso a Internet e l’81,9% delle persone dai 6 anni in su ha utilizzato Internet nei tre mesi precedenti. Tra le imprese con almeno dieci addetti, il 20,4% vende online e l’8,2% utilizza almeno una tecnologia di intelligenza artificiale.
+                  <br><br>
+                  Questi valori non dimostrano che Socialin disponga già di pubblico, vendite o conversioni. Servono a contestualizzare il digitale e a costruire un test realistico, proporzionato e controllabile.
+                  <br><br>
+                  La seconda parte della tabella delimita il Project Work: quattro casi analizzati, dei agenzie nel benchmark, cinque dimensioni di validazione, quattro livelli di osservazione e una possibile unità pilota composta da un caso, un obiettivo, un destinatario, due touchpoint, due formati e quattro contenuti, osservabili per almeno sei settimane.
+                </div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per consultare gli approfondimenti, i materiali visivi e i collegamenti operativi, utilizza il pulsante di riferimento.</span>
+              <a href="https://socialincommunication.com/#ecosistema" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Esplora l’ecosistema digitale</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div class="diagram-container">
+              <img src="assets/Tabella_5_Dati_contesto_parametri_metodologici_REVISIONE_V2.png" alt="Tabella 5 Dati di contesto" class="table-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">17 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 18 — ROADMAP E COSTI (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-18">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="body-split">
+          <div class="body-split-left">
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+              <div class="slide-header" style="height: auto; margin-bottom: 0;">
+                <span class="slide-label">ROADMAP DI SVILUPPO</span>
+                <h2 class="slide-title" style="font-size: 28px; line-height: 1.2;">Dalla sperimentazione al metodo</h2>
+              </div>
+              
+              <p class="slide-intro" style="margin-top: 0; font-size: 15px;">
+                Il modello richiede un percorso progressivo: prima fonti, ruoli, licenze e consenso; poi prototipazione controllata, attivazione pilota, raccolta di feedback e revisione critica.
+              </p>
+              
+              <div class="speaker-box" style="margin-top: 0; padding: 10px 15px;">
+                <div class="speaker-title">CHIAVE DI LETTURA</div>
+                <div class="speaker-text" style="font-size: 12px; line-height: 1.35; font-weight: 500;">
+                  Questa tabella non è un preventivo economico e non indica importi in euro. Propone una lettura qualitativa delle risorse organizzative necessarie per sviluppare Socialin in modo sostenibile e responsabile.
+                  <br><br>
+                  Le principali risorse riguardano ricerca, produzione dei contenuti, revisione, manutenzione tecnica, aggiornamento dei touchpoint, consensi, licenze, privacy, supervisione umana e monitoraggio dei risultati.
+                  <br><br>
+                  I benefici potenziali riguardano una maggiore coerenza dell’identità, una comunicazione più riconoscibile, una migliore organizzazione dei processi e la possibilità di sperimentare avatar, AI, siti e automazioni in modo graduale.
+                  <br><br>
+                  I rischi ricordano che l’innovazione non è automatica: senza fonti verificabili, attribuzioni chiare, controllo umano, manutenzione e dati osservabili, un sistema digitale non può essere considerato validato.
+                </div>
+              </div>
+            </div>
+            
+            <div class="btn-container" style="flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="btn-caption" style="width: 100%; margin-bottom: 8px; margin-right: 0;">Per consultare gli approfondimenti, i materiali visivi e i collegamenti operativi, utilizza il pulsante di riferimento.</span>
+              <a href="https://socialincommunication.com/#ecosistema" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Apri il modello Socialin</a>
+            </div>
+          </div>
+          
+          <div class="body-split-right">
+            <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 15px; width: 100%; height: 100%; min-height: 0;">
+              <div class="roadmap-panel" style="padding: 10px; min-height: 0; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/image13.png" alt="Roadmap progressiva del modello">
+              </div>
+              <div class="roadmap-panel" style="padding: 10px; min-height: 0; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/Tabella_6_Costi_benefici_rischi_REVISIONE.png" alt="Tabella 6 Costi e Rischi">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <span class="slide-indicator">18 di 19</span>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE 19 — CONCLUSIONI (Light Theme)
+         ========================================== -->
+    <div class="slide" id="slide-19">
+      <div></div><!-- Grid Row 1 Placeholder -->
+      <div class="slide-body">
+        <div class="conclusion-layout">
+          <div class="conclusion-left">
+            <span class="slide-label">CONCLUSIONI</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 2vh;">Estetologia come criterio progettuale</h2>
+            
+            <div class="conclusion-quote">
+              “L’Estetologia diventa qui un criterio per progettare immagine, identità, rappresentazione e fiducia. Socialin e Federica Creative possono configurarsi come laboratorio creativo-strategico soltanto quando arte, marketing, AI e cultura visuale restano documentati, attribuiti e validati progressivamente.”
+            </div>
+            
+            <div class="conclusion-words">
+              <div class="conclusion-word-item">Fonti</div>
+              <div class="conclusion-word-item">Ruoli</div>
+              <div class="conclusion-word-item">Validazione</div>
+              <div class="conclusion-word-item">Responsabilità</div>
+            </div>
+            
+            <div class="conclusion-thanks">Grazie</div>
+          </div>
+          
+          <div class="conclusion-right">
+            <img src="assets/athy-estetologia-identita-verticale.jpg" alt="Athy virtual singer aesthetic closeup">
+          </div>
+        </div>
+      </div>
+      
+      <div class="speaker-box">
+        <div class="speaker-title">CHIAVE DI LETTURA</div>
+        <div class="speaker-text">L'Estetologia guida l'identità e la fiducia digitale. Il laboratorio creativo-strategico di Socialin si valida unendo arte, marketing, trasparenza dell'AI e supervisione umana costante.</div>
+      </div>
+      
+      <div class="slide-footer">
+        <span class="footer-text">Project Work • MADIMAV • LUM • Federica Centonze</span>
+        <div class="btn-container" style="flex-wrap: wrap;">
+          <span class="btn-caption" style="width: 100%; margin-bottom: 5px;">Per proseguire la lettura attraverso sito, progetto e materiali collegati, apri il pulsante qui sotto.</span>
+          <a href="https://socialincommunication.com/" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill-primary">Esplora Socialin Communication</a>
+        </div>
+        <span class="slide-indicator">19 di 19</span>
+      </div>
+    </div>
+
+    <!-- Overlay Navigation Buttons (Visible on hover) -->
+    <div class="nav-controls">
+      <button class="nav-btn" id="btn-prev" title="Diapositiva Precedente (Freccia Sinistra)">←</button>
+      <button class="nav-btn" id="btn-next" title="Diapositiva Successiva (Freccia Destra / Barra Spaziatrice)">→</button>
+    </div>
+
+  </div>
+
+  <script src="presentation.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --bg-cream: #faf9f5;
+    --dark-header: #1f232b;
+    --magenta-line: #c7155e;
+    --border-light: #e0ded8;
+    --text-dark: #1a1f2b;
+    --font-serif: "Times New Roman", Times, serif;
+    --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  body {
+    background-color: var(--bg-cream);
+    margin: 0;
+    padding: 80px;
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+  }
+  .table-container {
+    width: 3040px;
+    background-color: var(--bg-cream);
+    padding: 40px;
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 80px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+  }
+  .accent-line {
+    height: 6px;
+    background-color: var(--magenta-line);
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 32px;
+    table-layout: fixed;
+    line-height: 1.4;
+  }
+  th {
+    background-color: var(--dark-header);
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+    text-align: left;
+    border: 2px solid var(--border-light);
+    font-size: 36px;
+  }
+  td {
+    padding: 30px;
+    border: 2px solid var(--border-light);
+    vertical-align: top;
+  }
+  .num-col { width: 4%; text-align: center; font-weight: bold; font-size: 40px; }
+  .dim-col { width: 19%; }
+  .col-rest { width: 19.25%; }
+  
+  .bg-blue { background-color: #eaf1f4; }
+  .bg-grey { background-color: #f2f0f1; }
+  .bg-white { background-color: white; }
+  
+  .meta-info {
+    margin-top: 30px;
+    font-size: 28px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div class="table-container">
+  <h1>Tabella 4 — KPI preliminari e criteri di validazione del modello</h1>
+  <div class="accent-line"></div>
+  <table>
+    <tr>
+      <th class="num-col"></th>
+      <th class="dim-col">Dimensione</th>
+      <th class="col-rest">Indicatore preliminare</th>
+      <th class="col-rest">Evidenza da raccogliere</th>
+      <th class="col-rest">Limite interpretativo</th>
+      <th class="col-rest">Condizione di validazione</th>
+    </tr>
+    <tr>
+      <td class="num-col bg-white">1</td>
+      <td class="dim-col bg-blue">Coerenza progettuale e identitaria</td>
+      <td class="bg-grey">Allineamento tra valore, linguaggio, visual, contenuti e touchpoint.</td>
+      <td class="bg-white">Materiali pubblicati, prototipi attivati, revisione delle corrispondenze.</td>
+      <td class="bg-blue">Coerenza formale non prova comprensione, fiducia o utilità.</td>
+      <td class="bg-grey">Perimetro definito, asset verificati e confronto con destinatari.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-grey">2</td>
+      <td class="dim-col bg-white">Comprensione, fiducia e trasparenza</td>
+      <td class="bg-blue">Chiarezza informativa, comprensione, attribuzioni, disclosure e affidabilità percepita.</td>
+      <td class="bg-grey">Feedback qualitativi, test di comprensione, fonti verificabili e avvisi trasparenti.</td>
+      <td class="bg-white">Singole reazioni non provano fiducia stabile o relazione consolidata.</td>
+      <td class="bg-blue">Informazioni corrette, consenso, trasparenza AI e supervisione umana.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-blue">3</td>
+      <td class="dim-col bg-grey">Interesse e relazione</td>
+      <td class="bg-white">Consultazioni pertinenti, interazioni qualificate, richieste informative e iscrizioni consapevoli.</td>
+      <td class="bg-blue">Log verificabili, feedback, messaggi, permanenza e iscrizioni con consenso.</td>
+      <td class="bg-grey">Interazione non equivale a relazione stabile, vendita o valore percepito.</td>
+      <td class="bg-white">Touchpoint attivi, periodo definito e distinzione dei canali.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-white">4</td>
+      <td class="dim-col bg-blue">Funzionamento tecnico e qualità del percorso</td>
+      <td class="bg-grey">Accessibilità, correttezza di link, form, QR e percorsi informativi.</td>
+      <td class="bg-white">Test documentati, screenshot datati, controlli di usabilità e anomalie.</td>
+      <td class="bg-blue">Funzionamento tecnico non dimostra interesse, fiducia o conversione.</td>
+      <td class="bg-grey">Implementazione reale, responsabili definiti, manutenzione e verifica periodica.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-grey">5</td>
+      <td class="dim-col bg-white">Responsabilità, attribuzione e conformità progettuale</td>
+      <td class="bg-blue">Fonti, ruoli, consensi, licenze, disclosure e gestione responsabile dei dati.</td>
+      <td class="bg-grey">Liberatorie, licenze, informative, registri di asset e controlli umani.</td>
+      <td class="bg-white">Documentazione incompleta impedisce attribuzioni e conclusioni affidabili.</td>
+      <td class="bg-blue">Prove aggiornate, perimetro dati e responsabilità esplicitamente assegnate.</td>
+    </tr>
+  </table>
+  <div class="meta-info">
+    Fonte: elaborazione dell’autrice sulla base del modello metodologico del Project Work, 2026.<br>
+    Anno di riferimento: 2026 — Unità di analisi: dimensioni qualitative di monitoraggio e condizioni di validazione.
+  </div>
+</div>
+</body>
+</html>

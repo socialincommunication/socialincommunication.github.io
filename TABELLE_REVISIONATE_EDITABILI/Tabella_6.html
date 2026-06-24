@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --bg-cream: #faf9f5;
+    --dark-header: #1f232b;
+    --magenta-line: #c7155e;
+    --border-light: #e0ded8;
+    --text-dark: #1a1f2b;
+    --font-serif: "Times New Roman", Times, serif;
+    --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  body {
+    background-color: var(--bg-cream);
+    margin: 0;
+    padding: 80px;
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+  }
+  .table-container {
+    width: 3040px;
+    background-color: var(--bg-cream);
+    padding: 40px;
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 80px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+  }
+  .accent-line {
+    height: 6px;
+    background-color: var(--magenta-line);
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 32px;
+    table-layout: fixed;
+    line-height: 1.4;
+  }
+  th {
+    background-color: var(--dark-header);
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid var(--border-light);
+    font-size: 36px;
+  }
+  td {
+    padding: 30px;
+    border: 2px solid var(--border-light);
+    vertical-align: middle;
+    text-align: center;
+  }
+  .num-col { width: 3%; font-weight: bold; font-size: 40px; }
+  .dim-col { width: 15%; text-align: center; }
+  .col-rest { width: 20.5%; }
+  
+  .bg-blue { background-color: #eaf1f4; }
+  .bg-grey { background-color: #f2f0f1; }
+  .bg-white { background-color: white; }
+  
+  .meta-info {
+    margin-top: 30px;
+    font-size: 28px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div class="table-container">
+  <h1>Tabella 6 — Analisi qualitativa di costi, benefici, rischi e condizioni di sviluppo</h1>
+  <div class="accent-line"></div>
+  <table>
+    <tr>
+      <th class="num-col"></th>
+      <th class="dim-col">Area</th>
+      <th class="col-rest">Risorse e costi qualitativi</th>
+      <th class="col-rest">Benefici potenziali</th>
+      <th class="col-rest">Rischi principali</th>
+      <th class="col-rest">Condizioni di sviluppo</th>
+    </tr>
+    <tr>
+      <td class="num-col bg-white">1</td>
+      <td class="dim-col bg-blue">Identità e documentazione</td>
+      <td class="bg-grey">Tempo di riordino, verifica fonti, file sorgenti, consensi, licenze e versioni.</td>
+      <td class="bg-white">Proposta più leggibile, ruoli chiari e minore rischio di attribuzioni improprie.</td>
+      <td class="bg-blue">Fonti incomplete, asset non tracciati, conflitti di attribuzione e materiali non autorizzati.</td>
+      <td class="bg-grey">Registro aggiornato, fonti primarie, autorizzazioni verificabili e separazione fra pubblicato, prototipo e proposta.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-grey">2</td>
+      <td class="dim-col bg-white">Produzione di contenuti e sistemi visivi</td>
+      <td class="bg-blue">Tempo creativo, ricerca, produzione, revisione, controllo qualità e coordinamento con referenti.</td>
+      <td class="bg-grey">Coerenza narrativa, maggiore leggibilità e possibilità di test circoscritti.</td>
+      <td class="bg-white">Incoerenza, promesse eccessive, uso improprio di materiali o mancata approvazione.</td>
+      <td class="bg-blue">Brief condiviso, asset autorizzati, approvazione preventiva e revisione umana.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-blue">3</td>
+      <td class="dim-col bg-grey">Siti, touchpoint e prototipi digitali</td>
+      <td class="bg-white">Competenze tecniche, manutenzione, accessibilità, test link, form, privacy e aggiornamenti.</td>
+      <td class="bg-blue">Percorsi informativi più ordinati e verifiche tecniche prima della diffusione.</td>
+      <td class="bg-grey">Link inattivi, form inefficaci, contenuti obsoleti, touchpoint non coerenti.</td>
+      <td class="bg-white">Implementazione documentata, responsabili definiti, test di accessibilità e controllo periodico.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-white">4</td>
+      <td class="dim-col bg-blue">AI, avatar e contenuti generativi</td>
+      <td class="bg-grey">Ricerca fonti, prompting, revisione, verifica diritti, disclosure e supervisione.</td>
+      <td class="bg-white">Nuovi linguaggi narrativi, prototipi visuali e sperimentazione controllata.</td>
+      <td class="bg-blue">Allucinazioni, bias, assenza consenso, diritti incerti e rappresentazioni inappropriate.</td>
+      <td class="bg-grey">Fonti tracciabili, consenso, disclosure proporzionata e controllo umano finale.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-grey">5</td>
+      <td class="dim-col bg-white">Dati, automazioni e relazioni digitali</td>
+      <td class="bg-blue">Configurazione responsabile, manutenzione, formazione, verifiche e gestione delle richieste.</td>
+      <td class="bg-grey">Maggiore ordine informativo e raccolta di evidenze dopo attivazione reale.</td>
+      <td class="bg-white">Raccolta impropria di dati, automazioni non controllate e interpretazioni distorte.</td>
+      <td class="bg-blue">Finalità chiare, minimizzazione dati, supervisione umana e tracciabilità dei flussi.</td>
+    </tr>
+    <tr>
+      <td class="num-col bg-blue">6</td>
+      <td class="dim-col bg-grey">Monitoraggio, revisione e portfolio</td>
+      <td class="bg-white">Tempo di analisi, archiviazione, confronto dati, feedback e revisione periodica.</td>
+      <td class="bg-blue">Apprendimento progressivo, correzione degli errori e portfolio più verificabile.</td>
+      <td class="bg-grey">Metriche isolate, letture premature e confusione tra visibilità e efficacia.</td>
+      <td class="bg-white">Periodo osservabile, criteri condivisi, evidenze verificabili e revisione critica.</td>
+    </tr>
+  </table>
+  <div class="meta-info">
+    Fonte: elaborazione dell’autrice sulla base del modello metodologico e dei casi analizzati, 2026.<br>
+    Anno di riferimento: 2026 — Unità di analisi: qualitativa e descrittiva.
+  </div>
+</div>
+</body>
+</html>
